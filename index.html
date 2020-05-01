@@ -43,6 +43,11 @@
       <button class="say-hi-button">SAY HI!</button>
     </div>
     <a-scene vr-mode-ui="enabled:true;"embedded arjs>
+      <a-box id="redBox" class="clickable" color="red"></a-box>
+      <a-sphere class="clickable" color="blue"></a-sphere>
+      <a-box color="green"></a-box>
+      <a-entity light="type: ambient"></a-entity>
+      <a-entity light="type: directional"></a-entity>
       <a-marker preset="hiro">
         <a-entity
           position="0 0 0"
