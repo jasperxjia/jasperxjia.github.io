@@ -183,7 +183,7 @@ function renderPlaces(places) {
         const clickListener = function (ev) {
             ev.stopPropagation();
             ev.preventDefault();
-            window.navigator.vibrate(200);
+
 
             let name = ev.target.getAttribute('name');
 
