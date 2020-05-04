@@ -32,8 +32,8 @@
     <div class="centered instructions mt-5" id="count-area">0</div>
 
     <a-scene cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;' raycaster="objects: [gps-entity-place];"
-        vr-mode-ui='enabled: false' embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        vr-mode-ui='enabled: true' embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 50vw; displayHeight: auto; debugUIEnabled: false;'>
         <!-- minDistance指定した方がいいかも -->
         <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
