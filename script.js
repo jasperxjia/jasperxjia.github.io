@@ -62,7 +62,7 @@ function dynamicLoadPlaces(position) {
     //-- let corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
     // Foursquare API
-    let endpoint = `https://api.foursquare.com/v2/venues/search?intent=checkin
+    let endpoint = `https://api.foursquare.com/v2/venues/search
         &ll=${position.latitude},${position.longitude}
         &radius=${params.radius}
         &client_id=${params.clientId}
@@ -77,7 +77,7 @@ function dynamicLoadPlaces(position) {
                 })
         })
         .catch((err) => {
-            alert('Error with places API', err);
+            console.error('Error with places API', err);
         })
 };
 
