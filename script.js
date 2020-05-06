@@ -23,8 +23,8 @@ const loadPlaces = function (coords) {
 function loadPlaceFromAPIs(position) {
     const params = {
         radius: 300,    // search places not farther than this value (in meters)
-        clientId: 'YWZGWLNCFMGGIDF5FABJITRA0J04P2TRANBIXLWNHZIAF4A5',
-        clientSecret: 'DJLNEE3G0GKV0Y0KHA1UTMINYQE20PVCDULSWXJR0WAV0SV4',
+        clientId: 'YWZGWLNCFMGGIDF5FABJITRA0J04P2TRANBIXLWNHZIAF4A5', // Bindou Web AR App ID
+        clientSecret: 'DJLNEE3G0GKV0Y0KHA1UTMINYQE20PVCDULSWXJR0WAV0SV4', // Bindou Web AR App Secret
         version: '20300101',    // foursquare versioning, required but unuseful for this demo
     };
 

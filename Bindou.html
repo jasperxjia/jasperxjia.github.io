@@ -3,27 +3,28 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Gyro-Haptic Based Landmark for VIP Demo</title>
+    <title>Haptic-Audio Based Landmark Navigation for VIP Demo</title>
     <link rel="stylesheet" href="./style.css">
     
-    <!-- import aframe and AR.js -->
+    <!-- Aframe and AR.js -->
     <script src='https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js'></script>
     <script src='./aframe-ar.js'></script>
 
-    <!-- import Haptic API -->
+    <!-- Haptic API -->
 
 
-    <!-- import Web Audio API -->
+    <!-- Web Audio API -->
 
 </head>
 
 
 
-<!-- Dynamically add places from Javascript -->
+<!-- Dynamically add places from Foursquare API -->
 <script src="./script.js"></script>
 
 
 
+<!-- AR scene Render -->
 <body style='margin: 0; overflow: hidden;'>
     <a-scene
         cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
