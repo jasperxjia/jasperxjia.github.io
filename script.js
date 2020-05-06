@@ -67,9 +67,10 @@ window.onload = () => {
 
                     // add place name
                     const text = document.createElement('a-link');
+                    const number = entity.getAttribute('distance');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
-                    text.setAttribute('disance', 'entity.getAttribute('distance')');
+                    text.setAttribute('dist', number);
                     text.setAttribute('scale', '10 10 10');
 
                     text.addEventListener('loaded', () => {
