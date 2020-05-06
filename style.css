@@ -42,9 +42,9 @@ div.debug {
 #place-label > span {
     z-index: 99999;
     padding: 0.25em;
-    color: #ff7500;
+    color:transparent;
     text-align: center;
-    background-color: white;
+    background-image: url(./asset/map-marker.png);
     font-size: 1.5em;
     border-radius: 5px;
 }
