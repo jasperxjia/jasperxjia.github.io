@@ -84,7 +84,6 @@ window.onload = () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                     });
 
-                    scene.appendChild(icon);
                     scene.appendChild(text);
                 });
             })
