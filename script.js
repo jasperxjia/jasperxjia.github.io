@@ -52,7 +52,7 @@ function staticLoadPlaces() {
 // getting places from REST APIs
 function dynamicLoadPlaces(position) {
     let params = {
-        radius: 300,    // search places not farther than this value (in meters)
+        radius: 3000,    // search places not farther than this value (in meters)
         clientId: 'HZIJGI4COHQ4AI45QXKCDFJWFJ1SFHYDFCCWKPIJDWHLVQVZ',   // add your credentials here
         clientSecret: '',   // add your credentials here
         version: '20300101',    // foursquare versioning, required but unuseful for this demo
@@ -95,7 +95,7 @@ function renderPlaces(places) {
         icon.setAttribute('src', './assets/map-marker.png');
 
         // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
-        icon.setAttribute('scale', '20, 20');
+        icon.setAttribute('scale', '60, 60');
 
         icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
