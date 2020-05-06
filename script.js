@@ -52,7 +52,7 @@ function staticLoadPlaces() {
 // getting places from REST APIs
 function dynamicLoadPlaces(position) {
     let params = {
-        radius: 3000,    // search places not farther than this value (in meters)
+        radius: 1000,    // search places not farther than this value (in meters)
         clientId: 'YWZGWLNCFMGGIDF5FABJITRA0J04P2TRANBIXLWNHZIAF4A5',   // add your credentials here
         clientSecret: 'XTKRV2S4FFVCLZRXNJ01T5CQLZLVLQL1W50MGMNIGDSA1YY0',   // add your credentials here
         version: '20300101',    // foursquare versioning, required but unuseful for this demo
@@ -62,7 +62,7 @@ function dynamicLoadPlaces(position) {
     let corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
     // Foursquare API
-    let endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
+    let endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/explore
         &ll=${position.latitude},${position.longitude}
         &radius=${params.radius}
         &client_id=${params.clientId}
