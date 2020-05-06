@@ -37,7 +37,7 @@ function loadPlaceFromAPIs(position) {
         &radius=${params.radius}
         &client_id=${params.clientId}
         &client_secret=${params.clientSecret}
-        &limit=15
+        &limit=10
         &v=${params.version}`;
     return fetch(endpoint)
         .then((res) => {
