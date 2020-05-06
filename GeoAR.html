@@ -1,60 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>GeoAR.js</title>
-    <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script>
+    <title>GeoAR.js demo</title>
+    
+    <!-- import aframe and AR.js -->
     <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
-    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src='https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js'></script>
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 
+<!-- include GeoAR.js -->
+<script src="../../src/gps-entity-place.js"></script>
+<script src="../../src/gps-camera-debug.js"></script>
+<script src="../../src/gps-camera.js"></script>
+<link rel="stylesheet" href="../../src/stylesheets/index.css">
+
+<!-- Dynamically add places from Javascript -->
+<script src="./places.js"></script>
+
 <body style='margin: 0; overflow: hidden;'>
+    <a-scene
+        cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
+        raycaster="objects: [gps-entity-place];"
+        vr-mode-ui="enabled: false"
+		embedded
+		arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
-    <div class="centered instructions">Click Pins</div>
-    <div class="centered instructions mt-5" id="count-area">0</div>
-
-    <a-scene cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;' raycaster="objects: [gps-entity-place];"
-        vr-mode-ui='enabled: true' embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 50vw; displayHeight: auto; debugUIEnabled: false;'>
-        <!-- minDistance指定した方がいいかも -->
-        <a-camera gps-camera rotation-reader></a-camera>
-    </a-scene>
-
-    <div class="centered">
-        <input type="text" placeholder="Name of Spot" class="form-control" id="title">
-        <div class="container">
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-3">
-                    <button data-action="change" id="add-button"></button>
-                </div>
-                <div class="col-3">
-                    <button data-action="change" id="reset-button"></button>
-                </div>
-                <div class="col-3"></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="./script.js"></script>
+        <a-camera gps-camera="minDistance: 20;" rotation-reader>
+		</a-camera>
+	</a-scene>
 </body>
-
-</html>
