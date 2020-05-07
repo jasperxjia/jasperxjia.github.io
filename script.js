@@ -75,7 +75,17 @@ window.onload = () => {
                     text.setAttribute('title', place.name);
                     text.setAttribute('src', './assets/map-marker.png');
                     text.setAttribute('scale', '10 10 10');  
-                    
+      
+
+                    text.addEventListener('loaded', () => {
+                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                        
+                    });
+
+
+                    scene.appendChild(text);
+
+                                  
                     //Voice API
                     var synth = window.speechSynthesis;          
                     function speak(){
@@ -83,8 +93,8 @@ window.onload = () => {
                             console.error('speechSynthesis.speaking');
                             return;
                         }
-                        if (text.value !== '') {
-                        var utterThis = new SpeechSynthesisUtterance(text.value);
+                        if (text.title !== '') {
+                        var utterThis = new SpeechSynthesisUtterance(text.title);
                         utterThis.onend = function (event) {
                             console.log('SpeechSynthesisUtterance.onend');
                         }
@@ -95,14 +105,7 @@ window.onload = () => {
                       }
                     }
                          //
-                                        
-                    text.addEventListener('loaded', () => {
-                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-                        
-                    });
 
-
-                    scene.appendChild(text);
                     speak();
 
 
