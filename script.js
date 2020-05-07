@@ -96,4 +96,26 @@ window.onload = () => {
             timeout: 27000,
         }
     );
+
+
 };
+
+                        //Voice API
+                        var synth = window.speechSynthesis;          
+                        function speak(){
+                            if (synth.speaking) {
+                                console.error('speechSynthesis.speaking');
+                                return;
+                            }
+                            if (text!== '') {
+                            var utterThis = new SpeechSynthesisUtterance(text);
+                            utterThis.onend = function (event) {
+                                console.log('SpeechSynthesisUtterance.onend');
+                            }
+                            utterThis.onerror = function (event) {
+                                console.error('SpeechSynthesisUtterance.onerror');
+                            }
+                            synth.speak(utterThis);
+                          }
+                        } 
+                        speak();
