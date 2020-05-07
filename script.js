@@ -89,8 +89,8 @@ window.onload = () => {
                                     console.error('speechSynthesis.speaking');
                                     return;
                                 }
-                                if (place.name!== '') {
-                                var utterThis = new SpeechSynthesisUtterance(place.name);
+                                if ('title'!== '') {
+                                var utterThis = new SpeechSynthesisUtterance('title';
                                 utterThis.onend = function (event) {
                                     console.log('SpeechSynthesisUtterance.onend');
                                 }
