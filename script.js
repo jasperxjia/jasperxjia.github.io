@@ -77,12 +77,13 @@ window.onload = () => {
                     text.setAttribute('scale', '10 10 10');    
                     
                     text.addEventListener('loaded', () => {
-                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-                        window.navigator.vibrate(200);
+                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                        
                     });
 
 
                     scene.appendChild(text);
+                    window.navigator.vibrate(200);
 
 
                 });
