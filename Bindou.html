@@ -32,12 +32,6 @@
             }
             else {
             var utterThis = new SpeechSynthesisUtterance(scene.text);
-            utterThis.onend = function (event) {
-                console.log('SpeechSynthesisUtterance.onend');
-            }
-            utterThis.onerror = function (event) {
-                console.error('SpeechSynthesisUtterance.onerror');
-            }
             synth.speak(utterThis);
         }
         } 
