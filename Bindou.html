@@ -38,5 +38,23 @@
 
         <a-camera gps-camera="minDistance: 50;" rotation-reader far="1000">
 		</a-camera>
-	</a-scene>
+    </a-scene>
+    
+<script>
+                           //Voice API
+                           var synth = window.speechSynthesis;          
+                        function speak(){
+                            if (synth.speaking) {
+                                console.error('speechSynthesis.speaking');
+                                return;
+                            }
+                            else {
+                            var utterThis = new SpeechSynthesisUtterance(scene.text);
+                            synth.speak(utterThis);
+                            }
+                        } 
+
+                        speak();
+
+</script>
 </body>

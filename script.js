@@ -79,20 +79,6 @@ window.onload = () => {
 
                     text.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-                        //Voice API
-                        var synth = window.speechSynthesis;          
-                        function speak(){
-                            if (synth.speaking) {
-                                console.error('speechSynthesis.speaking');
-                                return;
-                            }
-                            else {
-                            var utterThis = new SpeechSynthesisUtterance(scene.text);
-                            synth.speak(utterThis);
-                            }
-                        } 
-
-                        speak();
                                             
                     });
 
