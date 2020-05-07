@@ -83,6 +83,8 @@ window.onload = () => {
                     });
 
                     scene.appendChild(text);
+                    speechSynthesis.speak('title');
+                    
 
                 });
             })
