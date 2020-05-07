@@ -74,8 +74,28 @@ window.onload = () => {
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('src', './assets/map-marker.png');
-                    text.setAttribute('scale', '10 10 10');    
+                    text.setAttribute('scale', '10 10 10');  
                     
+                    //Voice API
+                    var synth = window.speechSynthesis;          
+                    function speak(){
+                        if (synth.speaking) {
+                            console.error('speechSynthesis.speaking');
+                            return;
+                        }
+                        if (text.value !== '') {
+                        var utterThis = new SpeechSynthesisUtterance(text.value);
+                        utterThis.onend = function (event) {
+                            console.log('SpeechSynthesisUtterance.onend');
+                        }
+                        utterThis.onerror = function (event) {
+                            console.error('SpeechSynthesisUtterance.onerror');
+                        }
+                        synth.speak(utterThis);
+                      }
+                    }
+                         //
+                                        
                     text.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                         
@@ -83,7 +103,7 @@ window.onload = () => {
 
 
                     scene.appendChild(text);
-                    window.navigator.vibrate(200);
+                    speak();
 
 
                 });
