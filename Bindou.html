@@ -21,24 +21,6 @@
 
 <!-- Dynamically add places from Foursquare API -->
 <script src="./script.js"></script>
-<script>
-
-    //Voice API
-        var synth = window.speechSynthesis;          
-        function speak(){
-            if (synth.speaking) {
-                console.error('speechSynthesis.speaking');
-                return;
-            }
-            else {
-            var utterThis = new SpeechSynthesisUtterance(scene.text);
-            synth.speak(utterThis);
-        }
-        } 
-
-        speak()
-
-</script>
 
 
 
