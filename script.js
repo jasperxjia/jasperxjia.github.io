@@ -78,6 +78,7 @@ window.onload = () => {
                     
                     text.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                        window.navigator.vibrate(200);
                     });
 
 
