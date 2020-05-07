@@ -23,6 +23,29 @@
 <script src="./script.js"></script>
 
 
+<script>
+
+    //Voice API
+    var synth = window.speechSynthesis;          
+    function speak(){
+        if (synth.speaking) {
+            console.error('speechSynthesis.speaking');
+            return;
+        }
+        if (scene.text!== '') {
+        var utterThis = new SpeechSynthesisUtterance(scene.text);
+        utterThis.onend = function (event) {
+            console.log('SpeechSynthesisUtterance.onend');
+        }
+        utterThis.onerror = function (event) {
+            console.error('SpeechSynthesisUtterance.onerror');
+        }
+        synth.speak(utterThis);
+    }
+
+    speak();
+
+</script>
 
 
 

@@ -82,28 +82,8 @@ window.onload = () => {
                         
                     });
 
-                            //Voice API
-                            var synth = window.speechSynthesis;          
-                            function speak(){
-                                if (synth.speaking) {
-                                    console.error('speechSynthesis.speaking');
-                                    return;
-                                }
-                                if ('title'!== '') {
-                                var utterThis = new SpeechSynthesisUtterance('title';
-                                utterThis.onend = function (event) {
-                                    console.log('SpeechSynthesisUtterance.onend');
-                                }
-                                utterThis.onerror = function (event) {
-                                    console.error('SpeechSynthesisUtterance.onerror');
-                                }
-                                synth.speak(utterThis);
-                              }
-                            } 
-                  
-
                     scene.appendChild(text);
-                    speak();
+
 
                 });
             })
