@@ -30,7 +30,6 @@
 <!-- AR scene Render -->
 <body style='margin: 0; overflow: hidden;'>
     <a-scene
-        
         raycaster="objects: [gps-entity-place];"
         vr-mode-ui="enabled: false"
 		embedded
@@ -47,7 +46,7 @@
     </a-scene>
 
      <div class="centered">
-         <button class="log" onclick="log()"></button>
+         <button class="log" onclick="window.navigator.vibrate(200);"></button>
         
         </div>
     

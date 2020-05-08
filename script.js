@@ -85,8 +85,6 @@ window.onload = () => {
 
                     text.addEventListener('cursor-hovered', () => {
 
-                        window.navigator.vibrate(200);
-
                         function log() {
                             document.querySelector('.log').innerHTML = place.name;
                           
