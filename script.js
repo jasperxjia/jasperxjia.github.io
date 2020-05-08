@@ -74,7 +74,7 @@ window.onload = () => {
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('image', './assets/map-marker.png');
-                    text.setAttribute('scale', '20 20 20');  
+                    text.setAttribute('scale', '5 5 5');  
                     text.setAttribute('cursor-listener','');
       
 
@@ -83,7 +83,9 @@ window.onload = () => {
                                             
                     });
 
-                    text.addEventListener('cursor-hovered', () => {
+                    text.registerComponent('cursor-listener', () => {
+
+                        this.el.addEventListener('cursor-hovered', 
 
                         function log() {
                             document.querySelector('.log').innerHTML = place.name;
@@ -93,7 +95,7 @@ window.onload = () => {
                           log();
 
                         speechSynthesis.speak(new SpeechSynthesisUtterance(place.name));
-                        
+                        )
                                             
                     });
 
