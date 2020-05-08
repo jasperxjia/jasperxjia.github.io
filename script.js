@@ -75,6 +75,7 @@ window.onload = () => {
                     text.setAttribute('title', place.name);
                     text.setAttribute('image', "./assets/map-marker.png");
                     text.setAttribute('scale', '10 10 10');  
+                    text.setAttribute('cursor-listener');
       
 
                     text.addEventListener('loaded', () => {
