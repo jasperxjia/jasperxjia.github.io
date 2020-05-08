@@ -83,7 +83,7 @@ window.onload = () => {
                                             
                     });
 
-                    const name = text.target.getAttribute('title');
+                    var name = text.getAttribute('title');
 
                    /*text.addEventListener('cursor-hovered', () => {
 
@@ -97,17 +97,19 @@ window.onload = () => {
 
                         speechSynthesis.speak(new SpeechSynthesisUtterance('hovering'));
       
-                                            
+                                         
                     });*/
-
-                    scene.appendChild(text);
-
+                    
                     function log() {
                         document.querySelector('.log').innerHTML = name
                       
                       };
 
                       log();
+
+                    scene.appendChild(text);
+
+
                     
 
                 });
