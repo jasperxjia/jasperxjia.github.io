@@ -83,17 +83,17 @@ window.onload = () => {
                                             
                     });
 
-                    text.addEventListener('cursor-hovering', () => {
+                   text.addEventListener('cursor-hovering', () => {
 
 
                         function log() {
-                            document.querySelector('.log').innerHTML = text.title
+                            document.querySelector('.log').innerHTML = "hovering"
                           
                           };
 
                           log();
 
-                        speechSynthesis.speak(new SpeechSynthesisUtterance(text.title));
+                        speechSynthesis.speak(new SpeechSynthesisUtterance('hovering'));
       
                                             
                     });
