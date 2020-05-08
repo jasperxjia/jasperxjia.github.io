@@ -5,7 +5,8 @@
 
 
 function log() {
-  document.getElementById("log").innerHTML = place.name;
+  document.querySelector('.log').innerHTML = text.title;
+
 }
 
 
@@ -37,4 +38,4 @@ inputTxt.onload = function(event) {
 
   speak();
 
-}
+}*/
