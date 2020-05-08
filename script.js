@@ -65,40 +65,43 @@ window.onload = () => {
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;
 
-                // add place icon
-                    
+                        // add place icon
+                    const icon = document.createElement('a-image');
+                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
+                    icon.setAttribute('name', place.name);
+                    icon.setAttribute('src', './assets/map-marker.png');
 
-                    const text = document.createElement('a-link');
+                    // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
+                    icon.setAttribute('scale', '10, 10');
 
-                    
-                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
-                    text.setAttribute('title', place.name);
-                    text.setAttribute('image', './assets/map-marker.png');
-                    text.setAttribute('scale', '5 5 5');  
-                    text.setAttribute('cursor-listener','');
-      
+                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
-                    text.addEventListener('loaded', () => {
-                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-                                            
-                    });
+                    const clickListener = function (ev) {
+                        ev.stopPropagation();
+                        ev.preventDefault();
+                        window.navigator.vibrate(200);
 
-                   /*text.addEventListener('cursor-hovered', () => {
+                        const name = ev.target.getAttribute('name');
 
+                        const el = ev.detail.intersection && ev.detail.intersection.object.el;
 
-                        function log() {
-                            document.querySelector('.log').innerHTML = "hovering"
-                          
-                          };
+                        if (el && el === ev.target) {
+                            const label = document.createElement('span');
+                            const container = document.createElement('div');
+                            container.setAttribute('id', 'place-label');
+                            label.innerText = name;
+                            container.appendChild(label);
+                            document.body.appendChild(container);
 
-                          log();
+                            setTimeout(() => {
+                                container.parentElement.removeChild(container);
+                            }, 1500);
+                        }
+                    };
 
-                        speechSynthesis.speak(new SpeechSynthesisUtterance('hovering'));
-      
-                                            
-                    });*/
+                    icon.addEventListener('click', clickListener);
 
-                    scene.appendChild(text);
+                    scene.appendChild(icon);
 
                     
 
