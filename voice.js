@@ -6,7 +6,7 @@
 
 function log() {
 
-  var voicetext = 
+  var voicetext = text.title;
   document.querySelector('.log').innerHTML = voicetext;
 
 }
