@@ -85,16 +85,16 @@ window.onload = () => {
 
                     text.addEventListener('cursor-hovered', () => {
 
-                        function log() {
+                        window.navigator.vibrate(200);
 
-                            var voicetext = place.name;
-                            document.querySelector('.log').innerHTML = voicetext;
+                        function log() {
+                            document.querySelector('.log').innerHTML = place.name;
                           
                           }
 
                           log();
-                          
-                        speechSynthesis.speak(new SpeechSynthesisUtterance('title'));
+
+                        speechSynthesis.speak(new SpeechSynthesisUtterance(place.name));
                         
                                             
                     });
