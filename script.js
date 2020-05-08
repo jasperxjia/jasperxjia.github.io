@@ -83,7 +83,7 @@ window.onload = () => {
                                             
                     });
 
-                   text.addEventListener('cursor-hovering', () => {
+                   text.addEventListener('cursor-hovered', () => {
 
 
                         function log() {
@@ -99,6 +99,13 @@ window.onload = () => {
                     });
 
                     scene.appendChild(text);
+
+                    function log() {
+                        document.querySelector('.log').innerHTML = "hovering"
+                      
+                      };
+
+                      log();
                     
 
                 });
