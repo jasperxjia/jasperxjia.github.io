@@ -65,37 +65,49 @@ window.onload = () => {
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;
 
-                        // add place icon
-                    const icon = document.createElement('a-image');
-                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
-                    icon.setAttribute('name', place.name);
-                    icon.setAttribute('src', './assets/map-marker.png');
+                // add place icon
+                    
+
+                    const text = document.createElement('a-link');
 
                     
-                    icon.setAttribute('scale', '10, 10');
+                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
+                    text.setAttribute('title', place.name);
+                    text.setAttribute('image', './assets/map-marker.png');
+                    text.setAttribute('scale', '5 5 5');  
+                    text.setAttribute('cursor-listener','');
+      
 
-                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
+                    text.addEventListener('loaded', () => {
+                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
+                                            
+                    });
 
-                    const clickListener = function (ev) {
-                        ev.stopPropagation();
-                        ev.preventDefault();
-                        window.navigator.vibrate(200);
+                    const name = text.target.getAttribute('title');
 
-                        const name = ev.target.getAttribute('name');
+                   /*text.addEventListener('cursor-hovered', () => {
 
-                        const el = ev.detail.intersection && ev.detail.intersection.object.el;
 
-                        if (el && el === ev.target) {
-                            const label = document.querySelector('.log');
-                            label.innerHTML = name;
+                        function log() {
+                            document.querySelector('.log').innerHTML = "hovering"
+                          
+                          };
 
-                        }
-                    };
+                          log();
 
-                    icon.addEventListener('click', clickListener);
+                        speechSynthesis.speak(new SpeechSynthesisUtterance('hovering'));
+      
+                                            
+                    });*/
 
-                    scene.appendChild(icon);
+                    scene.appendChild(text);
 
+                    function log() {
+                        document.querySelector('.log').innerHTML = name
+                      
+                      };
+
+                      log();
                     
 
                 });
