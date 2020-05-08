@@ -87,13 +87,13 @@ window.onload = () => {
 
 
                         function log() {
-                            document.querySelector('.log').innerHTML = place.name
+                            document.querySelector('.log').innerHTML = text.title
                           
                           };
 
                           log();
 
-                        speechSynthesis.speak(new SpeechSynthesisUtterance(place.name));
+                        speechSynthesis.speak(new SpeechSynthesisUtterance(text.title));
       
                                             
                     });
