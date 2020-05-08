@@ -83,19 +83,18 @@ window.onload = () => {
                                             
                     });
 
-                    text.registerComponent('cursor-listener', () => {
+                    text.addEventListener('cursor-hovering', () => {
 
-                        this.el.addEventListener('cursor-hovered', 
 
                         function log() {
-                            document.querySelector('.log').innerHTML = place.name;
+                            document.querySelector('.log').innerHTML = place.name
                           
-                          }
+                          };
 
                           log();
 
                         speechSynthesis.speak(new SpeechSynthesisUtterance(place.name));
-                        )
+      
                                             
                     });
 
