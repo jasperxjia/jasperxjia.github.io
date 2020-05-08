@@ -83,6 +83,22 @@ window.onload = () => {
                                             
                     });
 
+                    text.addEventListener('cursor-hovered', () => {
+
+                        function log() {
+
+                            var voicetext = place.name;
+                            document.querySelector('.log').innerHTML = voicetext;
+                          
+                          }
+
+                          log();
+                          
+                        speechSynthesis.speak(new SpeechSynthesisUtterance('title'));
+                        
+                                            
+                    });
+
                     scene.appendChild(text);
                     
 
