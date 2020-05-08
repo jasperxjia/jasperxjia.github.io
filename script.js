@@ -83,7 +83,7 @@ window.onload = () => {
                                             
                     });
 
-                   text.addEventListener('cursor-hovered', () => {
+                   /*text.addEventListener('cursor-hovered', () => {
 
 
                         function log() {
@@ -96,16 +96,10 @@ window.onload = () => {
                         speechSynthesis.speak(new SpeechSynthesisUtterance('hovering'));
       
                                             
-                    });
+                    });*/
 
                     scene.appendChild(text);
 
-                    function log() {
-                        document.querySelector('.log').innerHTML = "hovering"
-                      
-                      };
-
-                      log();
                     
 
                 });
