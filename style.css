@@ -1,4 +1,18 @@
-button {
+.centered {
+    height: 20%;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    bottom: 0%;
+    /* display: flex; */
+    /* flex-direction: row; */
+    width: 100%;
+    margin: 0px auto;
+    left: 0;
+    right: 0;
+}
+
+.log {
     /* display: flex; */
     align-items: center;
     justify-content: center;
@@ -13,5 +27,4 @@ button {
     margin-top: 20px;
     text-align: center;
     padding: 0px;
-    z-index: 999;
 }
