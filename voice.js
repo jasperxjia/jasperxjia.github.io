@@ -1,4 +1,15 @@
-var synth = window.speechSynthesis;
+
+
+
+
+
+
+function log() {
+  document.getElementById("log").innerHTML = place.name;
+}
+
+
+/*var synth = window.speechSynthesis;
 
 var inputTxt = document.querySelector(text.title);
 
