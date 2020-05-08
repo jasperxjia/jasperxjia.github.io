@@ -46,18 +46,8 @@
     </a-scene>
 
      <div class="centered">
-         <!--button class="log" onclick="window.navigator.vibrate(200);"></button-->
-         <header class="log"></header>
+         <button class="log" onclick="window.navigator.vibrate(200);log(document.querySelector('.log').innerHTML = 'hover');"> </button>
         
         </div>
 
-    <script>
-        
-        function log() {
-                        document.querySelector('.log').innerHTML = "hovering"
-                      
-                      };
-
-                      log();
-    </script>
 </body>
