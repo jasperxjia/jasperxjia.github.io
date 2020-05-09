@@ -75,7 +75,8 @@ window.onload = () => {
                     text.setAttribute('title', place.name);
                     text.setAttribute('image', './assets/map-marker.png');
                     text.setAttribute('scale', '10 10 10');  
-                    text.setAttribute('cursor-listener','');
+                    text.setAttribute('event-set__enter','_event: mouseenter; log();');
+                    text.setAttribute('event-set__leave','_event: mouseleave');
       
 
                     text.addEventListener('loaded', () => {
@@ -85,7 +86,6 @@ window.onload = () => {
 
                     var name = text.getAttribute('title');
 
-                
                     // Change name into a string for web speech api
                     
                     function log() {
@@ -94,11 +94,11 @@ window.onload = () => {
                       };
 
 
-                      text.addEventListener('stateadded', function (evt) {
+                      /*text.addEventListener('stateadded', function (evt) {
                         if (evt.detail.state === 'cursor-hovered') {
                           log();
                         }
-                      });
+                      });*/
 
                       
                     scene.appendChild(text);
