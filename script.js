@@ -85,7 +85,7 @@ window.onload = () => {
 
                     var name = text.getAttribute('title');
 
-
+                
                     // Change name into a string for web speech api
                     
                     function log() {
@@ -93,7 +93,14 @@ window.onload = () => {
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
 
-                      log();
+
+                      text.addEventListener('stateadded', function (evt) {
+                        if (evt.detail.state === 'cursor-hovered') {
+                          log();
+                        }
+                      });
+
+                      
                     scene.appendChild(text);
 
 
