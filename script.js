@@ -93,7 +93,8 @@ window.onload = () => {
                       
                       };
 
-                  
+                      
+                      log()
 
                     scene.appendChild(text);
 
