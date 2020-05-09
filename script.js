@@ -93,7 +93,7 @@ window.onload = () => {
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
 
-                      //log();
+                      log();
                     scene.appendChild(text);
 
 
