@@ -95,7 +95,7 @@ window.onload = () => {
 
                       text.addEventListener('mouseenter',  () =>  {
                           log();
-                        
+                          speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                     });
 
                       
