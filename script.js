@@ -90,10 +90,10 @@ window.onload = () => {
                     
                     function log() {
                         document.querySelector('.log').innerHTML = name
-                        speechSynthesis.speak(new SpeechSynthesisUtterance(name));
+                        //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
 
-                      log();
+                      //log();
                     scene.appendChild(text);
 
 
