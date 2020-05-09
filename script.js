@@ -75,8 +75,7 @@ window.onload = () => {
                     text.setAttribute('title', place.name);
                     text.setAttribute('image', './assets/map-marker.png');
                     text.setAttribute('scale', '10 10 10');  
-                    text.setAttribute('event-set__enter','_event: mouseenter; log();');
-                    text.setAttribute('event-set__leave','_event: mouseleave');
+
       
 
                     text.addEventListener('loaded', () => {
@@ -94,11 +93,10 @@ window.onload = () => {
                       };
 
 
-                      /*text.addEventListener('stateadded', function (evt) {
-                        if (evt.detail.state === 'cursor-hovered') {
+                      text.addEventListener('mouseenter',  () =>  {
                           log();
-                        }
-                      });*/
+                        
+                    });
 
                       
                     scene.appendChild(text);
