@@ -92,8 +92,8 @@ window.onload = () => {
                         document.querySelector('.log').innerHTML = name
                         speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
-                      
 
+                      log();
                     scene.appendChild(text);
 
 
