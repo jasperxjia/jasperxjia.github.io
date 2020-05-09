@@ -85,27 +85,15 @@ window.onload = () => {
 
                     var name = text.getAttribute('title');
 
-                   /*text.addEventListener('cursor-hovered', () => {
 
-
-                        function log() {
-                            document.querySelector('.log').innerHTML = "hovering"
-                          
-                          };
-
-                          log();
-
-                        speechSynthesis.speak(new SpeechSynthesisUtterance('hovering'));
-      
-                                         
-                    });*/
+                    // Change name into a string for web speech api
                     
                     function log() {
                         document.querySelector('.log').innerHTML = name
                       
                       };
 
-                      log();
+                  
 
                     scene.appendChild(text);
 
