@@ -76,7 +76,7 @@ window.onload = () => {
                     text.setAttribute('image', './assets/map-marker.png');
                     text.setAttribute('scale', '10 10 10');  
 
-      
+                
 
                     text.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
@@ -95,7 +95,8 @@ window.onload = () => {
 
                       text.addEventListener('mouseenter',  () =>  {
                           log();
-                          speechSynthesis.speak(new SpeechSynthesisUtterance(name));
+                          text.setAttribute('scale', '20 20 20'); 
+                          
                     });
 
                       
