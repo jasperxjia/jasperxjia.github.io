@@ -93,7 +93,7 @@ window.onload = () => {
                       };
 
 
-                      text.addEventListener('mouseenter',  () =>  {
+                      text.addEventListener('cursor-hovered',  () =>  {
                           log();
 
                           
