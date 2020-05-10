@@ -75,6 +75,8 @@ window.onload = () => {
                     text.setAttribute('title', place.name);
                     text.setAttribute('image', './assets/place_icon.png');
                     text.setAttribute('scale', '10 10 10');  
+                    text.setAttribute('highlighted', 'true'); 
+                    text.setAttribute('highlightedColor', '#000000');
 
                 
 
