@@ -95,7 +95,7 @@ window.onload = () => {
                       };
 
 
-                      text.addEventListener('mouseenter',  () =>  {
+                      text.addEventListener('click',  () =>  {
                           log();
 
                           
