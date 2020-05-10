@@ -73,7 +73,7 @@ window.onload = () => {
                     
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
                     text.setAttribute('title', place.name);
-                    text.setAttribute('href', './assets/map-marker.png');
+                    text.setAttribute('src', './assets/map-marker.png');
                     text.setAttribute('scale', '10 10 10');  
 
                 
