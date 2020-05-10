@@ -95,7 +95,7 @@ window.onload = () => {
 
                       text.addEventListener('mouseenter',  () =>  {
                           log();
-                          text.setAttribute('scale', '20 20 20'); 
+
                           
                     });
 
