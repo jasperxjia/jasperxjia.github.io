@@ -36,11 +36,13 @@
 		arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
         <a-camera gps-camera="minDistance: 50;" rotation-reader>
-            <a-entity cursor="fuse: true; fuseTimeout: 0;"
+            <a-entity  
+            raycaster="enabled:true; direction:0,0,1; showline:true;"
+            cursor="fuse: true; fuseTimeout: 0;"
             position="0 0 -1"
             geometry="primitive: sphere; radius:0.01;"
             material="color: black; shader: flat"
-            raycaster="enabled:true; direction:0,0,1; showline:true;"
+           
             >
             
         </a-camera>

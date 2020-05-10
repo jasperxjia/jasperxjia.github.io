@@ -95,7 +95,7 @@ window.onload = () => {
                       };
 
 
-                      text.addEventListener('click',  () =>  {
+                      text.addEventListener('cursor-hovered',  () =>  {
                           log();
 
                           
