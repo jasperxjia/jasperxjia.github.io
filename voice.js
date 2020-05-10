@@ -4,7 +4,7 @@
 
 
 
-function log() {
+/*function log() {
 
   var voicetext = text.title;
   document.querySelector('.log').innerHTML = voicetext;
