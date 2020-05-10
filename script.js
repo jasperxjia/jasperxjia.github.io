@@ -76,7 +76,7 @@ window.onload = () => {
                     text.setAttribute('image', './assets/place_icon.png');
                     text.setAttribute('scale', '10 10 10');  
                     text.setAttribute('highlighted', 'true'); 
-                    text.setAttribute('highlightedColor', '#000000');
+                    text.setAttribute('highlightedColor', 'black');
 
                 
 
@@ -95,7 +95,7 @@ window.onload = () => {
                       };
 
 
-                      text.addEventListener('cursor-hovering',  () =>  {
+                      text.addEventListener('cursor-hovered',  () =>  {
                           log();
 
                           
