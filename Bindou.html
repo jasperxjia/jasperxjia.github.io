@@ -31,27 +31,29 @@
 <!-- AR scene Render -->
 <body style='margin: 0; overflow: hidden;'>
     <a-scene
-        cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
         raycaster="objects: [gps-entity-place];"
         vr-mode-ui="enabled: false"
 		embedded
 		arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
         <a-camera gps-camera="minDistance: 50;" rotation-reader >
-            <!--a-entity  
-            cursor="rayOrigin: mouse;fuse: true; fuseTimeout: 0; far:2;"
+            <a-entity  
+            cursor="maxDistance:30; fuse: true; fuseTimeout: 0; far:2;"
             position="0 0 -1"
             geometry="primitive: sphere; radius:0.01;"
-            material="color: black; shader: flat"
-           
-            ></a-entity-->
+            material="color: black; shader: flat">
+            <a-animation begin="click" easing="ease-in" attribute="scale"
+            fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
+            <a-animation begin="fusing" easing="ease-in" attribute="scale"
+            fill="backwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>
+        </a-entity>
             
         </a-camera>
 
     </a-scene>
 
      <div class="centered">
-         <p class="log" onclick="window.navigator.vibrate(200); speechSynthesis.speak(new SpeechSynthesisUtterance(name));"></p>
+         <p class="log"></p>
         
         </div>
 
