@@ -84,7 +84,7 @@ window.onload = () => {
                                             
                     });
                     
-                    var name = text.getAttribute('title');
+                    const name = text.getAttribute('title');
                    
 
                   
@@ -114,7 +114,8 @@ window.onload = () => {
 
 
                       icon.addEventListener('click', log());
-                    scene.appendChild(icon);
+
+                    scene.appendChild(text);
 
 
                     
