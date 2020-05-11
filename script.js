@@ -68,11 +68,11 @@ window.onload = () => {
                 // a-link based icon
                     
 
-                    /*
+                    
                     const text = document.createElement('a-link');
 
                     
-                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
+                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};distanceMsg`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('image', './assets/place_icon.png');
                     text.setAttribute('scale', '10 10 10');  
@@ -85,11 +85,11 @@ window.onload = () => {
                     });
                     
                     var name = text.getAttribute('title');
-                    */
+                   
 
                   
                 // a-image based icon
-
+/*
                    const icon = document.createElement('a-image');
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}; distanceMsg`);
                    icon.setAttribute('name', place.name);
@@ -101,7 +101,7 @@ window.onload = () => {
                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
                    var name = icon.getAttribute('name');
-
+ */
                   
                     // Change name into a string for web speech api
                     
