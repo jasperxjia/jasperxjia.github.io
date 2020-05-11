@@ -68,7 +68,7 @@ window.onload = () => {
                      // add place icon
             const icon = document.createElement('a-entity');
             icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
-            icon.setAttribute('gltf-model', "#animated-asset");
+            icon.setAttribute('gltf-model', './lowpoly_pin/scene.gltf');
             // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
             icon.setAttribute('scale', '0.21 0.21 0.21');
             icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
