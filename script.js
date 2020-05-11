@@ -110,10 +110,7 @@ window.onload = () => {
                       };
                       
 
-                    icon.addEventListener('click', function(ev, target){
-                        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-                        if (aEntity && intersectedElement === aEntity) {
-                            alert("test");}
+                    icon.addEventListener('click', log());
 
                     scene.appendChild(icon);
 
