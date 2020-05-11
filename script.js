@@ -103,12 +103,12 @@ window.onload = () => {
                    var name = icon.getAttribute('id');
                   
                     // Change name into a string for web speech api
-                    
+                    const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
                     function log() {
-                        document.querySelector('.log').innerHTML = name;
+                        document.querySelector('.log').innerHTML = distanceMsg;
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
-
+                      
 
                     icon.addEventListener('click', function(ev, target){
                         const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
