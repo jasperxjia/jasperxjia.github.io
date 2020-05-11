@@ -69,20 +69,18 @@ window.onload = () => {
                     
 
                     
+                    // add place name
                     const text = document.createElement('a-link');
-
-                    
-                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}; distanceMsg`);
+                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
-                    text.setAttribute('image', './assets/place_icon.png');
-                    text.setAttribute('scale', '10 10 10');  
-
-                 
-
+                    text.setAttribute('href', '');
+                    text.setAttribute('scale', '10 10 10');
+                   
                     text.addEventListener('loaded', () => {
-                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-                                            
+                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                     });
+
+
                     
                     const name = text.getAttribute('title');
                    
@@ -106,8 +104,6 @@ window.onload = () => {
                     // Change name into a string for web speech api
                     
                     function log() {
-                        stopPropagation();
-                        preventDefault();
                         document.querySelector('.log').innerHTML = name;
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
