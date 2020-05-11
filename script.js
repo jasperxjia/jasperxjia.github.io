@@ -68,7 +68,7 @@ window.onload = () => {
                     // add place name
                     const icon = document.createElement('a-box');
 
-                icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}; distance;`);
+                icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                 icon.setAttribute('id', place.name);
                 icon.setAttribute('color', 'yellow');
                 icon.setAttribute('depth', '10');
