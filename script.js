@@ -80,9 +80,6 @@ window.onload = () => {
                     });
 
                     scene.appendChild(text);
-                
-
-                   
 
                     
                 });
