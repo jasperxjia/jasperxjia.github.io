@@ -66,23 +66,17 @@ window.onload = () => {
                     const longitude = place.location.lng;
 
                     // add place name
-                    const icon = document.createElement('a-box');
-                    const sphere = document.createElement('a-sphere');
+                    const text = document.createElement('a-link');
+                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+                    text.setAttribute('title', place.name);
+                    text.setAttribute('href', '');
+                    text.setAttribute('scale', '10 10 10');
+                   
+                    text.addEventListener('loaded', () => {
+                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                    });
 
-                    sphere.setAttribute('position', '0 0 -1');
-                    sphere.setAttribute('radius', '0.03');
-                    sphere.setAttribute('color', 'black');
-                icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                icon.setAttribute('name', place.name);
-                icon.setAttribute('color', 'yellow');
-                icon.setAttribute('depth', '10');
-                icon.setAttribute('height', '10');
-                icon.setAttribute('width', '10');
-                
-                icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
-                icon.addEventListener('click', () => {alert(place.name);});
-                
-                scene.appendChild(icon);
+                    scene.appendChild(text);
                 
 
                    
