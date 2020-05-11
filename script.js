@@ -78,7 +78,7 @@ window.onload = () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                     });
 
-                    const clickListener = function (ev) {
+                    /*const clickListener = function (ev) {
                         ev.stopPropagation();
                         ev.preventDefault();
             
@@ -90,8 +90,8 @@ window.onload = () => {
                             const label = document.querySelector('.log');
                             label.innerText = name;
                         }
-                    };
-                    text.addEventListener('click', clickListener);
+                    };*/
+                    scene.addEventListener('click', alert('clicked'));
 
                     scene.appendChild(text);
                 
