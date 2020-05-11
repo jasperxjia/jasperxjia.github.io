@@ -94,9 +94,9 @@ window.onload = () => {
                    icon.setAttribute('src', './assets/place_icon.png');
            
                    // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
-                   icon.setAttribute('depth', '1');
-                   icon.setAttribute('height', '1');
-                   icon.setAttribute('width', '1');
+                   icon.setAttribute('depth', '10');
+                   icon.setAttribute('height', '10');
+                   icon.setAttribute('width', '10');
                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
                    const name = icon.getAttribute('id');
