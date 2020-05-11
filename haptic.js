@@ -1,6 +1,12 @@
-                // a-image based icon
+               
+               
+               
+               
+               
+               
+               // a-image based icon
 
-                const icon = document.createElement('a-box');
+               /* const icon = document.createElement('a-box');
                 icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                 icon.setAttribute('name', place.name);
                 icon.setAttribute('color', 'yellow');
@@ -19,6 +25,3 @@
                      //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                    };*/
                    
-
-                 scene.appendChild(icon);
-                 =""
