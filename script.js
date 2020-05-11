@@ -68,6 +68,7 @@ window.onload = () => {
                 // add place icon
                     
 
+                    /*
                     const text = document.createElement('a-link');
 
                     
@@ -82,8 +83,28 @@ window.onload = () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
                                             
                     });
-
+                    
                     var name = text.getAttribute('title');
+                    */
+
+                    
+
+                   const icon = document.createElement('a-image');
+
+                    
+                   icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
+                   icon.setAttribute('title', place.name);
+                   icon.setAttribute('src', './assets/place_icon.png');
+                   icon.setAttribute('scale', '10 10 10');  
+
+               
+
+                   icon.addEventListener('loaded', () => {
+                       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
+                                           
+                   });
+                   
+                   var name = icon.getAttribute('title');
 
                     // Change name into a string for web speech api
                     
@@ -93,7 +114,7 @@ window.onload = () => {
                       };
 
 
-                      text.addEventListener('mouseenter',  () =>  {
+                      icon.addEventListener('click',  () =>  {
                           log();
 
                           
