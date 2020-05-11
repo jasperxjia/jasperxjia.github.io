@@ -65,7 +65,7 @@ window.onload = () => {
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;
 
-                // add place icon
+                // a-link based icon
                     
 
                     /*
@@ -87,7 +87,8 @@ window.onload = () => {
                     var name = text.getAttribute('title');
                     */
 
-                    
+                  
+                // a-image based icon
 
                    const icon = document.createElement('a-image');
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
