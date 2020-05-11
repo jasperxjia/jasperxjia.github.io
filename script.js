@@ -79,10 +79,8 @@ window.onload = () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                     });
 
-                    var name = text.getAttribute('title');
-
                     text.addEventListener('click', () => {
-                        document.querySelector('.log').innerHTML = name;
+                        document.querySelector('.log').innerHTML = place.name;
                     });
 
                     scene.appendChild(text);
