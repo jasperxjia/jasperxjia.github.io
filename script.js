@@ -113,7 +113,7 @@ window.onload = () => {
                       };
 
 
-                    text.addEventListener('click', log());
+                    text.addEventListener('mouseenter', log());
 
                     scene.appendChild(text);
 
