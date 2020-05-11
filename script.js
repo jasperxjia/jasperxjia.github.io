@@ -69,7 +69,6 @@ window.onload = () => {
                     const icon = document.createElement('a-box');
 
                 
-                icon.setAttribute('clickhandler');    
                 icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                 icon.setAttribute('name', place.name);
                 icon.setAttribute('color', 'yellow');
@@ -78,7 +77,7 @@ window.onload = () => {
                 icon.setAttribute('width', '10');
                 
                 icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
-        
+                icon.addEventListener("click", () => {alert(place.name);});
                 
                 scene.appendChild(icon);
                 
