@@ -66,12 +66,12 @@ window.onload = () => {
                     const longitude = place.location.lng;
 
                     // add place name
-                    const text = document.createElement('a-link');
+                    let text = document.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
-                    text.setAttribute('src', './assets/map-marker.png');
+
 
                    
                     text.addEventListener('loaded', () => {
