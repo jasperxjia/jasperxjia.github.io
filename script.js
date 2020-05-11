@@ -111,7 +111,7 @@ window.onload = () => {
                       };
 
 
-                    icon.addEventListener('mouseenter', log());
+                    icon.addEventListener('cursor-hovered', log());
 
                     scene.appendChild(icon);
 
