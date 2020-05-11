@@ -91,8 +91,8 @@ window.onload = () => {
 
                    const icon = document.createElement('a-box');
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                   icon.setAttribute('id', place.name);
-                   icon.setAttribute('src', './assets/map-marker.png');
+                   icon.setAttribute('name', place.name);
+                   icon.setAttribute('color', 'yellow');
                    icon.setAttribute('depth', '10');
                    icon.setAttribute('height', '10');
                    icon.setAttribute('width', '10');
