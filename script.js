@@ -100,7 +100,7 @@ window.onload = () => {
                    icon.setAttribute('width', '10');
                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
-                   const name = icon.getAttribute('id');
+                   var name = icon.getAttribute('id');
 
                   
                     // Change name into a string for web speech api
