@@ -66,17 +66,17 @@ window.onload = () => {
                     const longitude = place.location.lng;
 
                     // add place name
-                    const text = document.createElement('a-link');
-                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    text.setAttribute('title', place.name);
-                    text.setAttribute('href', '');
-                    text.setAttribute('scale', '10 10 10');
-                   
-                    text.addEventListener('loaded', () => {
-                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-                    });
+                    const icon = document.createElement('a-box');
+                icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+                icon.setAttribute('name', place.name);
+                icon.setAttribute('color', 'yellow');
+                icon.setAttribute('depth', '10');
+                icon.setAttribute('height', '10');
+                icon.setAttribute('width', '10');
+                icon.setAttribute('look-at', '[gps-camera]');
+                icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
-                    scene.appendChild(text);
+                    scene.appendChild(icon);
                 });
             })
     },
