@@ -68,13 +68,15 @@ window.onload = () => {
                     // add place name
                     const icon = document.createElement('a-box');
 
+                
+                icon.setAttribute('clickhandler');    
                 icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                 icon.setAttribute('id', place.name);
                 icon.setAttribute('color', 'yellow');
                 icon.setAttribute('depth', '10');
                 icon.setAttribute('height', '10');
                 icon.setAttribute('width', '10');
-                icon.setAttribute('look-at', '[gps-camera]');
+                
                 icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
         
                 
