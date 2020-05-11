@@ -65,30 +65,38 @@ window.onload = () => {
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;
 
-                     // add place icon
-            const icon = document.createElement('a-entity');
-            icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
-            icon.setAttribute('gltf-model', './lowpoly_pin/scene.gltf');
-            icon.setAttribute('name',place.name);
-            // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
-            icon.setAttribute('scale', '2 2 2');
-            icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
+                    // add place name
+                    const text = document.createElement('a-link');
+                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+                    text.setAttribute('title', place.name);
+                    text.setAttribute('href', '');
+                    text.setAttribute('scale', '10 10 10');
+                    text.setAttribute('src', './assets/map-marker.png');
+
+                   
+                    text.addEventListener('loaded', () => {
+                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                    });
+
+                    const clickListener = function (ev) {
+                        ev.stopPropagation();
+                        ev.preventDefault();
             
-            const clickListener = function (ev) {
-                ev.stopPropagation();
-                ev.preventDefault();
-    
-                let name = ev.target.getAttribute('name');
-    
-                const el = ev.detail.intersection && ev.detail.intersection.object.el;
-    
-                if (el && el === ev.target) {
-                    const label = document.querySelector('.name');
-                    label.innerText = name;
-                }
-            };
-            icon.addEventListener('click', clickListener);
-            scene.appendChild(icon);
+                        let name = ev.target.getAttribute('title');
+            
+                        const el = ev.detail.intersection && ev.detail.intersection.object.el;
+            
+                        if (el && el === ev.target) {
+                            const label = document.querySelector('.log');
+                            label.innerText = name;
+                        }
+                    };
+                    text.addEventListener('click', clickListener);
+
+                    scene.appendChild(text);
+                
+
+                   
 
                     
                 });
