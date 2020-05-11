@@ -100,20 +100,20 @@ window.onload = () => {
            
                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
-                   const title = icon.getAttribute('name');
+                   var name = icon.getAttribute('name');
 
-                   icon.addEventListener('click', log());
+                  
                     // Change name into a string for web speech api
                     
                     function log() {
                         stopPropagation();
                         preventDefault();
-                        document.querySelector('.log').innerHTML = title
+                        document.querySelector('.log').innerHTML = name
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
 
 
-                      
+                      icon.addEventListener('click', log());
                     scene.appendChild(icon);
 
 
