@@ -7,6 +7,7 @@
                 icon.setAttribute('depth', '10');
                 icon.setAttribute('height', '10');
                 icon.setAttribute('width', '10');
+                icon.setAttribute('look-at', '[gps-camera]');
                 icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                 
                 ///var name = icon.getAttribute('id');
@@ -20,4 +21,4 @@
                    
 
                  scene.appendChild(icon);
-                 look-at="[gps-camera]"
+                 =""
