@@ -66,19 +66,32 @@ window.onload = () => {
                     const longitude = place.location.lng;
 
                     // add place name
-                    const text = document.createElement('a-link');
+                    let text = document.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
-                    text.setAttribute('backgroundColor', '#00FFFF');
-                    text.setAttribute('image', './assets/map-marker.png');
-                    text.setAttribute('on', 'click');
+
 
                    
                     text.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                     });
+
+                    const clickListener = function (ev) {
+                        ev.stopPropagation();
+                        ev.preventDefault();
+            
+                        let name = ev.target.getAttribute('title');
+            
+                        const el = ev.detail.intersection && ev.detail.intersection.object.el;
+            
+                        if (el && el === ev.target) {
+                            const label = document.querySelector('.log');
+                            label.innerText = name;
+                        }
+                    };
+                    text.addEventListener('click', clickListener);
 
                     scene.appendChild(text);
                 
