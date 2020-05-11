@@ -110,7 +110,10 @@ window.onload = () => {
                       };
 
 
-                    icon.addEventListener('fusing', log());
+                    icon.addEventListener('click', function(ev, target){
+                        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+                        if (aEntity && intersectedElement === aEntity) {
+                            alert("test");}
 
                     scene.appendChild(icon);
 
@@ -120,12 +123,12 @@ window.onload = () => {
                 });
             })
     },
-        /*(err) => console.error('Error in retrieving position', err),
+        (err) => console.error('Error in retrieving position', err),
         {
             enableHighAccuracy: true,
             maximumAge: 0,
             timeout: 27000,
-        }*/
+        }
     );
 
 
