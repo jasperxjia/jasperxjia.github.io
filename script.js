@@ -100,20 +100,42 @@ window.onload = () => {
            
                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
-                   var name = icon.getAttribute('name');
+                   //const name = icon.getAttribute('name');
 
+                   const clickListener = function (ev) {
+                    ev.stopPropagation();
+                    ev.preventDefault();
+        
+                    const name = ev.target.getAttribute('name');
+        
+                    const el = ev.detail.intersection && ev.detail.intersection.object.el;
+        
+                    if (el && el === ev.target) {
+                        const label = document.createElement('span');
+                        const container = document.createElement('div');
+                        container.setAttribute('id', 'place-label');
+                        label.innerText = name;
+                        container.appendChild(label);
+                        document.body.appendChild(container);
+        
+                        setTimeout(() => {
+                            container.parentElement.removeChild(container);
+                        }, 1500);
+                    }
+                };
+        
+                icon.addEventListener('click', clickListener);
                     // Change name into a string for web speech api
                     
-                    function log() {
+                    /*function log() {
                         document.querySelector('.log').innerHTML = name
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
-                      };
+                      };*/
 
 
-                      icon.addEventListener('click', log());
 
                       
-                    scene.appendChild(text);
+                    scene.appendChild(icon);
 
 
                     
