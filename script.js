@@ -91,7 +91,7 @@ window.onload = () => {
                    const icon = document.createElement('a-box');
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                    icon.setAttribute('id', place.name);
-                   icon.setAttribute('color', 'yellow');
+                   icon.setAttribute('src', './assets/map-marker.png');
                    icon.setAttribute('event-set__enter','_event: mouseenter; color: #8FF7FF');
            
                    // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
