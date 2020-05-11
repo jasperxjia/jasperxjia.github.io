@@ -12,18 +12,12 @@
     right: 0;
 }
 
-.log {
-    /* display: flex; */
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    width: 2em;
+  .log {
+    padding: 0.25em;
+    border-radius: 4px;
+    border: none;
+    background: white;
+    color: black;
+    width: 4em;
     height: 2em;
-    border-radius: 100%;
-    font-size: 2em;
-    color: white;
-    outline: none;
-    margin-top: 20px;
-    text-align: center;
-    padding: 0px;
-}
+  }
