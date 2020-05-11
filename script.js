@@ -101,9 +101,6 @@ AFRAME.registerComponent("clickhandler", {
                    icon.setAttribute('id', place.name);
                    icon.setAttribute('src', './assets/map-marker.png');
                    icon.setAttribute('clickhandler','');
-                   
-           
-                   // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
                    icon.setAttribute('depth', '10');
                    icon.setAttribute('height', '10');
                    icon.setAttribute('width', '10');
@@ -118,14 +115,6 @@ AFRAME.registerComponent("clickhandler", {
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
                       
-                      AFRAME.registerComponent("clickhandler", {
-                        init: function() {
-                          // we add the click event listener to any instance of this component
-                          this.el.addEventListener("click", () => {
-                            alert("Clicked!");
-                          });
-                        }
-                      });
                     icon.addEventListener('click', log());
 
                     scene.appendChild(icon);
