@@ -77,7 +77,7 @@ window.onload = () => {
                     text.setAttribute('image', './assets/place_icon.png');
                     text.setAttribute('scale', '10 10 10');  
 
-                
+                 
 
                     text.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
@@ -90,21 +90,16 @@ window.onload = () => {
                     
 
                    const icon = document.createElement('a-image');
-
-                    
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
-                   icon.setAttribute('title', place.name);
+                   icon.setAttribute('name', place.name);
                    icon.setAttribute('src', './assets/place_icon.png');
-                   icon.setAttribute('scale', '10 10 10');  
-
-               
-
-                   icon.addEventListener('loaded', () => {
-                       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-                                           
-                   });
+           
+                   // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
+                   icon.setAttribute('scale', '20, 20');
+           
+                   icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
-                   var name = icon.getAttribute('title');
+                   var name = icon.getAttribute('name');
 
                     // Change name into a string for web speech api
                     
@@ -114,11 +109,7 @@ window.onload = () => {
                       };
 
 
-                      icon.addEventListener('click',  () =>  {
-                          log();
-
-                          
-                    });
+                      icon.addEventListener('click', log(););
 
                       
                     scene.appendChild(text);
