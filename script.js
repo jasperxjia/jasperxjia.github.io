@@ -68,7 +68,7 @@ window.onload = () => {
                     // add place name
                     const icon = document.createElement('a-box');
                 icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                icon.setAttribute('name', place.name);
+                icon.setAttribute('id', place.name);
                 icon.setAttribute('color', 'yellow');
                 icon.setAttribute('depth', '10');
                 icon.setAttribute('height', '10');
@@ -76,7 +76,15 @@ window.onload = () => {
                 icon.setAttribute('look-at', '[gps-camera]');
                 icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
+                const name = icon.getAttribute('id');
+                const label = document.getElementById('.log');
+                label.innerText = name;
+                icon.appendChild(label);
+
+
                     scene.appendChild(icon);
+
+                    
                 });
             })
     },
@@ -87,13 +95,6 @@ window.onload = () => {
             timeout: 27000,
         }
     );
-};
-
-const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
-
-function log() {
-    document.querySelector('.log').innerHTML = distanceMsg
-    .addEventListener("click", log());
 };
 
 
