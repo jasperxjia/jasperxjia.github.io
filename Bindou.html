@@ -35,7 +35,7 @@
 		embedded
 		arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
-        <a-camera gps-camera="minDistance: 50;" rotation-reader far="1000">
+        <a-camera gps-camera="minDistance: 100;" rotation-reader far="1000">
             <a-entity  
             raycaster="enabled:true; direction:0,0,1;"
             cursor="fuse: true; fuseTimeout: 0;"
@@ -50,7 +50,7 @@
     </a-scene>
 
      <div class="centered">
-         <p class="log" onclick="window.navigator.vibrate(200); speechSynthesis.speak(new SpeechSynthesisUtterance(title));"></p>
+         <p class="log" onclick="window.navigator.vibrate(200); speechSynthesis.speak(new SpeechSynthesisUtterance(name));"></p>
         
         </div>
 
