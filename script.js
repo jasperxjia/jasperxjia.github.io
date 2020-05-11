@@ -67,7 +67,7 @@ window.onload = () => {
 
                 // a-link based icon
                     
-
+/*
                     
                     // add place name
                     const text = document.createElement('a-link');
@@ -82,12 +82,12 @@ window.onload = () => {
 
 
                     
-                    var name = text.getAttribute('title');
+                    const name = text.getAttribute('title');
                    
-
+ */
                   
                 // a-image based icon
-/*
+
                    const icon = document.createElement('a-image');
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}; distanceMsg`);
                    icon.setAttribute('name', place.name);
@@ -98,8 +98,8 @@ window.onload = () => {
            
                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
-                   var name = icon.getAttribute('name');
- */
+                   const name = icon.getAttribute('name');
+
                   
                     // Change name into a string for web speech api
                     
@@ -109,9 +109,9 @@ window.onload = () => {
                       };
 
 
-                    text.addEventListener('mouseenter', log());
+                    icon.addEventListener('click', log());
 
-                    scene.appendChild(text);
+                    scene.appendChild(icon);
 
 
                     
