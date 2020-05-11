@@ -71,9 +71,9 @@ window.onload = () => {
                     text.setAttribute('title', place.name);
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
-                    text.setAttribute('backgroundColor', 'blue');
-                    text.setAttribute('image', './assets/map-marker.png');
-                    text.setAttribute('on', 'click');
+                    text.setAttribute('backgroundColor', blue);
+                    text.setAttribute('image', ./assets/map-marker.png);
+                    text.setAttribute('on', click);
                    
                     text.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
