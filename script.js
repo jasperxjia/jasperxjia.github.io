@@ -67,8 +67,11 @@ window.onload = () => {
 
                     // add place name
                     const icon = document.createElement('a-box');
+                    const sphere = document.createElement('a-sphere');
 
-                
+                    sphere.setAttribute('position', '0 0 -1');
+                    sphere.setAttribute('radius', '0.03');
+                    sphere.setAttribute('color', 'black');
                 icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                 icon.setAttribute('name', place.name);
                 icon.setAttribute('color', 'yellow');
@@ -77,7 +80,7 @@ window.onload = () => {
                 icon.setAttribute('width', '10');
                 
                 icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
-                icon.addEventListener("click", () => {alert(place.name);});
+                icon.addEventListener('click', () => {alert(place.name);});
                 
                 scene.appendChild(icon);
                 
