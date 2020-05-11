@@ -69,25 +69,22 @@ window.onload = () => {
             const icon = document.createElement('a-entity');
             icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
             icon.setAttribute('gltf-model', './lowpoly_pin/scene.gltf');
+            icon.setAttribute('name',place.name);
             // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
-            icon.setAttribute('scale', '0.21 0.21 0.21');
+            icon.setAttribute('scale', '2 2 2');
             icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
+            
             const clickListener = function (ev) {
-               ev.stopPropagation();
+                ev.stopPropagation();
                 ev.preventDefault();
-                console.log('Clicked');
-                const name = ev.target.getAttribute('name');
+    
+                let name = ev.target.getAttribute('name');
+    
                 const el = ev.detail.intersection && ev.detail.intersection.object.el;
+    
                 if (el && el === ev.target) {
-                    const label = document.createElement('span');
-                    const container = document.createElement('div');
-                    container.setAttribute('id', 'place-label');
+                    const label = document.querySelector('.name');
                     label.innerText = name;
-                    container.appendChild(label);
-                    document.body.appendChild(container);
-                    setTimeout(() => {
-                        container.parentElement.removeChild(container);
-                    }, 1500);
                 }
             };
             icon.addEventListener('click', clickListener);
