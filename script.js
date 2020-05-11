@@ -89,7 +89,7 @@ window.onload = () => {
                 // a-image based icon
 
                    const icon = document.createElement('a-box');
-                   icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}; distanceMsg`);
+                   icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                    icon.setAttribute('id', place.name);
                    icon.setAttribute('src', './assets/place_icon.png');
            
