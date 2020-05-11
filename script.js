@@ -88,17 +88,18 @@ window.onload = () => {
                   
                 // a-image based icon
 
-                   const icon = document.createElement('a-image');
+                   const icon = document.createElement('a-box');
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}; distanceMsg`);
-                   icon.setAttribute('name', place.name);
+                   icon.setAttribute('id', place.name);
                    icon.setAttribute('src', './assets/place_icon.png');
            
                    // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
-                   icon.setAttribute('scale', '20, 20');
-           
+                   icon.setAttribute('depth', '1');
+                   icon.setAttribute('height', '1');
+                   icon.setAttribute('width', '1');
                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
-                   const name = icon.getAttribute('name');
+                   const name = icon.getAttribute('id');
 
                   
                     // Change name into a string for web speech api
