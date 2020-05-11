@@ -72,7 +72,7 @@ window.onload = () => {
                     const text = document.createElement('a-link');
 
                     
-                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};distanceMsg`);
+                    text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('image', './assets/place_icon.png');
                     text.setAttribute('scale', '10 10 10');  
