@@ -85,14 +85,7 @@ window.onload = () => {
                     const name = text.getAttribute('title');
                    
  */
-AFRAME.registerComponent("clickhandler", {
-    init: function() {
-      // we add the click event listener to any instance of this component
-      this.el.addEventListener("click", () => {
-        alert("Clicked!");
-      });
-    }
-  });
+
                   
                 // a-image based icon
 
@@ -100,13 +93,12 @@ AFRAME.registerComponent("clickhandler", {
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                    icon.setAttribute('id', place.name);
                    icon.setAttribute('src', './assets/map-marker.png');
-                   icon.setAttribute('clickhandler','');
                    icon.setAttribute('depth', '10');
                    icon.setAttribute('height', '10');
                    icon.setAttribute('width', '10');
                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
-                   var name = icon.getAttribute('id');
+                   ///var name = icon.getAttribute('id');
                   
                     // Change name into a string for web speech api
                     const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
@@ -115,7 +107,6 @@ AFRAME.registerComponent("clickhandler", {
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
                       
-                    icon.addEventListener('click', log());
 
                     scene.appendChild(icon);
 
