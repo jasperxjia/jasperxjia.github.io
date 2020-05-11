@@ -102,10 +102,10 @@ window.onload = () => {
                   
                     // Change name into a string for web speech api
                     const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
-                    function log() {
+                    /*function log() {
                         document.querySelector('.log').innerHTML = distanceMsg;
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
-                      };
+                      };*/
                       
 
                     scene.appendChild(icon);
@@ -116,12 +116,12 @@ window.onload = () => {
                 });
             })
     },
-        (err) => console.error('Error in retrieving position', err),
+        /*(err) => console.error('Error in retrieving position', err),
         {
             enableHighAccuracy: true,
             maximumAge: 0,
             timeout: 27000,
-        }
+        }*/
     );
 
 
