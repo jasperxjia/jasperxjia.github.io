@@ -82,7 +82,7 @@ window.onload = () => {
 
 
                     
-                    const name = text.getAttribute('title');
+                    var name = text.getAttribute('title');
                    
 
                   
