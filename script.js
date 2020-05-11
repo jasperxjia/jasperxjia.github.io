@@ -91,7 +91,7 @@ window.onload = () => {
                    const icon = document.createElement('a-box');
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                    icon.setAttribute('id', place.name);
-                   icon.setAttribute('src', './assets/place_icon.png');
+                   icon.setAttribute('color', 'yellow');
            
                    // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
                    icon.setAttribute('depth', '10');
