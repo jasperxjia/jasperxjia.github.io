@@ -89,5 +89,14 @@ window.onload = () => {
     );
 };
 
+const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
+
+function log() {
+    document.querySelector('.log').innerHTML = distanceMsg
+    .addEventListener("click", log());
+};
+
+
+
 
                 
