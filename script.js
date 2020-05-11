@@ -108,7 +108,7 @@ window.onload = () => {
                     function log() {
                         stopPropagation();
                         preventDefault();
-                        document.querySelector('.log').innerHTML = name
+                        document.querySelector('.log').innerHTML = name;
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
 
