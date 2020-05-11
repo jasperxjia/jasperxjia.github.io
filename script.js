@@ -116,7 +116,7 @@ window.onload = () => {
                         container.setAttribute('id', 'place-label');
                         label.innerText = name;
                         container.appendChild(label);
-                        document.body.appendChild(container);
+                        document.p.appendChild(container);
         
                         setTimeout(() => {
                             container.parentElement.removeChild(container);
