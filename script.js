@@ -80,13 +80,7 @@ window.onload = () => {
                 
                 scene.appendChild(icon);
                 
-                const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distance');
-                function log() {
-                     document.querySelector('.log').innerHTML = distanceMsg;
-                     //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
-                   };
 
-                   log();
                    
 
                     
