@@ -85,6 +85,14 @@ window.onload = () => {
                     const name = text.getAttribute('title');
                    
  */
+AFRAME.registerComponent("clickhandler", {
+    init: function() {
+      // we add the click event listener to any instance of this component
+      this.el.addEventListener("click", () => {
+        alert("Clicked!");
+      });
+    }
+  });
                   
                 // a-image based icon
 
@@ -92,6 +100,7 @@ window.onload = () => {
                    icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                    icon.setAttribute('id', place.name);
                    icon.setAttribute('src', './assets/map-marker.png');
+                   icon.setAttribute('clickhandler','');
                    
            
                    // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
@@ -109,7 +118,14 @@ window.onload = () => {
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
                       
-
+                      AFRAME.registerComponent("clickhandler", {
+                        init: function() {
+                          // we add the click event listener to any instance of this component
+                          this.el.addEventListener("click", () => {
+                            alert("Clicked!");
+                          });
+                        }
+                      });
                     icon.addEventListener('click', log());
 
                     scene.appendChild(icon);
