@@ -119,12 +119,12 @@ window.onload = () => {
                 });
             })
     },
-        /*(err) => console.error('Error in retrieving position', err),
+        (err) => console.error('Error in retrieving position', err),
         {
             enableHighAccuracy: true,
             maximumAge: 0,
             timeout: 27000,
-        }*/
+        }
     );
 
 
