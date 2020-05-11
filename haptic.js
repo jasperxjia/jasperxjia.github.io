@@ -20,3 +20,4 @@
                    
 
                  scene.appendChild(icon);
+                 look-at="[gps-camera]"
