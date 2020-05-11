@@ -100,7 +100,7 @@ window.onload = () => {
            
                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                    
-                   const name = icon.getAttribute('name');
+                   const title = icon.getAttribute('name');
 
                    icon.addEventListener('click', log());
                     // Change name into a string for web speech api
@@ -108,7 +108,7 @@ window.onload = () => {
                     function log() {
                         stopPropagation();
                         preventDefault();
-                        document.querySelector('.log').innerHTML = name
+                        document.querySelector('.log').innerHTML = title
                         //speechSynthesis.speak(new SpeechSynthesisUtterance(name));
                       };
 
