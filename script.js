@@ -111,7 +111,7 @@ window.onload = () => {
                       };
 
 
-                    //icon.addEventListener('click', log());
+                    icon.addEventListener('mouseenter', log());
 
                     scene.appendChild(icon);
 
