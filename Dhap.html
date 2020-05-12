@@ -60,7 +60,7 @@
         
         const text = document.getElementById('text-box');
         const castle = document.querySelector("#castle");
-        const marker = document.querySelector("#marker");
+        const marker = document.getElementById("#marker");
         
 
         castle.addEventListener('click', function (event) {
@@ -72,7 +72,7 @@
             text.object3D.visible = false;
           } );
 
-       castle.addEventListener('loaded',alert('marker loaded'));
+       marker.addEventListener('loaded',alert('marker loaded'));
 
         
       }
