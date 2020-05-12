@@ -94,7 +94,7 @@ window.onload = () => {
                     };*/
                     
 
-                    icon.appendChild(text);
+                    scene.appendChild(text);
                     scene.appendChild(icon);
 
                     icon.addEventListener('click', () => {
