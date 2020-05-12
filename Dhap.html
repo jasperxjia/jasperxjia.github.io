@@ -24,20 +24,7 @@
 <!-- Dynamically add places from Foursquare API
 <script src="./script.js"></script-->
 
-  <script>
-    AFRAME.registerComponent('object-model', {
-      init: function () {
-        const castle = document.querySelector("#castle");
-        const text = document.getElementById('text-box');
-        castle.addEventListener('click', function (event) {
-          if(text.object3D.visible == false && event.detail.cursorEl){
-            text.object3D.visible = true;
-            alert("Clicked!");
-          } 
-        });
-      }
-    });
- </script>
+
 
 
 <!-- AR scene Render -->
@@ -62,6 +49,21 @@
     <a-entity camera>
     </a-entity>
   </a-scene>
+
+  <script>
+    AFRAME.registerComponent('object-model', {
+      init: function () {
+        const castle = document.querySelector("#castle");
+        const text = document.getElementById('text-box');
+        castle.addEventListener('click', function (event) {
+          if(text.object3D.visible == false && event.detail.cursorEl){
+            text.object3D.visible = true;
+            alert("Clicked!");
+          } 
+        });
+      }
+    });
+ </script>
             <!--a-entity  
             
             position="0 0 -1"
