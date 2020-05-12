@@ -53,8 +53,8 @@
   <script>
 window.onload = () => {
   const castle = document.querySelector("#castle");
-castle.addEventListener('markerFound',speechSynthesis.speak(new SpeechSynthesisUtterance('marker loaded')));
-castle.addEventListener('markerLost',speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost')));
+castle.addEventListener('markerFound',alert('marker loaded'));
+castle.addEventListener('markerLost',alert('marker lost'));
 
 
 };
