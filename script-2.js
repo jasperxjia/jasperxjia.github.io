@@ -77,7 +77,7 @@ window.onload = () => {
                     icon.setAttribute('depth', '5');
                     icon.setAttribute('height', '5');
                     icon.setAttribute('width', '5');
-                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
+                    text.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                     
 
                     /*const clickListener = function (ev) {
