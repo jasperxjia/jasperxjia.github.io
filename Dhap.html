@@ -3,16 +3,17 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Use haptic to cue location and interactioon for VIP Demo</title>
+    <title>Haptic-Audio Based Landmark Navigation for VIP Demo</title>
 
+    <link rel="stylesheet" href="./style.css">
 
     
     <!-- Aframe and AR.js -->
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src='https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js'></script>
+    <script src='./aframe-ar.js'></script>
+    
 
-    <!-- Haptic API 
+    <!-- Haptic API >
     <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script-->
 
     <!-- Web Audio API -->
@@ -21,25 +22,54 @@
 
 
 
-<!-- Dynamically add places from Foursquare API -->
-<script src="./haptic.js"></script>
-<script src="./voice.js"></script>
+<!-- Dynamically add places from Foursquare API
+<script src="./script.js"></script-->
+
+  <script>
+    AFRAME.registerComponent('object-model', {
+      init: function () {
+        const castle = document.querySelector("#castle");
+        const text = document.getElementById('text-box');
+        castle.addEventListener('click', function (event) {
+          if(text.object3D.visible == false && event.detail.cursorEl){
+            text.object3D.visible = true;
+            alert("Clicked!");
+          } 
+        });
+      }
+    });
+ </script>
 
 
+<!-- AR scene Render -->
+<body style='margin: 0; overflow: hidden;'>
 
-<!-- AR marker based scene Render -->
-<body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
-    <a-marker id="animated-marker" markerhandler emitevents="true" preset="hiro">
-        <a-entity
-        id="animated-model"
-        position="0 -1 0"
-        scale="0.1 0.1 0.1"
-        gltf-model="./assets/lowpoly_pin/scene.gltf"
-        ></a-entity>
+
+  <a-scene id="thescene" cursor="rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;">
+
+    <a-assets>
+      <a-asset-item id="mega" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
+    </a-assets>
+    
+    <a-marker preset='hiro'>
+      <a-entity gltf-model="#mega" scale="0.05 0.05 0.05" position="0 0 0" rotation="-90 0 0" object-model id="castle"></a-entity>
+      <a-entity geometry="primitive: plane;" material="opacity: 0">
+        <a-text value="Clicked!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
+      </a-entity>
     </a-marker>
-    <a-entity camera></a-entity>
-    </a-scene>
+
+    <!-- add a basic camera -->
+    <!-- So object will land on marker -->
+    <a-entity camera>
+    </a-entity>
+  </a-scene>
+            <!--a-entity  
+            
+            position="0 0 -1"
+            geometry="primitive: sphere; radius:0.01;"
+            material="color: black; shader: flat">
+        </a-entity-->
+
+
 </body>
-
-
+</html>
