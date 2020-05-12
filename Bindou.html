@@ -33,6 +33,7 @@
 
 
     <a-scene
+        clickable
         cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
         raycaster="objects: [gps-entity-place];"
         vr-mode-ui="enabled: false"
@@ -49,7 +50,7 @@
     </a-scene>
     
     <script>
-        AFRAME.registerComponent('gps-entity-place', {
+        AFRAME.registerComponent('clickable', {
           init: function () {
             const model = document.querySelector("#model");
             const text = text.getAttribute("value");
