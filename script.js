@@ -72,7 +72,7 @@ window.onload = () => {
                     text.setAttribute('title', place.name);
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
-                    text.setAttribute('clickhandler');
+                    text.setAttribute('image', '#yo');
 
 
                    
