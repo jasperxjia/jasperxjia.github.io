@@ -51,18 +51,19 @@
   </a-scene>
 
   <script>
-window.onload = () => {
-  const castle = document.querySelector("#castle");
-castle.addEventListener('markerFound',alert('marker loaded'));
-castle.addEventListener('markerLost',alert('marker lost'));
 
 
-};
+
 
     AFRAME.registerComponent('object-model', {
       init: function () {
         
         const text = document.getElementById('text-box');
+        const castle = document.querySelector("#castle");
+        
+        castle.addEventListener('markerFound',alert('marker loaded'));
+        castle.addEventListener('markerLost',alert('marker lost'));
+
         
 
         castle.addEventListener('click', function (event) {
