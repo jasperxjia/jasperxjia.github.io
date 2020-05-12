@@ -1,8 +1,37 @@
-const loadPlaces = function (coords) {
-    // COMMENT FOLLOWING LINE IF YOU WANT TO USE STATIC DATA AND ADD COORDINATES IN THE FOLLOWING 'PLACES' ARRAY
-    const method = 'api';
+window.onload = () => {
+    let method = 'dynamic';
 
-    const PLACES = [
+    // if you want to statically add places, de-comment following line
+    method = 'static';
+
+    if (method === 'static') {
+        let places = staticLoadPlaces();
+        renderPlaces(places);
+    }
+
+    if (method !== 'static') {
+
+        // first get current user location
+        return navigator.geolocation.getCurrentPosition(function (position) {
+
+            // than use it to load from remote APIs some places nearby
+            dynamicLoadPlaces(position.coords)
+                .then((places) => {
+                    renderPlaces(places);
+                })
+        },
+            (err) => console.error('Error in retrieving position', err),
+            {
+                enableHighAccuracy: true,
+                maximumAge: 0,
+                timeout: 27000,
+            }
+        );
+    }
+};
+
+function staticLoadPlaces() {
+    return [
         {
             name: "Your place name",
             location: {
@@ -10,18 +39,19 @@ const loadPlaces = function (coords) {
                 lng: 0, // add here longitude if using static data
             }
         },
+        {
+            name: 'Another place name',
+            location: {
+                lat: 0,
+                lng: 0,
+            }
+        }
     ];
-
-    if (method === 'api') {
-        return loadPlaceFromAPIs(coords);
-    }
-
-    return Promise.resolve(PLACES);
-};
+}
 
 // getting places from REST APIs
-function loadPlaceFromAPIs(position) {
-    const params = {
+function dynamicLoadPlaces(position) {
+    let params = {
         radius: 300,    // search places not farther than this value (in meters)
         clientId: 'YWZGWLNCFMGGIDF5FABJITRA0J04P2TRANBIXLWNHZIAF4A5', // Bindou Web AR App ID
         clientSecret: 'DJLNEE3G0GKV0Y0KHA1UTMINYQE20PVCDULSWXJR0WAV0SV4', // Bindou Web AR App Secret
@@ -29,15 +59,15 @@ function loadPlaceFromAPIs(position) {
     };
 
     // CORS Proxy to avoid CORS problems
-    const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+    let corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
     // Foursquare API
-    const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
+    let endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
         &ll=${position.latitude},${position.longitude}
         &radius=${params.radius}
         &client_id=${params.clientId}
         &client_secret=${params.clientSecret}
-        &limit=20
+        &limit=15
         &v=${params.version}`;
     return fetch(endpoint)
         .then((res) => {
