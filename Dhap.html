@@ -62,6 +62,9 @@
         const castle = document.getElementById("castle");
         
         
+        castle.addEventListener('markerFound', function (event) {
+            alert('marker loaded')
+          } );
 
         castle.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
@@ -77,8 +80,7 @@
         
       }
     });
-    const model = markerObject3D;
-    model.addEventListener('loaded',alert('marker loaded'));
+
  </script>
             <!--a-entity  
             
