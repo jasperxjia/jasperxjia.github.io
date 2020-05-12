@@ -49,19 +49,6 @@
 
     </a-scene>
     
-    <script>
-        AFRAME.registerComponent('clickable', {
-          init: function () {
-            const model = document.querySelector("#model");
-            const text = text.getAttribute("value");
-            model.addEventListener('click', function (event) {
-                alert("Clicked!");
-                speechSynthesis.speak(new SpeechSynthesisUtterance("Clicked"));
-              
-            });
-          }
-        });
-     </script>
             <!--a-entity  
             
             position="0 0 -1"
