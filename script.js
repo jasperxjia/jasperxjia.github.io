@@ -91,10 +91,10 @@ window.onload = () => {
                             label.innerText = name;
                         }
                     };*/
-                    scene.addEventListener('click', alert('clicked'));
+                    
 
                     scene.appendChild(text);
-                
+                    text.addEventListener('click', alert('clicked'));
 
                    
 
