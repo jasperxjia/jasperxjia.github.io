@@ -54,6 +54,7 @@ function loadPlaceFromAPIs(position) {
 
 window.onload = () => {
     const scene = document.querySelector('a-scene');
+    
 
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
@@ -71,7 +72,7 @@ window.onload = () => {
                     text.setAttribute('title', place.name);
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
-                    text.setAttribute('clickhandler', '');
+                    text.setAttribute('clickhandler');
 
 
                    
