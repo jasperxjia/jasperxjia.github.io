@@ -28,7 +28,7 @@
 
 
 <!-- AR scene Render -->
-<body onclick="speechSynthesis.speak(new SpeechSynthesisUtterance('clicked'))" style='margin: 0; overflow: hidden;'>
+<body style='margin: 0; overflow: hidden;'>
 
 
   <a-scene object-model id="thescene" cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;">
@@ -60,7 +60,7 @@
             text.object3D.visible = true;
           } 
 
-          else{
+          if(text.object3D.visible == true && event.detail.cursorEl){
             text.object3D.visible = false;
           }
           
