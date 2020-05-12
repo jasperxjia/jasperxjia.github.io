@@ -59,6 +59,7 @@
           if(text.object3D.visible == false && event.detail.cursorEl){
             text.object3D.visible = true;
             alert("Clicked!");
+            speechSynthesis.speak(new SpeechSynthesisUtterance("Clicked"));
           } 
         });
       }
