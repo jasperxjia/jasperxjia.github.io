@@ -81,7 +81,8 @@ window.onload = () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                     });
 
-                    /*const clickListener = function (ev) {
+                    
+                    const clickListener = function (ev) {
                         ev.stopPropagation();
                         ev.preventDefault();
             
@@ -90,17 +91,19 @@ window.onload = () => {
                         const el = ev.detail.intersection && ev.detail.intersection.object.el;
             
                         if (el && el === ev.target) {
-                            const label = document.querySelector('.log');
-                            label.innerText = name;
+                            alert("Clicked!")
                         }
-                    };*/
+                    };
                     
+                    text.addEventListener('click', clickListener);
+                    
+                    /*() => {
+                        alert("Clicked!");
+                      });*/
 
                     scene.appendChild(text);
 
-                    scene.addEventListener('click', () => {
-                        alert("Clicked!");
-                      });
+                   
                    
 
                     
