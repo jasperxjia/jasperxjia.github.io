@@ -46,7 +46,21 @@
         <a-camera gps-camera="minDistance:50;" rotation-reader>
         </a-camera>
 
-	</a-scene>
+    </a-scene>
+    
+    <script>
+        AFRAME.registerComponent('gps-entity-place', {
+          init: function () {
+            const model = document.querySelector("#model");
+            const text = text.getAttribute("value");
+            model.addEventListener('click', function (event) {
+                alert("Clicked!");
+                speechSynthesis.speak(new SpeechSynthesisUtterance("Clicked"));
+              } 
+            });
+          }
+        });
+     </script>
             <!--a-entity  
             
             position="0 0 -1"
