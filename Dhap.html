@@ -31,14 +31,14 @@
 <body style='margin: 0; overflow: hidden;'>
 
 
-  <a-scene object-model id="thescene" cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;">
+  <a-scene  id="thescene" cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;">
 
     <a-assets>
       <a-asset-item id="mega" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
     </a-assets>
     
     <a-marker preset='hiro'>
-      <a-entity gltf-model="#mega" scale="0.05 0.05 0.05" position="0 0 0" rotation="-90 0 0" object-model id="castle"></a-entity>
+      <a-entity gltf-model="#mega" scale="0.05 0.05 0.05" position="0 0 0" rotation="-90 0 0" clickable id="castle"></a-entity>
       <a-entity geometry="primitive: plane;" material="opacity: 0">
         <a-text value="Clicked!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
       </a-entity>
@@ -51,7 +51,7 @@
   </a-scene>
 
   <script>
-    AFRAME.registerComponent('object-model', {
+    AFRAME.registerComponent('clickable', {
       init: function () {
         const castle = document.querySelector("#castle");
         const text = document.getElementById('text-box');
