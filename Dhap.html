@@ -37,7 +37,7 @@
       <a-asset-item id="mega" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
     </a-assets>
     
-    <a-marker preset='hiro'>
+    <a-marker id="marker" preset='hiro'>
       <a-entity onclick="speechSynthesis.speak(new SpeechSynthesisUtterance('A pin'))" gltf-model="#mega" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" object-model id="castle"></a-entity>
       <a-entity geometry="primitive: plane;" material="opacity: 0">
         <a-text value="Clicked!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
@@ -58,9 +58,10 @@
       init: function () {
         const castle = document.querySelector("#castle");
         const text = document.getElementById('text-box');
+        const marker = document.getElementById("#marker");
 
-        castle.addEventListener('markerFound',speechSynthesis.speak(new SpeechSynthesisUtterance('marker loaded')));
-        castle.addEventListener('markerLost',speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost')));
+        marker.addEventListener('markerFound',speechSynthesis.speak(new SpeechSynthesisUtterance('marker loaded')));
+        marker.addEventListener('markerLost',speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost')));
 
         castle.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
