@@ -52,17 +52,16 @@
 
   <script>
 window.onload = () => {
-  const marker = document.getElementById("#marker");
-
-marker.addEventListener('markerFound',speechSynthesis.speak(new SpeechSynthesisUtterance('marker loaded')));
-marker.addEventListener('markerLost',speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost')));
+  const castle = document.querySelector("#castle");
+castle.addEventListener('markerFound',speechSynthesis.speak(new SpeechSynthesisUtterance('marker loaded')));
+castle.addEventListener('markerLost',speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost')));
 
 
 };
 
     AFRAME.registerComponent('object-model', {
       init: function () {
-        const castle = document.querySelector("#castle");
+        
         const text = document.getElementById('text-box');
         
 
