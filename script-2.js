@@ -71,10 +71,9 @@ window.onload = () => {
                     icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     icon.setAttribute('name', place.name);
                     icon.setAttribute('src', './assets/map-marker.png');
-                    icon.setAttribute('depth', '10');
-                    icon.setAttribute('height', '10');
-                    icon.setAttribute('width', '10');
-                    icon.setAttribute('look-at', '[gps-camera]');
+                    icon.setAttribute('depth', '5');
+                    icon.setAttribute('height', '5');
+                    icon.setAttribute('width', '5');
                     icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                     
 
