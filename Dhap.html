@@ -59,7 +59,8 @@
         const castle = document.querySelector("#castle");
         const text = document.getElementById('text-box');
 
-        castle.addEventListener('loaded',speechSynthesis.speak(new SpeechSynthesisUtterance('loaded')));
+        castle.addEventListener('markerFound',speechSynthesis.speak(new SpeechSynthesisUtterance('marker loaded')));
+        castle.addEventListener('markerLost',speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost')));
 
         castle.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
