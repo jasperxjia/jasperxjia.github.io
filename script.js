@@ -97,7 +97,9 @@ window.onload = () => {
 
                     scene.appendChild(text);
 
-
+                    scene.addEventListener("click", () => {
+                        alert("Clicked!");
+                      });
                    
 
                     
