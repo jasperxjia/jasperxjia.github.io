@@ -76,7 +76,7 @@ window.onload = () => {
                     icon.setAttribute('width', '5');
                     icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                     
-
+                    let text = icon.getAttribute('name');
                     /*const clickListener = function (ev) {
                         ev.stopPropagation();
                         ev.preventDefault();
@@ -93,6 +93,7 @@ window.onload = () => {
                     
 
                     scene.appendChild(icon);
+                    scene.appendChild(text);
 
                     icon.addEventListener('click', () => {
                         alert("Clicked!");
