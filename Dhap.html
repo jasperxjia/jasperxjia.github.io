@@ -55,12 +55,13 @@
       init: function () {
         const castle = document.querySelector("#castle");
         const text = document.getElementById('text-box');
+        const scene = document.querySelector('#thescene');
         castle.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
             text.object3D.visible = true;
           } });
 
-          a-scene.addEventListener('click', function (event) {
+          scene.addEventListener('click', function (event) {
           if(text.object3D.visible == true && event.detail.cursorEl){
             text.object3D.visible = false;
           } });
