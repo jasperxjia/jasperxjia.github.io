@@ -59,10 +59,8 @@
         castle.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
             text.object3D.visible = true;
-          } });
-
-          scene.addEventListener('click', function (event) {
-          if(text.object3D.visible == true && event.detail.cursorEl){
+          } 
+          else{
             text.object3D.visible = false;
           } });
 
