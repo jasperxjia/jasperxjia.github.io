@@ -60,7 +60,7 @@
         
         const text = document.getElementById('text-box');
         const castle = document.querySelector("#castle");
-        const scene = document.getElementById("#thescene");
+        const model = document.getElementById("#mega");
         
 
         castle.addEventListener('click', function (event) {
@@ -72,7 +72,7 @@
             text.object3D.visible = false;
           } );
 
-       scene.addEventListener('loaded',alert('marker loaded'));
+       model.addEventListener('loaded',alert('marker loaded'));
 
         
       }
