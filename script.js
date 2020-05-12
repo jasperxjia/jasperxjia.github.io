@@ -91,7 +91,7 @@ window.onload = () => {
                         const el = ev.detail.intersection && ev.detail.intersection.object.el;
             
                         if (el && el === ev.target) {
-                            alert("Clicked!")
+                            alert("Clicked!");
                         }
                     };
                     

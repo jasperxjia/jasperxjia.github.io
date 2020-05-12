@@ -8,9 +8,10 @@ AFRAME.registerComponent('markerhandler', {
       animatedMarker.addEventListener('click', function(ev, target){
           const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
           if (aEntity && intersectedElement === aEntity) {
-              const scale = aEntity.getAttribute('scale');
-              Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.2);
-              aEntity.setAttribute('scale', scale);
+            alert("clicked!");
+              //const scale = aEntity.getAttribute('scale');
+              //Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.2);
+              //aEntity.setAttribute('scale', scale);
           }
       });
 }});
