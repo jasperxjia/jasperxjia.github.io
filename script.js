@@ -73,6 +73,7 @@ window.onload = () => {
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
                     text.setAttribute('image', '#yo');
+                    text.setAttribute('look-at', '[gps-camera]');
 
 
                    
