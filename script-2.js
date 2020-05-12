@@ -96,7 +96,7 @@ window.onload = () => {
                     
 
                     scene.appendChild(text);
-                    scene.appendChild(icon);
+                    //scene.appendChild(icon);
 
                     icon.addEventListener('click', () => {
                         alert("Clicked!");
