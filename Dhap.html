@@ -58,13 +58,15 @@
         castle.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
             text.object3D.visible = true;
-          } 
+          } });
 
+          castle.addEventListener('dblclick', function (event) {
           if(text.object3D.visible == true && event.detail.cursorEl){
             text.object3D.visible = false;
-          }
+          } });
+
           
-        });
+        
       }
     });
  </script>
