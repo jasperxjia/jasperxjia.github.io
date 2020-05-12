@@ -30,10 +30,11 @@
 <!-- AR marker based scene Render -->
 <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
-    <a-marker preset="hiro">
+    <a-marker id="animated-marker" markerhandler emitevents="true" preset="hiro">
         <a-entity
+        id="animated-model"
         position="1 -1 0"
-        scale="0.2 0.2 0.2"
+        scale="0.2"
         gltf-model="./assets/lowpoly_pin/scene.gltf"
         ></a-entity>
     </a-marker>
