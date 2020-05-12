@@ -50,17 +50,11 @@
             material="color: black; shader: flat">
         </a-entity-->
 
-<!--script>
+<script>
     window.onload = function() {
-      document
-        .querySelector(".log")
-        .addEventListener("click", function() {
-          // here you can change also a-scene or a-entity properties, like
-          // changing your 3D model source, size, position and so on
-          // or you can just open links, trigger actions...
-          alert("Lahhh");
-        });
+      let link = document.querySelector("a-link")
+      link.addEventListener('click', alert('clicked'));
     };
-  </script-->
+</script>
 
 </body>
