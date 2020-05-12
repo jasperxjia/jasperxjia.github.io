@@ -59,10 +59,11 @@
       init: function () {
         
         const text = document.getElementById('text-box');
-        const castle = document.getElementById("castle").object3D;
+        const castle = document.getElementById("castle");
+        const model = document.getElementById("castle").object3D;
         
         
-        castle.addEventListener('loaded', function (event) {
+        model.addEventListener('loaded', function (event) {
             alert('marker loaded')
           } );
 
