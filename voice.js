@@ -1,5 +1,5 @@
 
-   /* AFRAME.registerComponent("clickhandler", {
+   AFRAME.registerComponent("clickhandler", {
       init: function() {
         // we add the click event listener to any instance of this component
         this.el.addEventListener("click", () => {
@@ -7,6 +7,8 @@
         });
       }
     });
+
+    /*
                     text.setAttribute('title', place.name);
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
