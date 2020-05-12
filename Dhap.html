@@ -37,7 +37,7 @@
       <a-asset-item id="mega" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
     </a-assets>
     
-    <a-marker id="anchor" preset='hiro'>
+    <a-marker registerevents preset='hiro'>
       <a-entity onclick="speechSynthesis.speak(new SpeechSynthesisUtterance('A pin'))" gltf-model="#mega" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" object-model id="castle"></a-entity>
       <a-entity geometry="primitive: plane;" material="opacity: 0">
         <a-text value="Clicked!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
@@ -52,13 +52,28 @@
 
   <script>
 
+    AFRAME.registerComponent('registerevents', {
+        init: function () {
+          var marker = this.el;
 
+          marker.addEventListener('markerFound', function() {
+            var markerId = marker.id;
+            alert('markerFound');
+            // TODO: Add your own code here to react to the marker being found.
+          });
+
+          marker.addEventListener('markerLost', function() {
+            var markerId = marker.id;
+            alert('markerLost');s
+            // TODO: Add your own code here to react to the marker being lost.
+          });
+        }
+      });
 
 
     AFRAME.registerComponent('object-model', {
       init: function () {
 
-        anchorRef.addEventListener("markerFound", (e)=>{ alert('marker loaded')});
         
         const text = document.getElementById('text-box');
         const castle = document.getElementById("castle");
