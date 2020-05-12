@@ -68,6 +68,8 @@ window.onload = () => {
 
                     // add place name
                     const icon = document.createElement('a-box');
+                    const text = document.createElement('a-text');
+                    text.setAttribute('value', place.name);
                     icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     icon.setAttribute('name', place.name);
                     icon.setAttribute('src', './assets/map-marker.png');
@@ -76,7 +78,7 @@ window.onload = () => {
                     icon.setAttribute('width', '5');
                     icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
                     
-                    let text = icon.getAttribute('name');
+
                     /*const clickListener = function (ev) {
                         ev.stopPropagation();
                         ev.preventDefault();
@@ -92,8 +94,8 @@ window.onload = () => {
                     };*/
                     
 
+                    icon.appendChild(text);
                     scene.appendChild(icon);
-                    scene.appendChild(text);
 
                     icon.addEventListener('click', () => {
                         alert("Clicked!");
