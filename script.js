@@ -71,7 +71,7 @@ window.onload = () => {
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('href', '');
-                    text.setAttribute('scale', '10 10 10');
+                    text.setAttribute('scale', '10 10');
                     text.setAttribute('image', '#yo');
                     text.setAttribute('look-at', '[gps-camera]');
 
