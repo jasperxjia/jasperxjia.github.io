@@ -70,7 +70,7 @@
     AFRAME.registerComponent('object-model', {
       init: function () {
 
-        const thescene = document.getElementById('thescene');
+        const thescene = document.querySelector(body);
 
         const text = document.getElementById('text-box');
         const readtext = text.getAttribute('value');
