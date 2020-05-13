@@ -76,10 +76,14 @@
         castle.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
             text.object3D.visible = true;
+            speechSynthesis.speak(new SpeechSynthesisUtterance('text shown')); 
+            window.navigator.vibrate(200);
           } });
 
           text.addEventListener('click', function (event) {
             text.object3D.visible = false;
+            speechSynthesis.speak(new SpeechSynthesisUtterance('text hidden')); 
+            window.navigator.vibrate(200);
           } );     
       }
     });
