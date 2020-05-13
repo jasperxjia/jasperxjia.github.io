@@ -22,12 +22,12 @@
 
     <!--Asset Management System (not rendered unless called)-->
     <a-assets>
-      <a-asset-item id="mega" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
+      <a-asset-item  id="asset1" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
     <a-marker registerevents object-model preset='hiro'>
-      <a-entity   gltf-model="#mega" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" id="model"></a-entity>
+      <a-entity   gltf-model="#asset1" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" id="model" alt="This is a pin!"></a-entity>
       <a-entity geometry="primitive: plane;" material="opacity: 0">
         <a-text value="Yo!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
       </a-entity>
@@ -72,12 +72,15 @@
 
         const text = document.getElementById('text-box');
         const readtext = text.getAttribute('value');
+
         const model = document.getElementById("model");
+
+        const readmodel = model.getAttribute('alt');
 
         model.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
             text.object3D.visible = true;
-            speechSynthesis.speak(new SpeechSynthesisUtterance(readtext)); 
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
             window.navigator.vibrate(200);}
 
           else{
