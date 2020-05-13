@@ -10,8 +10,8 @@
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> 
     <script src="./aframe-ar.js"></script>
 
-    <!-- Import Haptic API >
-    <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script-->
+    <!-- Import Haptic API -->
+    <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script>
 
 </head>
 
@@ -51,13 +51,15 @@
             var markerId = marker.id;
             //alert('markerfound');// TODO: Add your own code here to react to the marker being found.
             speechSynthesis.speak(new SpeechSynthesisUtterance('marker found'));
+            window.navigator.vibrate(200);
             
           });
 
           marker.addEventListener('markerLost', function() {
             var markerId = marker.id;
             //alert('markerLost');// TODO: Add your own code here to react to the marker being lost.
-            speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost'));           
+            speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost')); 
+            window.navigator.vibrate(200);          
           });
         }
       });
