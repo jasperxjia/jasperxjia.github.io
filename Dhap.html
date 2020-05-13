@@ -49,14 +49,14 @@
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
-            alert('markerfound');// TODO: Add your own code here to react to the marker being found.
+            //alert('markerfound');// TODO: Add your own code here to react to the marker being found.
             speechSynthesis.speak(new SpeechSynthesisUtterance('marker found'));
             
           });
 
           marker.addEventListener('markerLost', function() {
             var markerId = marker.id;
-            alert('markerLost');// TODO: Add your own code here to react to the marker being lost.
+            //alert('markerLost');// TODO: Add your own code here to react to the marker being lost.
             speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost'));           
           });
         }
