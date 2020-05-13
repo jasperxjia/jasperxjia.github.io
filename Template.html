@@ -10,15 +10,15 @@
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> 
     <script src="./aframe-ar.js"></script>
 
-    <!-- Import Haptic API >
-    <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script-->
-      
+    <!-- Import Haptic API -->
+    <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script>
+
 </head>
 
 
-<!-- AR scene Render based on AFRAME -->
+<!-- AR scene Render based on AFRAME onclick="speechSynthesis.speak(new SpeechSynthesisUtterance('find objects'))" -->
 <body style='margin: 0; overflow: hidden;'>
-  <a-scene object-model id="thescene" cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;">
+  <a-scene id="thescene" cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;">
 
     <!--Asset Management System (not rendered unless called)-->
     <a-assets>
@@ -26,10 +26,10 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker registerevents preset='hiro'>
-      <a-entity onclick="speechSynthesis.speak(new SpeechSynthesisUtterance('A pin'))" gltf-model="#mega" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" object-model id="castle"></a-entity>
+    <a-marker registerevents object-model preset='hiro'>
+      <a-entity   gltf-model="#mega" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" id="model"></a-entity>
       <a-entity geometry="primitive: plane;" material="opacity: 0">
-        <a-text value="Clicked!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
+        <a-text value="Yo!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
       </a-entity>
     </a-marker>
 
@@ -49,14 +49,17 @@
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
-            alert('markerFound');// TODO: Add your own code here to react to the marker being found.
+            //alert('markerfound');// TODO: Add your own code here to react to the marker being found.
+            speechSynthesis.speak(new SpeechSynthesisUtterance('A R object found'));
+            window.navigator.vibrate([200, 100, 200]);
             
           });
 
           marker.addEventListener('markerLost', function() {
             var markerId = marker.id;
-            alert('markerLost');// TODO: Add your own code here to react to the marker being lost.
-            
+            //alert('markerLost');// TODO: Add your own code here to react to the marker being lost.
+            speechSynthesis.speak(new SpeechSynthesisUtterance('A R object lost')); 
+            window.navigator.vibrate(200);          
           });
         }
       });
@@ -68,15 +71,19 @@
       init: function () {
 
         const text = document.getElementById('text-box');
-        const castle = document.getElementById("castle");
+        const model = document.getElementById("model");
 
-        castle.addEventListener('click', function (event) {
+        model.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
             text.object3D.visible = true;
+            speechSynthesis.speak(new SpeechSynthesisUtterance('text shown')); 
+            window.navigator.vibrate(200);
           } });
 
           text.addEventListener('click', function (event) {
             text.object3D.visible = false;
+            speechSynthesis.speak(new SpeechSynthesisUtterance('text hidden')); 
+            window.navigator.vibrate(200);
           } );     
       }
     });
