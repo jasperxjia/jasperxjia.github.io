@@ -70,6 +70,8 @@
     AFRAME.registerComponent('object-model', {
       init: function () {
 
+        const thescene = document.getElementById('thescene');
+
         const text = document.getElementById('text-box');
         const readtext = text.getAttribute('value');
 
@@ -77,7 +79,7 @@
 
         const readmodel = model.getAttribute('alt');
 
-        model.addEventListener('click', function (event) {
+        thescene.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
             text.object3D.visible = true;
             //speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
