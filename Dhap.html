@@ -22,12 +22,12 @@
 
     <!--Asset Management System (not rendered unless called)-->
     <a-assets>
-      <a-asset-item id="mega" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
+      <a-asset-item object-model id="mega" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
     <a-marker registerevents preset='hiro'>
-      <a-entity object-model  gltf-model="#mega" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" id="castle"></a-entity>
+      <a-entity   gltf-model="#mega" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" id="castle"></a-entity>
       <a-entity geometry="primitive: plane;" material="opacity: 0">
         <a-text value="Yo!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
       </a-entity>
@@ -50,7 +50,7 @@
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
             //alert('markerfound');// TODO: Add your own code here to react to the marker being found.
-            speechSynthesis.speak(new SpeechSynthesisUtterance('marker found'));
+            speechSynthesis.speak(new SpeechSynthesisUtterance('AR object found'));
             window.navigator.vibrate(200);
             
           });
@@ -58,7 +58,7 @@
           marker.addEventListener('markerLost', function() {
             var markerId = marker.id;
             //alert('markerLost');// TODO: Add your own code here to react to the marker being lost.
-            speechSynthesis.speak(new SpeechSynthesisUtterance('marker lost')); 
+            speechSynthesis.speak(new SpeechSynthesisUtterance('AR object lost')); 
             window.navigator.vibrate(200);          
           });
         }
