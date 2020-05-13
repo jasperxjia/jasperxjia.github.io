@@ -27,11 +27,10 @@
     
     <!--Add a Marker where assets load onto-->
     <a-marker registerevents object-model preset='hiro'>
-      <a-entity  onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(this.el.getAttribute('alt'))); " gltf-model="#asset1" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" id="model" alt="This is a pin!"></a-entity>
+      <a-entity  onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(this.el.getAttribute('alt')));" gltf-model="#asset1" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" id="model" alt="This is a pin!"></a-entity>
       <a-entity geometry="primitive: plane;" material="opacity: 0">
         <a-text value="Yo!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
       </a-entity>
-      <a-entity id="thescene" geometry="primitive: cube" position="0 1 -1" scale="100 100 100"  material="opacity: 0.0; transparent: true"></a-entity>
     </a-marker>
 
     <!--Add a Camera-->
@@ -71,7 +70,6 @@
     AFRAME.registerComponent('object-model', {
       init: function () {
 
-        const thescene = document.getElementById('thescene');
 
         const text = document.getElementById('text-box');
         const readtext = text.getAttribute('value');
@@ -80,7 +78,7 @@
 
         const readmodel = model.getAttribute('alt');
 
-        thescene.addEventListener('click', function (event) {
+        model.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
             text.object3D.visible = true;
             //speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
