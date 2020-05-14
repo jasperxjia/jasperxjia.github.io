@@ -27,11 +27,8 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker registerevents  preset='hiro'>
-      <a-entity  clickable-model
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 10000;"
-        gltf-model="#asset1" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" id="model" alt="This is a pin!">
-      </a-entity>
+    <a-marker registerevents clickable-model preset='hiro'>
+      <a-entity  gltf-model="#asset1" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" id="model" alt="This is a pin!"></a-entity>
 
       <a-entity geometry="primitive: plane;" material="opacity: 0">
         <a-text visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
@@ -48,7 +45,6 @@
   <script>
         
 //Give this conponenet to marker to show alerts found and lost events
-
     AFRAME.registerComponent('registerevents', {
         init: function () {
           var marker = this.el;
@@ -80,7 +76,7 @@
         const readmodel = model.getAttribute('alt');
 
         const textbox = document.getElementById('text-box');
-        const text = textbox.setAttribute('value',readmodel);
+        var text = textbox.setAttribute('value',readmodel);
         const readtext = text.getAttribute('value');
 
 
