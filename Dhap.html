@@ -34,7 +34,7 @@
       </a-entity>
 
       <a-entity geometry="primitive: plane;" material="opacity: 0">
-        <a-text value="Yo!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
+        <a-text visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
       </a-entity>
     </a-marker>
 
@@ -76,13 +76,14 @@
     AFRAME.registerComponent('clickable-model', {
       init: function () {
 
+        const model = document.getElementById("model");
+        const readmodel = model.getAttribute('alt');
 
-        const text = document.getElementById('text-box');
+        const textbox = document.getElementById('text-box');
+        const text = textbox.setAttribute('value',readmodel);
         const readtext = text.getAttribute('value');
 
-        const model = document.getElementById("model");
 
-        const readmodel = model.getAttribute('alt');
 
         model.addEventListener('click', function (event) {
           if(text.object3D.visible == false && event.detail.cursorEl){
