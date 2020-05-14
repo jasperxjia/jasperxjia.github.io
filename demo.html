@@ -52,8 +52,8 @@
     //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('accessibleAR', {
         init: function () {
-          let marker = this.el;
-          let readmarker = marker.getAttribute('alt');
+          const marker = this.el;
+          const readmarker = marker.getAttribute('alt');
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
@@ -70,8 +70,8 @@
             window.navigator.vibrate(200);          
           });
 
-        let model = this.el;
-        let readmodel = model.getAttribute('alt');
+        const model = this.el;
+        const readmodel = model.getAttribute('alt');
   
            model.addEventListener('click', function (event) {
            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
