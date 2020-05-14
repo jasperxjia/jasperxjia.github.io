@@ -54,7 +54,7 @@
     AFRAME.registerComponent('markerevents', {
         init: function () {
           var marker = this.el;
-          let readmarker = marker.getAttribute('alt');
+          const readmarker = marker.getAttribute('alt');
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
@@ -79,8 +79,8 @@
     AFRAME.registerComponent('clickable-model', {
       init: function () {
 
-        let model = marker;
-        let readmodel = model.getAttribute('alt');
+        const model = marker;
+        const readmodel = model.getAttribute('alt');
 
                    //Use this line if no text needed
   
