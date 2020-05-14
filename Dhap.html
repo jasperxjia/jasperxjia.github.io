@@ -86,7 +86,7 @@
 
 
         model.addEventListener('click', function (event) {
-          if(text.object3D.visible == false && event.detail.cursorEl){
+          if(textbox.object3D.visible == false && event.detail.cursorEl){
             textbox.object3D.visible = true;
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
             window.navigator.vibrate(200);}
