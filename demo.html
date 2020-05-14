@@ -84,8 +84,8 @@
         var model = this.el;
         var readmodel = model.getAttribute('alt');
 
-        var textbox = document.getElementById('text-box').setAttribute('value',readmodel); 
-       
+        const textbox = document.getElementById('text-box');
+        const text = textbox.setAttribute('value',readmodel);   
 
 
       model.addEventListener('click', function (event) {
