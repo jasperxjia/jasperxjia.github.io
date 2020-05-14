@@ -77,7 +77,8 @@
            model.addEventListener('click', function (event) {
             if('markerFound'){
            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
-           window.navigator.vibrate(200);}
+           window.navigator.vibrate(200);
+           }
 
            else{
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); 
