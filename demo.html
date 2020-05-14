@@ -68,6 +68,7 @@
             var markerId = marker.id;
             //alert('markerLost');// For testing
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); 
+            window.location.reload();
             window.navigator.vibrate(200);          
           });
         }
