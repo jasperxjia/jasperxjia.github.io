@@ -27,9 +27,8 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker registerevents preset='hiro'>
+    <a-marker markerevents clickable-model preset='hiro'>
       <a-entity  
-        onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(this.el.getAttribute('alt')));" 
         animation="property: rotation; to: 0 360 0; loop: true; dur: 10000;"
         gltf-model="#asset1" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" id="model" alt="This is a pin!">
       </a-entity>
@@ -50,7 +49,7 @@
         
 //Give this conponenet to marker to show alerts found and lost events
 
-    AFRAME.registerComponent('registerevents', {
+    AFRAME.registerComponent('markerevents', {
         init: function () {
           var marker = this.el;
 
@@ -74,7 +73,7 @@
 
 //Give this conponenet to clickable objects 
 
-    AFRAME.registerComponent('object-model', {
+    AFRAME.registerComponent('clickable-model', {
       init: function () {
 
 
