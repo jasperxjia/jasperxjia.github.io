@@ -18,73 +18,94 @@
 
 <!-- AR scene Render based on AFRAME onclick="speechSynthesis.speak(new SpeechSynthesisUtterance('find objects'))" -->
 <body style='margin: 0; overflow: hidden;'>
-  <a-scene id="thescene" cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;" vr-mode-ui="false">
+  <a-scene  
+    cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;" vr-mode-ui="false" >
 
     <!--Asset Management System (not rendered unless called)-->
     <a-assets>
-      <a-asset-item id="mega" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
+      <a-asset-item id="asset1" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
+      <a-asset-item id="asset2" src="./assets/lowpoly_pin/scene.gltf"></a-asset-item>
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker registerevents object-model preset='hiro'>
-      <a-entity   gltf-model="#mega" scale="0.2 0.2 0.2" position="0 0 0" rotation="-90 0 0" id="model"></a-entity>
-      <a-entity geometry="primitive: plane;" material="opacity: 0">
-        <a-text value="Yo!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
-      </a-entity>
+    <a-marker accessibleAR preset='hiro' alt="A pin!">
+      <a-entity  gltf-model="#asset1" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity>
     </a-marker>
+
+    <a-marker accessibleAR type="pattern" url='./assets/cloud.patt' alt="A cloud!">
+      <a-entity  gltf-model="#asset2" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity>
+    </a-marker>
+
+    
+    <!--a-entity geometry="primitive: plane;" material="opacity: 0">
+      <a-text value="placeholder" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
+    </a-entity-->
 
     <!--Add a Camera-->
     <a-entity camera></a-entity>
   </a-scene>
 
+
+
   <!-- Script for VIP interaction -->
   <script>
-      
-      
-//Give this conponenet to marker to show alerts found and lost events
 
-    AFRAME.registerComponent('registerevents', {
+    //Give this conponenet to marker to show alerts found and lost events
+    AFRAME.registerComponent('accessibleAR', {
         init: function () {
-          var marker = this.el;
+          let marker = this.el;
+          let readmarker = marker.getAttribute('alt');
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
-            //alert('markerfound');// TODO: Add your own code here to react to the marker being found.
-            speechSynthesis.speak(new SpeechSynthesisUtterance('A R object found'));
+            //alert('markerfound'); // For testing
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
             window.navigator.vibrate([200, 100, 200]);
             
           });
 
           marker.addEventListener('markerLost', function() {
             var markerId = marker.id;
-            //alert('markerLost');// TODO: Add your own code here to react to the marker being lost.
-            speechSynthesis.speak(new SpeechSynthesisUtterance('A R object lost')); 
+            //alert('markerLost');// For testing
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); 
             window.navigator.vibrate(200);          
           });
-        }
-      });
+
+        let model = this.el;
+        let readmodel = model.getAttribute('alt');
+  
+           model.addEventListener('click', function (event) {
+           speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
+           window.navigator.vibrate(200);
 
 
-//Give this conponenet to clickable objects 
+            /* enable rest when text needed
 
-    AFRAME.registerComponent('object-model', {
-      init: function () {
-
-        const text = document.getElementById('text-box');
-        const model = document.getElementById("model");
+        const textbox = document.getElementById('text-box');
+        var text = textbox.setAttribute('value',readmodel);   
+        const readtext = textbox.getAttribute('value');
 
         model.addEventListener('click', function (event) {
-          if(text.object3D.visible == false && event.detail.cursorEl){
-            text.object3D.visible = true;
-            speechSynthesis.speak(new SpeechSynthesisUtterance('text shown')); 
+          if(textbox.object3D.visible == false && event.detail.cursorEl){
+            textbox.object3D.visible = true;
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
+            window.navigator.vibrate(200);}
+
+          else{
+            textbox.object3D.visible = false;
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
             window.navigator.vibrate(200);
+          
           } });
 
-          text.addEventListener('click', function (event) {
-            text.object3D.visible = false;
-            speechSynthesis.speak(new SpeechSynthesisUtterance('text hidden')); 
+          textbox.addEventListener('click', function (event) {
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
             window.navigator.vibrate(200);
-          } );     
+          } );  
+          */  
+
+        });
+
       }
     });
  </script>

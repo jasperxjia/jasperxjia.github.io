@@ -75,15 +75,8 @@
         let readmodel = model.getAttribute('alt');
   
            model.addEventListener('click', function (event) {
-            if('markerFound'){
            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
            window.navigator.vibrate(200);
-           }
-
-           else{
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); 
-            window.navigator.vibrate(200);          
-           }
 
 
             /* enable rest when text needed
