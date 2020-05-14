@@ -84,7 +84,7 @@
         var model = this.el;
         const readmodel = model.getAttribute('alt');
 
-        const textbox = document.getElementById('text-box');
+        const textbox = model.getElementById('text-box');
         var text = textbox.setAttribute('value',readmodel);   
         const readtext = textbox.getAttribute('value');
 
@@ -102,7 +102,7 @@
           } });
 
           textbox.addEventListener('click', function (event) {
-            speechSynthesis.speak(new SpeechSynthesisUtterance(readtext)); 
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
             window.navigator.vibrate(200);
           } );    
 
