@@ -81,7 +81,7 @@
     AFRAME.registerComponent('clickable-model', {
       init: function () {
 
-        const model = this.el.object3D;
+        const model = this.el;
         const readmodel = model.getAttribute('alt');
 
         const textbox = document.getElementById('text-box');
