@@ -29,11 +29,11 @@
     
     <!--Add a Marker where assets load onto-->
     <a-marker markerevents clickable-model preset='hiro' alt="A pin!">
-      <a-entity  gltf-model="#asset1" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" id="model"></a-entity>
+      <a-entity  gltf-model="#asset1" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0"></a-entity>
     </a-marker>
 
     <a-marker markerevents clickable-model type="pattern" url='./assets/cloud.patt' alt="A cloud!">
-      <a-entity  gltf-model="#asset2" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" id="model"></a-entity>
+      <a-entity  gltf-model="#asset2" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0"></a-entity>
     </a-marker>
 
     
@@ -53,8 +53,8 @@
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
         init: function () {
-          var marker = this.el;
-          var readmarker = marker.getAttribute('alt');
+          let marker = this.el;
+          let readmarker = marker.getAttribute('alt');
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
@@ -79,8 +79,8 @@
     AFRAME.registerComponent('clickable-model', {
       init: function () {
 
-        var model = this.el;
-        var readmodel = model.getAttribute('alt');
+        let model = this.el;
+        let readmodel = model.getAttribute('alt');
 
                    //Use this line if no text needed
   
