@@ -85,8 +85,8 @@
         const readmodel = model.getAttribute('alt');
 
         const textbox = model.getElementById('text-box');
-        var text = textbox.setAttribute('value',readmodel);   
-        const readtext = textbox.getAttribute('value');
+        const text = textbox.setAttribute('value',readmodel);   
+
 
       model.addEventListener('click', function (event) {
           if(textbox.object3D.visible == false && event.detail.cursorEl){
@@ -102,7 +102,7 @@
           } });
 
           textbox.addEventListener('click', function (event) {
-            speechSynthesis.speak(new SpeechSynthesisUtterance(readtext)); 
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
             window.navigator.vibrate(200);
           } );    
 
