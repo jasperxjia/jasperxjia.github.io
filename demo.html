@@ -30,19 +30,16 @@
     <!--Add a Marker where assets load onto-->
     <a-marker markerevents clickable-model preset='hiro' alt="This is a pin!">
       <a-entity  gltf-model="#asset1" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" id="model"></a-entity>
-
-      <a-entity geometry="primitive: plane;" material="opacity: 0">
-        <a-text value="placeholder" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
-      </a-entity>
     </a-marker>
 
     <a-marker markerevents clickable-model type="pattern" url='./assets/cloud.patt' alt="This is a cloud!">
       <a-entity  gltf-model="#asset2" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" id="model"></a-entity>
-
-      <a-entity geometry="primitive: plane;" material="opacity: 0">
-        <a-text value="placeholder" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
-      </a-entity>
     </a-marker>
+
+    
+    <a-entity geometry="primitive: plane;" material="opacity: 0">
+      <a-text value="placeholder" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
+    </a-entity>
 
     <!--Add a Camera-->
     <a-entity camera></a-entity>
