@@ -79,8 +79,14 @@
         var text = textbox.setAttribute('value',readmodel);
         const readtext = textbox.getAttribute('value');
 
-
         model.addEventListener('click', function (event) {
+          speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
+            window.navigator.vibrate(200);
+
+        });
+
+
+/*        model.addEventListener('click', function (event) {
           if(textbox.object3D.visible == false && event.detail.cursorEl){
             textbox.object3D.visible = true;
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
@@ -96,7 +102,7 @@
           textbox.addEventListener('click', function (event) {
             speechSynthesis.speak(new SpeechSynthesisUtterance(readtext)); 
             window.navigator.vibrate(200);
-          } );     
+          } );    */ 
       }
     });
  </script>
