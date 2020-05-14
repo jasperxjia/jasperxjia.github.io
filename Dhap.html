@@ -27,7 +27,12 @@
     
     <!--Add a Marker where assets load onto-->
     <a-marker registerevents object-model preset='hiro'>
-      <a-entity  onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(this.el.getAttribute('alt')));" gltf-model="#asset1" scale="1 1 1" position="0 0 0" rotation="-90 0 0" id="model" alt="This is a pin!"></a-entity>
+      <a-entity  
+      onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(this.el.getAttribute('alt')));" 
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+      gltf-model="#asset1" scale="1 1 1" position="0 0 0" rotation="-90 0 0" id="model" alt="This is a pin!">
+    </a-entity>
+
       <a-entity geometry="primitive: plane;" material="opacity: 0">
         <a-text value="Yo!" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
       </a-entity>
@@ -39,6 +44,7 @@
 
   <!-- Script for VIP interaction -->
   <script>
+      
       
       
 //Give this conponenet to marker to show alerts found and lost events
