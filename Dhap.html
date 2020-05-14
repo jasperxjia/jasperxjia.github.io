@@ -27,7 +27,7 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker registerevents object-model preset='hiro'>
+    <a-marker registerevents preset='hiro'>
       <a-entity  
         onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(this.el.getAttribute('alt')));" 
         animation="property: rotation; to: 0 360 0; loop: true; dur: 10000;"
