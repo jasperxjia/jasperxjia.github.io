@@ -51,7 +51,7 @@
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
-            //alert('markerfound');// TODO: Add your own code here to react to the marker being found.
+            //alert('markerfound'); // For testing
             speechSynthesis.speak(new SpeechSynthesisUtterance('A R object found'));
             window.navigator.vibrate([200, 100, 200]);
             
@@ -59,7 +59,7 @@
 
           marker.addEventListener('markerLost', function() {
             var markerId = marker.id;
-            //alert('markerLost');// TODO: Add your own code here to react to the marker being lost.
+            //alert('markerLost');// For testing
             speechSynthesis.speak(new SpeechSynthesisUtterance('A R object lost')); 
             window.navigator.vibrate(200);          
           });
@@ -76,17 +76,10 @@
         const readmodel = model.getAttribute('alt');
 
         const textbox = document.getElementById('text-box');
-        var text = textbox.setAttribute('value',readmodel);
+        var text = textbox.setAttribute('value',readmodel);   
         const readtext = textbox.getAttribute('value');
 
-        model.addEventListener('click', function (event) {
-          speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
-            window.navigator.vibrate(200);
-
-        });
-
-
-/*        model.addEventListener('click', function (event) {
+      model.addEventListener('click', function (event) {
           if(textbox.object3D.visible == false && event.detail.cursorEl){
             textbox.object3D.visible = true;
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
@@ -102,7 +95,16 @@
           textbox.addEventListener('click', function (event) {
             speechSynthesis.speak(new SpeechSynthesisUtterance(readtext)); 
             window.navigator.vibrate(200);
-          } );    */ 
+          } );    
+
+            /*  Use this line if no text needed
+  
+      model.addEventListener('click', function (event) {
+          speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
+            window.navigator.vibrate(200);
+
+        });*/
+
       }
     });
  </script>
