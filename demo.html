@@ -49,8 +49,8 @@
 
   <!-- Script for VIP interaction -->
   <script>
-        
-//Give this conponenet to marker to show alerts found and lost events
+
+    //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('accessibleAR', {
         init: function () {
           let marker = this.el;
@@ -74,9 +74,9 @@
         let model = this.el;
         let readmodel = model.getAttribute('alt');
   
-        model.addEventListener('click', function (event) {
-          speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
-            window.navigator.vibrate(200);
+           model.addEventListener('click', function (event) {
+           speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
+           window.navigator.vibrate(200);
 
 
             /* enable rest when text needed
@@ -103,8 +103,6 @@
             window.navigator.vibrate(200);
           } );  
           */  
-
-
 
         });
 
