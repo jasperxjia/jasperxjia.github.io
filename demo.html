@@ -81,12 +81,12 @@
     AFRAME.registerComponent('clickable-model', {
       init: function () {
 
-        const model = this.el;
+        var model = this.el;
         const readmodel = model.getAttribute('alt');
 
         const textbox = document.getElementById('text-box');
-        const text = textbox.setAttribute('value',readmodel);   
-
+        var text = textbox.setAttribute('value',readmodel);   
+        const readtext = textbox.getAttribute('value');
 
       model.addEventListener('click', function (event) {
           if(textbox.object3D.visible == false && event.detail.cursorEl){
@@ -102,7 +102,7 @@
           } });
 
           textbox.addEventListener('click', function (event) {
-            speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readtext)); 
             window.navigator.vibrate(200);
           } );    
 
