@@ -74,7 +74,7 @@ window.onload = () => {
                     icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     icon.setAttribute('name', place.name);
                     icon.setAttribute('id', 'model');
-                    icon.setAttribute('src', './assets/map-marker.png');
+                    icon.setAttribute('src', './assets/icons/map-marker.png');
                     icon.setAttribute('depth', '5');
                     icon.setAttribute('height', '5');
                     icon.setAttribute('width', '5');

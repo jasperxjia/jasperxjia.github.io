@@ -32,7 +32,7 @@
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
                     text.setAttribute('backgroundColor', '#00FFFF');
-                    text.setAttribute('image', './assets/map-marker.png');
+                    text.setAttribute('image', './assets/icons/map-marker.png');
                     text.setAttribute('on', 'click');
 
 
