@@ -82,11 +82,11 @@
       init: function () {
 
         var model = this.el;
-        var readmodel = model.getAttribute('alt');
+        const readmodel = model.getAttribute('alt');
 
         var textbox = model.getElementById('text-box');
         var text = textbox.setAttribute('value',readmodel);   
-        var readtext = textbox.getAttribute('value');
+        const readtext = textbox.getAttribute('value');
 
       model.addEventListener('click', function (event) {
           if(textbox.object3D.visible == false && event.detail.cursorEl){
