@@ -53,7 +53,7 @@
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
         init: function () {
-          var marker = this.el;
+          let marker = this.el;
           let readmarker = marker.getAttribute('alt');
 
           marker.addEventListener('markerFound', function() {
@@ -70,14 +70,6 @@
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); 
             window.navigator.vibrate(200);          
           });
-        }
-      });
-
-
-//Give this conponenet to clickable objects 
-
-    AFRAME.registerComponent('clickable-model', {
-      init: function () {
 
         let model = this.el;
         let readmodel = model.getAttribute('alt');
