@@ -82,10 +82,10 @@
       init: function () {
 
         var model = this.el;
-        const readmodel = model.getAttribute('alt');
+        var readmodel = model.getAttribute('alt');
 
-        const textbox = document.getElementById('text-box');
-        const text = textbox.setAttribute('value',readmodel);   
+        var textbox = model.queryselector('a-text');
+        var text = textbox.setAttribute('value',readmodel);   
 
 
       model.addEventListener('click', function (event) {
