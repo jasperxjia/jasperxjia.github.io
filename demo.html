@@ -49,18 +49,11 @@
 
   <!-- Script for VIP interaction -->
   <script>
-         
+        
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
         init: function () {
           var marker = this.el;
-          
-          marker.addEventListener('markerLost', function() {
-            var markerId = marker.id;
-            //alert('markerLost');// For testing
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); 
-            window.navigator.vibrate(200);          
-          });
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
@@ -70,6 +63,12 @@
             
           });
 
+          marker.addEventListener('markerLost', function() {
+            var markerId = marker.id;
+            //alert('markerLost');// For testing
+            speechSynthesis.speak(new SpeechSynthesisUtterance('A R object lost')); 
+            window.navigator.vibrate(200);          
+          });
         }
       });
 
@@ -83,7 +82,7 @@
         const readmodel = model.getAttribute('alt');
 
         const textbox = document.getElementById('text-box');
-        const text = textbox.setAttribute('value',readmodel);   
+        var text = textbox.setAttribute('value',readmodel);   
         const readtext = textbox.getAttribute('value');
 
       model.addEventListener('click', function (event) {
