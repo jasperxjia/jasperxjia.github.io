@@ -5,16 +5,13 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Haptic-Audio Based Landmark Navigation for VIP Demo</title>
 
-    <link rel="stylesheet" href="./css/style.css">
-
     
     <!-- Aframe and AR.js -->
-    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> 
-    <script src="./scripts/aframe-ar.js"></script>
-    
+    <script src='https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js'></script>
+    <script src='./scripts/script.js'></script>
 
-    <!-- Haptic API >
-    <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script-->
+    <!-- Haptic API -->
+
 
     <!-- Web Audio API -->
 
@@ -23,15 +20,12 @@
 
 
 <!-- Dynamically add places from Foursquare API -->
-<script src="./scripts/script.js"></script>
-
+<script src="./script.js"></script>
 
 
 
 <!-- AR scene Render -->
 <body style='margin: 0; overflow: hidden;'>
-
-
     <a-scene
         cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
         raycaster="objects: [gps-entity-place];"
@@ -39,19 +33,7 @@
 		embedded
 		arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
-
-        <a-camera gps-camera="minDistance:50;" rotation-reader>
-        </a-camera>
-
-    </a-scene>
-    
-            <!--a-entity  
-            
-            position="0 0 -1"
-            geometry="primitive: sphere; radius:0.01;"
-            material="color: black; shader: flat">
-        </a-entity-->
-
-
+        <a-camera gps-camera="minDistance: 50;" rotation-reader far="1000">
+		</a-camera>
+	</a-scene>
 </body>
-</html>

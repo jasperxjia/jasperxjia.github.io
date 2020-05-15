@@ -37,7 +37,7 @@ function loadPlaceFromAPIs(position) {
         &radius=${params.radius}
         &client_id=${params.clientId}
         &client_secret=${params.clientSecret}
-        &limit=8
+        &limit=10
         &v=${params.version}`;
     return fetch(endpoint)
         .then((res) => {
@@ -54,7 +54,6 @@ function loadPlaceFromAPIs(position) {
 
 window.onload = () => {
     const scene = document.querySelector('a-scene');
-    
 
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
@@ -71,29 +70,13 @@ window.onload = () => {
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('href', '');
-                    text.setAttribute('scale', '10 10');
-                    //text.setAttribute('image', '#yo');
-                   
-
-
+                    text.setAttribute('scale', '10 10 10');
                    
                     text.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                     });
 
-                    
-
-                    
-                    /*() => {
-                        alert("Clicked!");
-                      });*/
-
                     scene.appendChild(text);
-
-                   
-                   
-
-                    
                 });
             })
     },
@@ -105,8 +88,3 @@ window.onload = () => {
         }
     );
 };
-
-
-
-
-                
