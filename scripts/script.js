@@ -73,7 +73,7 @@ window.onload = () => {
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10');
                     //text.setAttribute('image', '#yo');
-                    text.setAttribute('look-at', '[gps-camera]');
+                   
 
 
                    
@@ -82,20 +82,7 @@ window.onload = () => {
                     });
 
                     
-                    const clickListener = function (ev) {
-                        ev.stopPropagation();
-                        ev.preventDefault();
-            
-                        //let name = ev.target.getAttribute('title');
-            
-                        const el = ev.detail.intersection && ev.detail.intersection.object.el;
-            
-                        if (el && el === ev.target) {
-                            alert("Clicked!");
-                        }
-                    };
-                    
-                    text.addEventListener('click', clickListener);
+
                     
                     /*() => {
                         alert("Clicked!");
