@@ -82,9 +82,14 @@
       });
 
             const scene = document.querySelector('body');
-            scene.addEventListener('click', function (event) {
+            if (document.addEventListener('markerFound',
+              scene.addEventListener('click', function (event) {
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around!')); 
-            window.navigator.vibrate(200);});
+            window.navigator.vibrate(200);})));
+            
+            
+
+            
 
 //Give this conponenet to clickable objects 
 
