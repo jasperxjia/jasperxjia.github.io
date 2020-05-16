@@ -80,6 +80,7 @@ window.onload = () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
                     });
 
+
                     scene.appendChild(text);
                 });
             })
@@ -91,4 +92,22 @@ window.onload = () => {
             timeout: 27000,
         }
     );
+
+    
 };
+
+AFRAME.registerComponent('clickable-model', {
+    init: function () {
+
+      let model = this.el;
+      let readmodel = model.getAttribute('alt');
+
+                 //Use this line if no text needed
+
+      model.addEventListener('click', function (event) {
+        speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
+          window.navigator.vibrate(200);
+      });
+
+}
+});
