@@ -50,6 +50,7 @@
 
   <script>
 
+window.onload = () => {
       var scene = document.querySelector('body');   
 
       scene.addEventListener('click', function () {
@@ -62,7 +63,7 @@
           speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
           window.navigator.vibrate(200);
         }});
-        
+      };
 //Give this conponenet to marker to show alerts found and lost events
 AFRAME.registerComponent('markerevents', {
     init: function () {
