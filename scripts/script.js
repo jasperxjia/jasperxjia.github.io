@@ -66,7 +66,7 @@ window.onload = () => {
                     const longitude = place.location.lng;
 
                     // add place name
-                    var text = document.querySelector('a-link');
+                    var text = document.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('alt', place.name);
@@ -79,6 +79,18 @@ window.onload = () => {
 
 
                     scene.appendChild(text);
+
+                    var gesture = new Hammer(scene);
+                    gesture.on('tap', function() {
+                        if('gps-entity-place-loaded' == false){
+                          speechSynthesis.cancel();
+                          speechSynthesis.speak(new SpeechSynthesisUtterance('not loaded yet')); //cue for users to look around for an object
+                          window.navigator.vibrate(200);} 
+                    else if('gps-entity-place-loaded' == true) {
+                      speechSynthesis.cancel();
+                      speechSynthesis.speak(new SpeechSynthesisUtterance(placename)); //description for object
+                      window.navigator.vibrate(200);
+                    }});
                 });
             })
     },
@@ -89,7 +101,7 @@ window.onload = () => {
             timeout: 27000,
         }
     );
-
+            
     
 };
 
