@@ -84,11 +84,6 @@
         let readmodel = model.getAttribute('alt');
 
                    //Use this line if no text needed
-                   model.addEventListener('loaded', function (event) {
-          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around!')); 
-            window.navigator.vibrate(200);
-
-                   });
   
         model.addEventListener('click', function (event) {
           speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
