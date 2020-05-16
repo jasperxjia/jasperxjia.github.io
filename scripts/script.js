@@ -70,8 +70,8 @@ window.onload = () => {
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('alt', place.name);
-                    text.setAttribute('on', 'click');
-                    text.setAttribute('href', 'https://google.com');
+                    text.setAttribute('on-click', speechSynthesis.speak(new SpeechSynthesisUtterance(place.name)));
+                    text.setAttribute('href', '');
                     text.setAttribute('visualAspectEnabled', 'false');
                     text.setAttribute('scale', '10 10 10');
                     text.setAttribute('clickable-model', '');
@@ -96,18 +96,3 @@ window.onload = () => {
     
 };
 
-AFRAME.registerComponent('clickable-model', {
-    init: function () {
-
-      let model = this.el;
-      let readmodel = model.getAttribute('alt');
-
-                 //Use this line if no text needed
-
-      model.addEventListener('click', function (event) {
-        speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
-          window.navigator.vibrate(200);
-      });
-
-}
-});
