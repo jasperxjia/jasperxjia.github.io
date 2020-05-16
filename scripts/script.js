@@ -70,8 +70,7 @@ window.onload = () => {
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('alt', place.name);
-                    text.setAttribute('on', 'click');
-                    text.setAttribute('href', 'https://google.com');
+                    text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
                     text.setAttribute('clickable-model', '');
                    
