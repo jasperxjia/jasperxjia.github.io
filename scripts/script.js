@@ -72,7 +72,6 @@ window.onload = () => {
                     text.setAttribute('alt', place.name);
                     text.setAttribute('on', 'click');
                     text.setAttribute('href', 'https://google.com');
-                    text.setAttribute('visualAspectEnabled', 'false');
                     text.setAttribute('scale', '10 10 10');
                     text.setAttribute('clickable-model', '');
                    
