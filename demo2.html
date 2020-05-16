@@ -69,45 +69,48 @@
 
           marker.addEventListener('markerFound', function(event) {
 
-                var markerId = marker.id;
+            var markerId = marker.id;
 
-                //alert('markerfound'); // For testing
-                speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
-                speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
-                window.navigator.vibrate([200, 100, 200]);
+            //alert('markerfound'); // For testing
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
+            window.navigator.vibrate([200, 100, 200]);
 
 
-                marker.addEventListener('click', function (event) {
-                speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
-                window.navigator.vibrate(200);});
+            marker.addEventListener('click', function (event) {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+            window.navigator.vibrate(200);});
               
           });
 
 
 
           marker.addEventListener('markerLost', function(event) {
-                scene.addEventListener('click', function (event) {
-                speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-                window.navigator.vibrate(200);
+            scene.addEventListener('click', function (event) {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+            window.navigator.vibrate(200);
 
-              });
-                var markerId = marker.id;
-                //alert('markerLost');// For testing
-                speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
-                window.navigator.vibrate(200);   
-                
-              });
+          });
+            var markerId = marker.id;
+            //alert('markerLost');// For testing
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
+            window.navigator.vibrate(200);   
+            
+          });
 
-                scene.addEventListener('click', function (event) {
-                  speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-                  window.navigator.vibrate(200);
+            marker.removeEventListener('click', function (event) {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+            window.navigator.vibrate(200);});
 
-                });
+            marker.addEventListener('dblclick', function (event) {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Double clicked')); 
+            window.navigator.vibrate(200);});
 
 
         }
