@@ -67,6 +67,13 @@
           var readmarker = marker.getAttribute('alt');
 
           marker.addEventListener('markerFound', function(event) {
+            scene.removeEventListener('click', function (event) {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+            window.navigator.vibrate(200);
+
+          });
+
             var markerId = marker.id;
 
             //alert('markerfound'); // For testing
@@ -84,6 +91,12 @@
 
 
           marker.addEventListener('markerLost', function(event) {
+            scene.addEventListener('click', function (event) {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+            window.navigator.vibrate(200);
+
+          });
             var markerId = marker.id;
             //alert('markerLost');// For testing
             speechSynthesis.cancel();
