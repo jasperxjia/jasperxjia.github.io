@@ -64,7 +64,6 @@
 
 
           marker.addEventListener('markerFound', function() {
-            scene.removeEventListener('click');
             var markerId = marker.id;
 
             //alert('markerfound'); // For testing
@@ -82,7 +81,6 @@
           });
 
           marker.addEventListener('markerLost', function() {
-            marker.removeEventListener('click');
             var markerId = marker.id;
             //alert('markerLost');// For testing
             speechSynthesis.cancel();
