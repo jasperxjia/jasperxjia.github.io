@@ -70,7 +70,6 @@ AFRAME.registerComponent('markerevents', {
 
 
         scene.addEventListener('click', function () {
-        speechSynthesis.cancel();
         speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
         window.navigator.vibrate(200);});
           
@@ -88,7 +87,6 @@ AFRAME.registerComponent('markerevents', {
 
         //alert('markerfound'); // For testing
         scene.addEventListener('click', function () {
-        speechSynthesis.cancel();
         speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
         window.navigator.vibrate(200);
 
