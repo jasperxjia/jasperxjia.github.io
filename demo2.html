@@ -51,7 +51,7 @@
   <script>
 
           var scene = document.querySelector('body');       
-          scene.addEventListener('click markerlost', function () {
+          scene.addEventListener('click', function () {
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
             window.navigator.vibrate(200);
