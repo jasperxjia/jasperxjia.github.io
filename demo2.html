@@ -33,7 +33,7 @@
     
     <!--Add a Marker where assets load onto-->
     <a-marker markerevents  preset='hiro' alt="A pin!">
-      <a-entity  gltf-model="#asset1" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity>
+      <a-entity gltf-model="#asset1" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity>
     </a-marker>
 
     
@@ -58,7 +58,7 @@
           
           scene.addEventListener('click', function (event) {
             speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+            speechSynthesis.speak(new SpeechSynthesisUtterance()); 
             window.navigator.vibrate(200);
         });
 
@@ -72,13 +72,14 @@
             speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
             window.navigator.vibrate([200, 100, 200]);
 
-              
-          });
-
-          marker.addEventListener('click', function (event) {
+            scene.addEventListener('click', function (event) {
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
             window.navigator.vibrate(200);});
+              
+          });
+
+
 
           marker.addEventListener('markerLost', function() {
             var markerId = marker.id;
@@ -87,7 +88,10 @@
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
             window.navigator.vibrate(200);   
 
-            
+            scene.addEventListener('click', function (event) {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+            window.navigator.vibrate(200);});
             
           });
         }
