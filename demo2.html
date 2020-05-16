@@ -49,14 +49,8 @@
   </a-scene>
 
   <script>
-
-
-//Give this conponenet to marker to show alerts found and lost events
-AFRAME.registerComponent('markerevents', {
-    init: function () {
-      var marker = this.el;
-      var readmarker = marker.getAttribute('alt');
       
+      window.onload = () => {   
       var scene = document.querySelector('body');   
 
       scene.addEventListener('click', function () {
@@ -67,7 +61,14 @@ AFRAME.registerComponent('markerevents', {
           speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
           window.navigator.vibrate(200);
         }});
+      };
 
+//Give this conponenet to marker to show alerts found and lost events
+AFRAME.registerComponent('markerevents', {
+    init: function () {
+      var marker = this.el;
+      var readmarker = marker.getAttribute('alt');
+      
 
       marker.addEventListener('markerFound', function() {
 
