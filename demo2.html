@@ -57,7 +57,6 @@
           var scene = document.querySelector('body');
           
           scene.addEventListener('click', function (event) {
-            speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
             window.navigator.vibrate(200);
         });
@@ -74,7 +73,7 @@
               
           });
 
-          scene.addEventListener('click', function (event) {
+          marker.addEventListener('click', function (event) {
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
             window.navigator.vibrate(200);});
