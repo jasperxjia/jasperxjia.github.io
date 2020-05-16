@@ -72,9 +72,7 @@
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
             window.navigator.vibrate(200);});
 
-            scene.removeEventListener('click',function (event) {
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-            window.navigator.vibrate(200);});
+            scene.removeEventListener('click');
             
           });
 
@@ -84,9 +82,7 @@
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
             window.navigator.vibrate(200);   
 
-            marker.removeEventListener('click',function (event) {
-            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
-            window.navigator.vibrate(200);});
+            marker.removeEventListener('click');
             
 
           });
