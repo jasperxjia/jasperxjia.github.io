@@ -59,8 +59,8 @@
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
         init: function () {
-          let marker = this.el;
-          let readmarker = marker.getAttribute('alt');
+          var marker = this.el;
+          var readmarker = marker.getAttribute('alt');
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
@@ -84,11 +84,27 @@
 
             marker.removeEventListener('click');
             
-
           });
         }
       });
 
+
+      AFRAME.registerComponent('rotation-reader', {
+  /**
+   * We use IIFE (immediately-invoked function expression) to only allocate one
+   * vector or euler and not re-create on every tick to save memory.
+   */
+  tick: (function () {
+    var position = new THREE.Vector3();
+    var quaternion = new THREE.Quaternion();
+
+    return function () {
+      this.el.object3D.getWorldPosition(position);
+      this.el.object3D.getWorldQuaternion(quaternion);
+      // position and rotation now contain vector and quaternion in world space.
+    };
+  })
+});
 
 //Give this conponenet to clickable objects 
 
