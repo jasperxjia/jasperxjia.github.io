@@ -69,6 +69,7 @@
             //alert('markerfound'); // For testing
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
             window.navigator.vibrate([200, 100, 200]);
 
               
