@@ -67,18 +67,17 @@
             var markerId = marker.id;
 
             //alert('markerfound'); // For testing
-
+            speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
             speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
             window.navigator.vibrate([200, 100, 200]);
-
-            scene.addEventListener('click', function (event) {
-            speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
-            window.navigator.vibrate(200);});
               
           });
 
+          scene.addEventListener('click', function (event) {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+            window.navigator.vibrate(200);});
 
 
           marker.addEventListener('markerLost', function() {
@@ -87,11 +86,6 @@
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
             window.navigator.vibrate(200);   
-
-            scene.addEventListener('click', function (event) {
-            speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-            window.navigator.vibrate(200);});
             
           });
         }
