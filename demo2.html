@@ -51,7 +51,7 @@
   <script>
 
           var scene = document.querySelector('body');       
-          scene.addEventListener('click markerlost', function (event) {
+          scene.addEventListener('click markerlost', function () {
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
             window.navigator.vibrate(200);
@@ -65,7 +65,7 @@
           var readmarker = marker.getAttribute('alt');
 
 
-          marker.addEventListener('markerFound', function(event) {
+          marker.addEventListener('markerFound', function() {
 
             var markerId = marker.id;
 
@@ -76,7 +76,7 @@
             window.navigator.vibrate([200, 100, 200]);
 
 
-            marker.addEventListener('dblclick', function (event) {
+            marker.addEventListener('dblclick', function () {
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Double clicked')); 
             window.navigator.vibrate(200);});
@@ -85,8 +85,8 @@
 
 
 
-          marker.addEventListener('markerLost', function(event) {
-            scene.addEventListener('click', function (event) {
+          marker.addEventListener('markerLost', function() {
+            scene.addEventListener('click', function () {
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
             window.navigator.vibrate(200);
