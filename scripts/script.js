@@ -70,7 +70,7 @@ window.onload = () => {
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('alt', place.name);
-                    text.setAttribute('on-click', speechSynthesis.speak(new SpeechSynthesisUtterance(place.name)));
+                    text.setAttribute('on-click', 'speechSynthesis.speak(new SpeechSynthesisUtterance(place.name))');
                     text.setAttribute('href', '');
                     text.setAttribute('visualAspectEnabled', 'false');
                     text.setAttribute('scale', '10 10 10');
