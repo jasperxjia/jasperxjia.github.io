@@ -56,13 +56,6 @@
           var readmarker = marker.getAttribute('alt');
           var scene = document.querySelector('body');
           
-          scene.addEventListener('click', function (event) {
-            speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-            window.navigator.vibrate(200);
-        });
-
-
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
 
@@ -88,6 +81,13 @@
             window.navigator.vibrate(200);   
             
           });
+
+          scene.addEventListener('click', function (event) {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+            window.navigator.vibrate(200);
+        });
+        
         }
       });
 
