@@ -60,9 +60,10 @@
           scene.addEventListener('click', function (event) {
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
             window.navigator.vibrate(200);
+
         });
           
-          marker.addEventListener('markerFound', function() {
+          marker.addEventListener('markerFound', function(event) {
             var markerId = marker.id;
 
             //alert('markerfound'); // For testing
@@ -79,13 +80,18 @@
             window.navigator.vibrate(200);});
 
 
-          marker.addEventListener('markerLost', function() {
+          marker.addEventListener('markerLost', function(event) {
             var markerId = marker.id;
             //alert('markerLost');// For testing
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
             window.navigator.vibrate(200);   
             
+          });
+
+          scene.addEventListener('dblclick', function (event) {
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Double clicked!')); 
+            window.navigator.vibrate(200);
           });
 
 
