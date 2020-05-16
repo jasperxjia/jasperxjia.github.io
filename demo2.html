@@ -63,18 +63,17 @@ AFRAME.registerComponent('accessible', {
             speechSynthesis.cancel();
 	          speechSynthesis.speak(new SpeechSynthesisUtterance('Double tapped'));
         });
-      
-       scene.addEventListener('click', function () {
-        if(marker.object3D.visible == false){
-          speechSynthesis.cancel();
-          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-          window.navigator.vibrate(200);} 
+          gesture.on('tap', function(ev) {
+            if(marker.object3D.visible == false){
+              speechSynthesis.cancel();
+              speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around'));
+              window.navigator.vibrate(200);} 
         else if(marker.object3D.visible == true) {
           speechSynthesis.cancel();
           speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
           window.navigator.vibrate(200);
         }});
-        
+      
 
 
       marker.addEventListener('markerFound', function() {
