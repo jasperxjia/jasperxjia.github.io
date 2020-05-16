@@ -17,7 +17,7 @@
     <!--script type="text/javascript" src="./scripts/swiped-events.min.js"></script-->
 
     <!-- Script for VIP interaction -->
-    <script src="./scripts/demo.js"></script>
+    <!--script src="./scripts/demo.js"></script-->
 
 </head>
 
@@ -48,7 +48,57 @@
     <a-entity camera rotation-reader></a-entity>
   </a-scene>
 
+  <script>
+    
 
+//Give this conponenet to marker to show alerts found and lost events
+AFRAME.registerComponent('markerevents', {
+    init: function () {
+      var marker = this.el;
+      var readmarker = marker.getAttribute('alt');
+      var scene = document.querySelector('body');   
+       
+
+      marker.addEventListener('markerFound', function() {
+
+        var markerId = marker.id;
+        //alert('markerfound'); // For testing
+        speechSynthesis.cancel();
+        speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
+        speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
+        window.navigator.vibrate(200);
+
+
+        scene.addEventListener('click', function () {
+        speechSynthesis.cancel();
+        speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+        window.navigator.vibrate(200);});
+          
+      });
+
+      marker.addEventListener('markerLost', function() {
+        //alert('markerLost');// For testing
+        speechSynthesis.cancel();
+        speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
+        window.navigator.vibrate(200);   
+        
+      });
+
+      marker.addEventListener('nomarker', function() {
+
+        //alert('markerfound'); // For testing
+        scene.addEventListener('click', function () {
+        speechSynthesis.cancel();
+        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+        window.navigator.vibrate(200);
+
+      });
+          
+      });
+
+    }
+  });
+  </script>
 
 
 

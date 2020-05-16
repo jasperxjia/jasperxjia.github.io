@@ -6,31 +6,16 @@ AFRAME.registerComponent('markerevents', {
       var marker = this.el;
       var readmarker = marker.getAttribute('alt');
       var scene = document.querySelector('body');   
-      
-      
-      marker.addEventListener('nomarker', function() {
-
-        var markerId = marker.id;
-
-        //alert('markerfound'); // For testing
-        scene.addEventListener('click', function () {
-        speechSynthesis.cancel();
-        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-        window.navigator.vibrate(200);
-
-      });
-          
-      });
-
+       
 
       marker.addEventListener('markerFound', function() {
 
-
+        var markerId = marker.id;
         //alert('markerfound'); // For testing
         speechSynthesis.cancel();
         speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
         speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
-        window.navigator.vibrate([200, 100, 200]);
+        window.navigator.vibrate(200);
 
 
         scene.addEventListener('click', function () {
@@ -40,22 +25,26 @@ AFRAME.registerComponent('markerevents', {
           
       });
 
-
-
       marker.addEventListener('markerLost', function() {
-        scene.addEventListener('click', function () {
-        speechSynthesis.cancel();
-        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-        window.navigator.vibrate(200);
-
-      });
-
         //alert('markerLost');// For testing
         speechSynthesis.cancel();
         speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
         window.navigator.vibrate(200);   
         
       });
+
+      marker.addEventListener('nomarker', function() {
+
+        //alert('markerfound'); // For testing
+        scene.addEventListener('click', function () {
+        speechSynthesis.cancel();
+        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+        window.navigator.vibrate(200);
+
+      });
+          
+      });
+
     }
   });
 
