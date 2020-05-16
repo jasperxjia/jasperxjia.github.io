@@ -66,13 +66,16 @@ window.onload = () => {
                     const longitude = place.location.lng;
 
                     // add place name
-                    const text = document.createElement('a-link');
+                    const entity = document.createElement('a-entity');
+                    entity.setAttribute('alt', place.name);
+                    entity.setAttribute('clickable-model', '');
+                    const text = entity.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('alt', place.name);
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
-                    text.setAttribute('clickable-model', '');
+                    
                    
                     text.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
