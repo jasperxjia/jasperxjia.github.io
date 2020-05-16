@@ -78,9 +78,9 @@
             window.navigator.vibrate([200, 100, 200]);
 
 
-            marker.addEventListener('click', function (event) {
+            marker.addEventListener('dblclick', function (event) {
             speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Double clicked')); 
             window.navigator.vibrate(200);});
               
           });
@@ -101,18 +101,6 @@
             window.navigator.vibrate(200);   
             
           });
-
-            marker.removeEventListener('click', function (event) {
-            speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
-            window.navigator.vibrate(200);});
-
-            marker.addEventListener('dblclick', function (event) {
-            speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Double clicked')); 
-            window.navigator.vibrate(200);});
-
-
         }
       });
 
