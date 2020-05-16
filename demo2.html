@@ -57,6 +57,11 @@ AFRAME.registerComponent('markerevents', {
       var marker = this.el;
       var readmarker = marker.getAttribute('alt');
       var scene = document.querySelector('body');   
+
+      scene.addEventListener('click', function () {
+        speechSynthesis.cancel();
+        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+        window.navigator.vibrate(200);});
        
 
       marker.addEventListener('markerFound', function() {
@@ -91,7 +96,7 @@ AFRAME.registerComponent('markerevents', {
         speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
         window.navigator.vibrate(200);
 
-      });
+      
           
       });*/
 
