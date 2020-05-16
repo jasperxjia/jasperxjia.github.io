@@ -71,14 +71,13 @@
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
             window.navigator.vibrate([200, 100, 200]);
 
-            marker.addEventListener('click', function (event) {
+              
+          });
+
+          marker.addEventListener('click', function (event) {
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
             window.navigator.vibrate(200);});
-
-            
-            
-          });
 
           marker.addEventListener('markerLost', function() {
             var markerId = marker.id;
