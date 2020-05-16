@@ -50,7 +50,7 @@
   <!-- Script for VIP interaction -->
   <script>
 
-            const scene = document.querySelector('a-scene');
+            const scene = document.querySelector('body');
             scene.addEventListener('click', function (event) {
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around!')); 
             window.navigator.vibrate(200);});
