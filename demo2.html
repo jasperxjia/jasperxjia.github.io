@@ -78,6 +78,18 @@ AFRAME.registerComponent('accessible', {
           location.reload();
         }});
 
+   //Double tap behaviour 
+   gesture.on('swipe', function(ev) {
+          if(marker.object3D.visible == false){
+              speechSynthesis.cancel();
+              speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); //cue for users to look around for an object
+              window.navigator.vibrate(200);} 
+        else if(marker.object3D.visible == true) {
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance('color changed')); //description for function
+          window.navigator.vibrate(200);
+        }});
+       
     //Behaviour when objects are found
       marker.addEventListener('markerFound', function() {
 
