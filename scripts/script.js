@@ -66,11 +66,13 @@ window.onload = () => {
                     const longitude = place.location.lng;
 
                     // add place name
-                    const link = document.createElement('a-link');
+                    const text = document.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('alt', place.name);
-                    text.setAttribute('href', '');
+                    text.setAttribute('on', 'click');
+                    text.setAttribute('href', 'https://google.com');
+                    text.setAttribute('visualAspectEnabled', 'false');
                     text.setAttribute('scale', '10 10 10');
                     text.setAttribute('clickable-model', '');
                    
