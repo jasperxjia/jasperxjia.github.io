@@ -72,7 +72,9 @@
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
             window.navigator.vibrate(200);});
 
-            scene.off('click');
+            scene.off(function(event){
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+            window.navigator.vibrate(200);});
             
           });
 
