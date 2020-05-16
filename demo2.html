@@ -49,11 +49,7 @@
 
   <!-- Script for VIP interaction -->
   <script>
-        window.onload = () => {
-          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around'));
-            window.navigator.vibrate([200, 100, 200]);
 
-        };
 
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
@@ -88,6 +84,9 @@
         let readmodel = model.getAttribute('alt');
 
                    //Use this line if no text needed
+                   model.addEventListener('loaded', function (event) {
+          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around!')); 
+            window.navigator.vibrate(200);
   
         model.addEventListener('click', function (event) {
           speechSynthesis.speak(new SpeechSynthesisUtterance(readmodel)); 
