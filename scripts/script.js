@@ -69,6 +69,7 @@ window.onload = () => {
                     const text = document.createElement('a-link');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
+                    text.setAttribute('alt', place.name);
                     text.setAttribute('href', '');
                     text.setAttribute('scale', '10 10 10');
                     text.setAttribute('clickable-model', '');
