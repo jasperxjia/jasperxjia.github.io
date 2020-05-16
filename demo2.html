@@ -9,6 +9,7 @@
     <!-- Import Aframe and AR.js -->
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> 
     <script src="./scripts/aframe-ar.js"></script>
+    <script src="./scripts/hammer.min.js"></script>
 
     <!-- Import Haptic API -->
     <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script>
@@ -57,6 +58,11 @@ AFRAME.registerComponent('accessible', {
       var marker = this.el;
       var readmarker = marker.getAttribute('alt'); 
       var scene = document.querySelector('body'); 
+      var gesture = new Hammer(scene);
+          gesture.on('doubletap', function(ev) {
+            speechSynthesis.cancel();
+	          speechSynthesis.speak(new SpeechSynthesisUtterance('Double tapped'));
+        });
       
        scene.addEventListener('click', function () {
         if(marker.object3D.visible == false){
