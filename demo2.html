@@ -72,7 +72,7 @@
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
             window.navigator.vibrate(200);});
 
-            scene.off(function(event){
+            scene.removeEventListener('click',function (event) {
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
             window.navigator.vibrate(200);});
             
@@ -83,7 +83,10 @@
             //alert('markerLost');// For testing
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
             window.navigator.vibrate(200);   
-            marker.off('click');
+
+            marker.removeEventListener('click',function (event) {
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+            window.navigator.vibrate(200);});
             
 
           });
