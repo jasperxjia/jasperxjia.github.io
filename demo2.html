@@ -85,9 +85,7 @@ AFRAME.registerComponent('markerevents', {
         speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
         window.navigator.vibrate(200);   
 
-        scene.addEventListener('click', function () {
-        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-        window.navigator.vibrate(200);});
+        return;
         
       });
 
@@ -102,7 +100,7 @@ AFRAME.registerComponent('markerevents', {
       
           
       });*/
-
+      
     }
   });
   </script>
