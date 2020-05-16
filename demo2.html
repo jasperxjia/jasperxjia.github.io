@@ -32,7 +32,7 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker markerevents  preset='hiro' alt="placeholder">
+    <a-marker markerevents  preset='hiro' alt="A pin!">
       <a-entity  gltf-model="placeholder" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity>
     </a-marker>
 
@@ -59,16 +59,13 @@
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
         init: function () {
-          var marker = this.el;
-          var markerentity = marker.a-entity;
-          var readmarker = marker.getAttribute('alt');
+          let marker = this.el;
+          let readmarker = marker.getAttribute('alt');
 
           marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
             //alert('markerfound'); // For testing
-            const markeralt = marker.setAttribute('alt','A R object');
-            const markerasset = markerentity.setAttribute('gltf-model','#asset1');
-            speechSynthesis.speak(new SpeechSynthesisUtterance(markeralt.concat('found')));
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
             window.navigator.vibrate([200, 100, 200]);
 
             marker.addEventListener('click', function (event) {
@@ -86,7 +83,7 @@
             //alert('markerLost');// For testing
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
             window.navigator.vibrate(200);   
-
+            marker.off('click');
             
 
           });
