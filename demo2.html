@@ -49,20 +49,20 @@
   </a-scene>
 
   <script>
-    
+          var scene = document.querySelector('body');   
+
+scene.addEventListener('click', function () {
+  speechSynthesis.cancel();
+  speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+  window.navigator.vibrate(200);});
+ 
 
 //Give this conponenet to marker to show alerts found and lost events
 AFRAME.registerComponent('markerevents', {
     init: function () {
       var marker = this.el;
       var readmarker = marker.getAttribute('alt');
-      var scene = document.querySelector('body');   
 
-      scene.addEventListener('click', function () {
-        speechSynthesis.cancel();
-        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-        window.navigator.vibrate(200);});
-       
 
       marker.addEventListener('markerFound', function() {
 
@@ -72,7 +72,6 @@ AFRAME.registerComponent('markerevents', {
         speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
         speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
         window.navigator.vibrate(200);
-
 
         scene.addEventListener('click', function () {
         speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
@@ -85,6 +84,10 @@ AFRAME.registerComponent('markerevents', {
         speechSynthesis.cancel();
         speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
         window.navigator.vibrate(200);   
+
+        scene.addEventListener('click', function () {
+        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+        window.navigator.vibrate(200);});
         
       });
 
