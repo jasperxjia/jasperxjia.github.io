@@ -103,9 +103,15 @@ AFRAME.registerComponent('markerevents', {
       });*/
 
 
+
       
     }
   });
+
+  scene.addEventListener('click', function () {
+        speechSynthesis.cancel();
+        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+        window.navigator.vibrate(200);});
   </script>
 
 
