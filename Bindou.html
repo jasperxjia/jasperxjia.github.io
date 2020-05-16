@@ -10,10 +10,11 @@
     <script src='https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js'></script>
     <script src='./scripts/aframe-ar.js'></script>
 
-    <!-- Haptic API -->
+    <!-- Import Gesture API -->
+    <script src="./scripts/hammer.min.js"></script>
 
-
-    <!-- Web Audio API -->
+    <!-- Import Haptic API -->
+    <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script>
 
 </head>
 
@@ -31,8 +32,9 @@
         raycaster="objects: [gps-entity-place];"
         vr-mode-ui="enabled: false"
 		embedded
-		arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        
+        <a-link on-click="speechSynthesis.speak(new SpeechSynthesisUtterance('çlicked'))"></a-link>
         <a-camera gps-camera="minDistance: 50;" rotation-reader far="1000">
 		</a-camera>
     </a-scene>
