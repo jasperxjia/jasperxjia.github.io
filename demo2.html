@@ -50,7 +50,19 @@
 
   <script>
 
+      var scene = document.querySelector('body');   
 
+      scene.addEventListener('click', function () {
+        if(marker.object3D.visible == false){
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+          window.navigator.vibrate(200);} 
+        else if(marker.object3D.visible == true) {
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+          window.navigator.vibrate(200);
+        }});
+        
 //Give this conponenet to marker to show alerts found and lost events
 AFRAME.registerComponent('markerevents', {
     init: function () {
@@ -77,21 +89,6 @@ AFRAME.registerComponent('markerevents', {
         
       });
 
-
-      var scene = document.querySelector('body');   
-
-      scene.addEventListener('click', function () {
-        if(marker.object3D.visible == false){
-          speechSynthesis.cancel();
-          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-          window.navigator.vibrate(200);} 
-        else if(marker.object3D.visible == true) {
-          speechSynthesis.cancel();
-          speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
-          window.navigator.vibrate(200);
-        }});
- 
-
      /* marker.addEventListener('nomarker', function() {
 
         //alert('markerfound'); // For testing
@@ -103,8 +100,6 @@ AFRAME.registerComponent('markerevents', {
       
           
       });*/
-
-
       
     }
   });
