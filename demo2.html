@@ -59,10 +59,8 @@ AFRAME.registerComponent('accessible', {
       var readmarker = marker.getAttribute('alt'); 
       var scene = document.querySelector('body'); 
       var gesture = new Hammer(scene);
-          gesture.on('doubletap', function(ev) {
-            speechSynthesis.cancel();
-	          speechSynthesis.speak(new SpeechSynthesisUtterance('Double tapped'));
-        });
+
+
           gesture.on('tap', function(ev) {
             if(marker.object3D.visible == false){
               speechSynthesis.cancel();
@@ -74,7 +72,17 @@ AFRAME.registerComponent('accessible', {
           window.navigator.vibrate(200);
         }});
       
-
+        gesture.on('doubletap', function(ev) {
+          if(marker.object3D.visible == false){
+              speechSynthesis.cancel();
+              speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around'));
+              window.navigator.vibrate(200);} 
+        else if(marker.object3D.visible == true) {
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance('page reload')); 
+          window.navigator.vibrate(200);
+          location.reload();
+        }});
 
       marker.addEventListener('markerFound', function() {
 
@@ -82,7 +90,7 @@ AFRAME.registerComponent('accessible', {
         //alert('markerfound'); // For testing
         speechSynthesis.cancel();
         speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
-        speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
+        speechSynthesis.speak(new SpeechSynthesisUtterance('Double tap to interact'));
         window.navigator.vibrate(200);
           
       });
