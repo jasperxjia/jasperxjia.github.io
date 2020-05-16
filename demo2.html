@@ -50,10 +50,7 @@
   <!-- Script for VIP interaction -->
   <script>
 
-            const scene = document.querySelector('body');
-            scene.addEventListener('click', function (event) {
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around!')); 
-            window.navigator.vibrate(200);});
+
 
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
@@ -84,6 +81,10 @@
         }
       });
 
+            const scene = document.querySelector('body');
+            scene.addEventListener('click', function (event) {
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around!')); 
+            window.navigator.vibrate(200);});
 
 //Give this conponenet to clickable objects 
 
