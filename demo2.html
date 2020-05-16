@@ -35,7 +35,7 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker AccessibleRUs  preset='hiro' alt="A pin!">
+    <a-marker accessible  preset='hiro' alt="A pin!">
       <a-entity gltf-model="#asset1" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity>
     </a-marker>
 
@@ -52,7 +52,7 @@
 
 
 //Give this conponenet to marker to show alerts found and lost events
-AFRAME.registerComponent('AccessibleRUs', {
+AFRAME.registerComponent('accessible', {
     init: function () {
       var marker = this.el;
       var readmarker = marker.getAttribute('alt'); 
