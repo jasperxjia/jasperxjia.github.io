@@ -56,7 +56,7 @@ AFRAME.registerComponent('AccessibleRUs', {
     init: function () {
       var marker = this.el;
       var readmarker = marker.getAttribute('alt'); 
-      var scene = document.querySelector('body');   
+        
 
 
       marker.addEventListener('markerFound', function() {
@@ -93,7 +93,7 @@ AFRAME.registerComponent('AccessibleRUs', {
    
     }
   });
-
+  var scene = document.querySelector('body'); 
   scene.addEventListener('click', function () {
         if(marker.object3D.visible == false){
           speechSynthesis.cancel();
