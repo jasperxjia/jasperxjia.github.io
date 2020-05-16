@@ -89,8 +89,7 @@ AFRAME.registerComponent('accessible', {
         var markerId = marker.id;
         //alert('markerfound'); // For testing
         speechSynthesis.cancel();
-        speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
-        speechSynthesis.speak(new SpeechSynthesisUtterance('Double tap to interact'));
+        speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('Double tap to interact')));
         window.navigator.vibrate(200);
           
       });
