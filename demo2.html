@@ -64,6 +64,7 @@
 
 
           marker.addEventListener('markerFound', function() {
+            scene.removeEventListener('click');
             var markerId = marker.id;
 
             //alert('markerfound'); // For testing
@@ -72,21 +73,23 @@
             window.navigator.vibrate([200, 100, 200]);
 
             marker.addEventListener('click', function (event) {
+            speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
             window.navigator.vibrate(200);});
 
-            scene.removeEventListener('click');
+            
             
           });
 
           marker.addEventListener('markerLost', function() {
+            marker.removeEventListener('click');
             var markerId = marker.id;
             //alert('markerLost');// For testing
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
             window.navigator.vibrate(200);   
 
-            marker.removeEventListener('click');
+            
             
           });
         }
