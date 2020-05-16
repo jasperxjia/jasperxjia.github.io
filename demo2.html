@@ -49,19 +49,7 @@
   </a-scene>
 
   <script>
-      
-      window.onload = () => {   
-      var scene = document.querySelector('body');   
 
-      scene.addEventListener('click', function () {
-        if(marker.object3D.visible == false){
-          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-          window.navigator.vibrate(200);} 
-        else if(marker.object3D.visible == true) {
-          speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
-          window.navigator.vibrate(200);
-        }});
-      };
 
 //Give this conponenet to marker to show alerts found and lost events
 AFRAME.registerComponent('markerevents', {
@@ -69,6 +57,19 @@ AFRAME.registerComponent('markerevents', {
       var marker = this.el;
       var readmarker = marker.getAttribute('alt');
       
+      var scene = document.querySelector('body');   
+
+      scene.addEventListener('click', function () {
+        if(marker.object3D.visible == false){
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+          window.navigator.vibrate(200);} 
+        else if(marker.object3D.visible == true) {
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+          window.navigator.vibrate(200);
+        }});
+
 
       marker.addEventListener('markerFound', function() {
 
