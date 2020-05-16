@@ -35,7 +35,7 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker markerevents  preset='hiro' alt="A pin!">
+    <a-marker AccessibleRUs  preset='hiro' alt="A pin!">
       <a-entity gltf-model="#asset1" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity>
     </a-marker>
 
@@ -52,7 +52,7 @@
 
 
 //Give this conponenet to marker to show alerts found and lost events
-AFRAME.registerComponent('markerevents', {
+AFRAME.registerComponent('AccessibleRUs', {
     init: function () {
       var marker = this.el;
       var readmarker = marker.getAttribute('alt'); 
@@ -79,17 +79,6 @@ AFRAME.registerComponent('markerevents', {
       });
 
 
-      scene.addEventListener('click', function () {
-        if(marker.object3D.visible == false){
-          speechSynthesis.cancel();
-          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-          window.navigator.vibrate(200);} 
-        else if(marker.object3D.visible == true) {
-          speechSynthesis.cancel();
-          speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
-          window.navigator.vibrate(200);
-        }});
-
      /* marker.addEventListener('nomarker', function() {
 
         //alert('markerfound'); // For testing
@@ -101,17 +90,21 @@ AFRAME.registerComponent('markerevents', {
       
           
       });*/
-
-
-
-      
+   
     }
   });
 
   scene.addEventListener('click', function () {
-        speechSynthesis.cancel();
-        speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-        window.navigator.vibrate(200);});
+        if(marker.object3D.visible == false){
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+          window.navigator.vibrate(200);} 
+        else if(marker.object3D.visible == true) {
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+          window.navigator.vibrate(200);
+        }});
+
   </script>
 
 
