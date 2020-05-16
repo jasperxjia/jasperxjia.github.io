@@ -50,10 +50,8 @@
   <!-- Script for VIP interaction -->
   <script>
 
-          var scene = document.querySelector('body');
-
-                    
-          scene.addEventListener('click', function (event) {
+          var scene = document.querySelector('body');       
+          scene.addEventListener('click markerlost', function (event) {
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
             window.navigator.vibrate(200);
