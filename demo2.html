@@ -49,25 +49,34 @@
 
   <!-- Script for VIP interaction -->
   <script>
+    
 
-          var scene = document.querySelector('body');       
-          scene.addEventListener('click', function () {
-            speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-            window.navigator.vibrate(200);
-
-          });
 
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
         init: function () {
           var marker = this.el;
           var readmarker = marker.getAttribute('alt');
+          var scene = document.querySelector('body');   
+          
+          
+          marker.addEventListener('nomarker', function() {
+
+            var markerId = marker.id;
+
+            //alert('markerfound'); // For testing
+            scene.addEventListener('click', function () {
+            speechSynthesis.cancel();
+            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+            window.navigator.vibrate(200);
+
+          });
+              
+          });
 
 
           marker.addEventListener('markerFound', function() {
 
-            var markerId = marker.id;
 
             //alert('markerfound'); // For testing
             speechSynthesis.cancel();
@@ -76,9 +85,9 @@
             window.navigator.vibrate([200, 100, 200]);
 
 
-            marker.addEventListener('dblclick', function () {
+            scene.addEventListener('click', function () {
             speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Double clicked')); 
+            speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
             window.navigator.vibrate(200);});
               
           });
@@ -92,7 +101,7 @@
             window.navigator.vibrate(200);
 
           });
-            var markerId = marker.id;
+
             //alert('markerLost');// For testing
             speechSynthesis.cancel();
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 

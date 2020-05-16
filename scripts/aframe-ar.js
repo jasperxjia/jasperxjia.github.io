@@ -5154,7 +5154,9 @@ AFRAME.registerComponent('arjs-anchor', {
             _this.el.emit('markerFound')
         } else if (_this._arAnchor.object3d.visible === false && wasVisible === true) {
             _this.el.emit('markerLost')
-        }
+        } else {
+			_this.el.emit('nomarker')
+		}
     }
 })
 
