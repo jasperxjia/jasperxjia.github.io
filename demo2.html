@@ -49,15 +49,12 @@
 
   <!-- Script for VIP interaction -->
   <script>
-
-
-
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
         init: function () {
           var marker = this.el;
           var readmarker = marker.getAttribute('alt');
-          var scene = document.querySelector('body');
+          var scene = document.querySelector('a-scene');
           scene.addEventListener('click', function (event) {
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
             window.navigator.vibrate(200);
