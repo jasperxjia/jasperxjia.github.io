@@ -49,13 +49,7 @@
   </a-scene>
 
   <script>
-          var scene = document.querySelector('body');   
 
-scene.addEventListener('click', function () {
-  speechSynthesis.cancel();
-  speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-  window.navigator.vibrate(200);});
- 
 
 //Give this conponenet to marker to show alerts found and lost events
 AFRAME.registerComponent('markerevents', {
@@ -72,10 +66,6 @@ AFRAME.registerComponent('markerevents', {
         speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('found')));
         speechSynthesis.speak(new SpeechSynthesisUtterance('Double Click to interact'));
         window.navigator.vibrate(200);
-
-        scene.addEventListener('click', function () {
-        speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
-        window.navigator.vibrate(200);});
           
       });
 
@@ -84,10 +74,23 @@ AFRAME.registerComponent('markerevents', {
         speechSynthesis.cancel();
         speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
         window.navigator.vibrate(200);   
-
-        return;
         
       });
+
+
+      var scene = document.querySelector('body');   
+
+      scene.addEventListener('click', function () {
+        if(marker.object3D.visible == false){
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+          window.navigator.vibrate(200);} 
+        else if(marker.object3D.visible == true) {
+          speechSynthesis.cancel();
+          speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
+          window.navigator.vibrate(200);
+        }});
+ 
 
      /* marker.addEventListener('nomarker', function() {
 
@@ -100,6 +103,8 @@ AFRAME.registerComponent('markerevents', {
       
           
       });*/
+
+
       
     }
   });
