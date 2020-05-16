@@ -53,7 +53,7 @@
     const scene = document.querySelector('a-scene');
     scene.addEventListener('click', function (event) {
           speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around!')); 
-            window.navigator.vibrate(200);});
+          window.navigator.vibrate(200);});
 
 //Give this conponenet to marker to show alerts found and lost events
     AFRAME.registerComponent('markerevents', {
