@@ -67,6 +67,8 @@
             marker.addEventListener('click', function (event) {
             speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); 
             window.navigator.vibrate(200);});
+
+            scene.off('click');
             
           });
 
@@ -75,21 +77,17 @@
             //alert('markerLost');// For testing
             speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //show left/right relative position through rotation-reader 
             window.navigator.vibrate(200);   
+            marker.off('click');
             
 
           });
         }
       });
 
-            const scene = document.querySelector('body');
-            if (document.addEventListener('markerFound',
-              scene.addEventListener('click', function (event) {
+            var scene = document.querySelector('body');
+            scene.addEventListener('click', function (event) {
             speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around!')); 
-            window.navigator.vibrate(200);})));
-            
-            
-
-            
+            window.navigator.vibrate(200);});
 
 //Give this conponenet to clickable objects 
 
