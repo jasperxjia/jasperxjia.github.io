@@ -96,6 +96,7 @@ AFRAME.registerComponent('accessible', {
         var markerId = marker.id;
         speechSynthesis.cancel();
         speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('Double tap to interact'))); //cue for users to interact with the detected object
+        window.navigator.vibrate(200);
           
       });
 
