@@ -41,11 +41,13 @@
       </a-entity>
     </a-marker>
 
-    <a-entity geometry="primitive: box;" scale="0.1 0.1 0.1" position="0 0 -1" rotation="0 0 0" material="color:tomato; trasparent:true; opacity:0.8;">
-    </a-entity>
+    
 
     <!--Add a Camera-->
-    <a-entity camera rotation-reader></a-entity>
+    <a-entity camera rotation-reader>
+      <a-entity geometry="primitive: box;" scale="0.1 0.1 0.1" position="0 0 -1" rotation="0 0 0" material="color:tomato; trasparent:true; opacity:0.8;">
+      </a-entity>
+    </a-entity>
   </a-scene>
 
   <script>
