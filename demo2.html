@@ -59,22 +59,22 @@
 
             //Tap behaviour
                   gesture.on('tap', function(ev) {
-                    if(marker.object3D.visible == false){
+                    if(entity.visible == false){
                       speechSynthesis.cancel();
                       speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
-                else if(marker.object3D.visible == true) {
+                else if(entity.visible == true) {
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); //description for object
                   window.navigator.vibrate(200);
                 }});
           //Double tap behaviour 
                 gesture.on('doubletap', function(ev) {
-                  if(marker.object3D.visible == false){
+                  if(entity.visible == false){
                       speechSynthesis.cancel();
                       speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
-                else if(marker.object3D.visible == true) {
+                else if(entity.visible == true) {
                   entity.emit('rotate');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Cube Rotating. Swipe to stop.')); //description for function
@@ -84,11 +84,11 @@
 
           //Swipe behaviour 
           gesture.on('swipe', function(ev) {
-                if(marker.object3D.visible == false){
+                if(entity.visible == false){
                       speechSynthesis.cancel();
                       speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
-                else if(marker.object3D.visible == true) {
+                else if(entity.visible == true) {
                   entity.emit('endrotate');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Rotation stopped')); //description for function
