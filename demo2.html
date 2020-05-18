@@ -81,11 +81,7 @@
 
               // Start persistent vibration at given duration and interval
               // Assumes a number value is given
-              function startPeristentVibrate(duration, interval) {
-                vibrateInterval = setInterval(function() {
-                  startVibrate(duration);
-                }, interval);
-              }
+
               
 
             //Tap behaviour
@@ -136,7 +132,11 @@
                 speechSynthesis.cancel();
                 speechSynthesis.speak(new SpeechSynthesisUtterance('You found'.concat(readmarker))); //cue for object found
                 speechSynthesis.speak(new SpeechSynthesisUtterance('Double tap to rotate')); //cue for users to interact with the detected object
-                window.navigator.vibrate(100);
+                function startPeristentVibrate(duration, interval) {
+                vibrateInterval = setInterval(function() {
+                  startVibrate(duration);
+                }, interval);
+              }
 
                   
               });
