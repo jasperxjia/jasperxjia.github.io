@@ -35,7 +35,7 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker preset='hiro' accessible>
+    <a-marker preset='hiro' accessible alt="Cube">
       <!--a-entity gltf-model="#asset1" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity-->
       <a-box color="white" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0" material="transparent:true; opacity:0.7;"></a-box>
     </a-marker>
@@ -50,7 +50,6 @@
         AFRAME.registerComponent('accessible', {
             init: function () {
               var marker = this.el;
-              var alt = marker.setAttribute('alt',readcolor.concat('cube'));
               var readmarker = marker.getAttribute('alt'); 
               var scene = document.querySelector('body'); 
               var gesture = new Hammer(scene);
@@ -65,7 +64,7 @@
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); //description for object
+                  speechSynthesis.speak(new SpeechSynthesisUtterance(readcolor.concat(readmarker))); //description for object
                   window.navigator.vibrate(200);
                 }});
           //Double tap behaviour 
