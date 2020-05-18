@@ -65,8 +65,8 @@
 
               function startPersistentVibrate() {
                   vibrateInterval = setInterval(() => {
-                        navigator.vibrate(500);
-                                          }, 1000);
+                        navigator.vibrate(50);
+                                          }, 100);
                                         }
                                                       
 
@@ -92,8 +92,7 @@
                   entity.emit('rotate');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Cube Rotating. Swipe to stop.')); //description for function
-                                        startPersistentVibrate();         
-                  //window.navigator.vibrate([80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,80,50,]);
+                  startPersistentVibrate();         
                 }});
 
           //Swipe behaviour 
@@ -106,7 +105,7 @@
                   entity.emit('endrotate');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Rotation stopped')); //description for function
-                  window.navigator.vibrate(100);
+                  window.navigator.vibrate(0);
                   
                 }});
               
