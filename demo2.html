@@ -37,7 +37,7 @@
     <!--Add a Marker where assets load onto-->
     <a-marker preset='hiro' accessible alt="A cube!">
       <!--a-entity gltf-model="#asset1" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity-->
-      <a-box color="tomato" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0" material="transparent:true; opacity:0.7;"></a-box>
+      <a-box color="white" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0" material="transparent:true; opacity:0.7;"></a-box>
     </a-marker>
 
     <!--Add a Camera-->
@@ -53,6 +53,8 @@
               var readmarker = marker.getAttribute('alt'); 
               var scene = document.querySelector('body'); 
               var gesture = new Hammer(scene);
+              var box = marker.querySelector('a-box');
+              var readcolor = box.getAttribute('color');
 
             //Tap behaviour
                   gesture.on('tap', function(ev) {
@@ -73,9 +75,9 @@
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance('The cube disappeared. Search around')); //description for function
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed. Tap to see change')); //description for function
                   window.navigator.vibrate(200);
-                  location.reload();
+                  box.setAttribute('color','red');
                 }});
 
           //Swipe behaviour 
@@ -95,7 +97,7 @@
 
                 var markerId = marker.id;
                 speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('Double tap to interact'))); //cue for users to interact with the detected object
+                speechSynthesis.speak(new SpeechSynthesisUtterance(readcolor.concat(readmarker).concat('Double tap to interact'))); //cue for users to interact with the detected object
                 window.navigator.vibrate(200);
                   
               });
