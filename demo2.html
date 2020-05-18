@@ -128,6 +128,8 @@
 
             //Behaviour when objects are lost 
               marker.addEventListener('markerLost', function() {
+                entity.emit('endrotate');
+                stopVibrate();
                 speechSynthesis.cancel();
                 speechSynthesis.speak(new SpeechSynthesisUtterance('Object Lost. Look around with your phone to search for objects')); //cue for users to figure out where the objects are potentially located in relation to camera 
                 //text.setAttribute('value','Nothing here.');
