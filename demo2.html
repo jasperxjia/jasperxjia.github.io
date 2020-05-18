@@ -107,7 +107,7 @@
             //Behaviour when objects are lost 
               marker.addEventListener('markerLost', function() {
                 speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here.'.concat('Object to your').concat('left'))); //cue for users to figure out where the objects are potentially located in relation to camera 
+                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here. Object to your').concat('left'))); //cue for users to figure out where the objects are potentially located in relation to camera 
                 window.navigator.vibrate(200);   
                 
               });
