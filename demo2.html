@@ -52,10 +52,11 @@
         AFRAME.registerComponent('accessible', {
             init: function () {
               var marker = this.el;
+              var box = marker.querySelector('a-box');
               var readmarker = marker.getAttribute('alt'); 
               var scene = document.querySelector('body'); 
               var gesture = new Hammer(scene);
-              var box = marker.querySelector('a-box');
+              
 
             //Tap behaviour
                   gesture.on('tap', function(ev) {
@@ -113,8 +114,7 @@
               marker.addEventListener('markerLost', function() {
                 speechSynthesis.cancel();
                 speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here. Pan to your left')); //cue for users to figure out where the objects are potentially located in relation to camera 
-                window.navigator.vibrate(200);   
-                
+                window.navigator.vibrate(200);     
               });
 
             
