@@ -64,17 +64,13 @@
               var gesture = new Hammer(scene);
 
               function startPersistentVibrate() {
-                  vibrateInterval = setInterval(() => {
-                        navigator.vibrate(100);
-                                          }, 1000);
-                                        }
+                vibrateInterval = setInterval(() => {
+                navigator.vibrate(100);}, 1000);}
 
-                                        function stopVibrate() {
-                                            if(vibrateInterval) {
-                                              clearInterval(vibrateInterval)
-                                            };
-                                            navigator.vibrate(0);
-                                        }
+              function stopVibrate() {
+                if(vibrateInterval) {
+                  clearInterval(vibrateInterval)};
+                  navigator.vibrate(0);}
                                                       
 
             //Tap behaviour
