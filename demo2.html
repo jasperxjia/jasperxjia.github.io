@@ -86,7 +86,7 @@
                   entity.emit('rotate');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Cube Rotating. Swipe to stop.')); //description for function
-                  window.navigator.vibrate([200, 200, 200]);
+                  window.navigator.vibrate([50, 10, 50]);
                   
                 }});
 
@@ -112,7 +112,7 @@
                 speechSynthesis.cancel();
                 speechSynthesis.speak(new SpeechSynthesisUtterance('You found'.concat(readmarker))); //cue for object found
                 speechSynthesis.speak(new SpeechSynthesisUtterance('Double tap to rotate')); //cue for users to interact with the detected object
-                window.navigator.vibrate([50, 50, 50]);
+                window.navigator.vibrate([50, 10, 50]);
 
                   
               });
@@ -123,7 +123,7 @@
                 speechSynthesis.cancel();
                 speechSynthesis.speak(new SpeechSynthesisUtterance('Object Lost. Look around with your phone to search for objects')); //cue for users to figure out where the objects are potentially located in relation to camera 
                 //text.setAttribute('value','Nothing here.');
-                window.navigator.vibrate([50, 50, 50]);     
+                window.navigator.vibrate([50, 10, 50]);     
               });
 
             
