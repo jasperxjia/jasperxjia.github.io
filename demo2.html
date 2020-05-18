@@ -35,7 +35,7 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker accessible  preset='hiro' alt="A pin!">
+    <a-marker preset='hiro' accessible alt="A cube!">
       <!--a-entity gltf-model="#asset1" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity-->
       <a-box color="tomato" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-box>
     </a-marker>
@@ -58,7 +58,7 @@
                   gesture.on('tap', function(ev) {
                     if(marker.object3D.visible == false){
                       speechSynthesis.cancel();
-                      speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); //cue for users to look around for an object
+                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
@@ -69,11 +69,11 @@
                 gesture.on('doubletap', function(ev) {
                   if(marker.object3D.visible == false){
                       speechSynthesis.cancel();
-                      speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); //cue for users to look around for an object
+                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance('page reload')); //description for function
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('The cube disappeared. Search around')); //description for function
                   window.navigator.vibrate(200);
                   location.reload();
                 }});
