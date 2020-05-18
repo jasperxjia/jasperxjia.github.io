@@ -110,6 +110,7 @@
                 var markerId = marker.id;
 
                 speechSynthesis.cancel();
+                speechSynthesis.speak(new SpeechSynthesisUtterance('You found'.concat(readmarker))); //cue for object found
                 speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('Double tap to rotate'))); //cue for users to interact with the detected object
                 window.navigator.vibrate(100);
 
