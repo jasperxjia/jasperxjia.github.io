@@ -120,7 +120,7 @@
             //Behaviour when objects are lost 
               marker.addEventListener('markerLost', function() {
                 speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here. Look around with your phone to search for objects')); //cue for users to figure out where the objects are potentially located in relation to camera 
+                speechSynthesis.speak(new SpeechSynthesisUtterance('Object Lost. Look around with your phone to search for objects')); //cue for users to figure out where the objects are potentially located in relation to camera 
                 //text.setAttribute('value','Nothing here.');
                 window.navigator.vibrate(100);     
               });
