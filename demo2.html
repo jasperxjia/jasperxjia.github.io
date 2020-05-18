@@ -35,7 +35,7 @@
       <a-asset-item id="asset3" src="./assets/models/window.gltf"></a-asset-item>
     </a-assets>
     
-    <!--a-text value="Nothing here." baseline="top" color="white" position="0 0 -1"></a-text-->
+    <a-text value="Nothing here." baseline="top" color="white" position="0 0 -1"></a-text>
     
     <!--Add a Marker where assets load onto-->
     <a-marker preset='hiro' accessible alt="A Cube">
@@ -58,7 +58,7 @@
             init: function () {
               var marker = this.el;
               var entity = marker.querySelector('a-entity');
-              //var text = document.querySelector('a-text');
+              var text = document.querySelector('a-text');
               var readmarker = marker.getAttribute('alt'); 
               var scene = document.querySelector('body'); 
               var gesture = new Hammer(scene);
@@ -73,7 +73,7 @@
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); //description for object
-                  //text.setAttribute('value',readmarker);
+                  text.setAttribute('value',readmarker);
                   window.navigator.vibrate(100);
                 }});
           //Double tap behaviour 
@@ -121,7 +121,7 @@
               marker.addEventListener('markerLost', function() {
                 speechSynthesis.cancel();
                 speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here.')); //cue for users to figure out where the objects are potentially located in relation to camera 
-                //text.setAttribute('value','Nothing here.');
+                text.setAttribute('value','Nothing here.');
                 window.navigator.vibrate(100);     
               });
 
