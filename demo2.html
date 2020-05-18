@@ -60,7 +60,7 @@
                   gesture.on('tap', function(ev) {
                     if(marker.object3D.visible == false){
                       speechSynthesis.cancel();
-                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects')); //cue for users to look around for an object
+                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
@@ -71,24 +71,24 @@
                 gesture.on('doubletap', function(ev) {
                   if(marker.object3D.visible == false){
                       speechSynthesis.cancel();
-                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects')); //cue for users to look around for an object
+                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed to'.concat(readcolor).concat('Swipe to undo'))); //description for function
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed To.'.concat(readcolor).concat('Swipe to undo.'))); //description for function
                   window.navigator.vibrate(200);
-                  box.setAttribute('color','tomato');
+                  box.setAttribute('color','black');
                 }});
 
           //Swipe behaviour 
           gesture.on('swipe', function(ev) {
                   if(marker.object3D.visible == false){
                       speechSynthesis.cancel();
-                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects')); //cue for users to look around for an object
+                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color back to'.concat(readcolor))); //description for function
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color back To.'.concat(readcolor))); //description for function
                   window.navigator.vibrate(200);
                   box.setAttribute('color','white');
                 }});
@@ -107,7 +107,7 @@
             //Behaviour when objects are lost 
               marker.addEventListener('markerLost', function() {
                 speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here'.concat('Object to your').concat('left'))); //cue for users to figure out where the objects are potentially located in relation to camera 
+                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here.'.concat('Object to your').concat('left'))); //cue for users to figure out where the objects are potentially located in relation to camera 
                 window.navigator.vibrate(200);   
                 
               });
