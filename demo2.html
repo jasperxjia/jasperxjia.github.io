@@ -112,7 +112,7 @@
                 speechSynthesis.cancel();
                 speechSynthesis.speak(new SpeechSynthesisUtterance('You found'.concat(readmarker))); //cue for object found
                 speechSynthesis.speak(new SpeechSynthesisUtterance('Double tap to rotate')); //cue for users to interact with the detected object
-                window.navigator.vibrate(100);
+                window.navigator.vibrate([500, 250, 500, 250, 500, 250, 500, 250, 500, 250, 500]);
 
                   
               });
