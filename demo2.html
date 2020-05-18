@@ -86,12 +86,7 @@
                   entity.emit('rotate');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Cube Rotating. Swipe to stop.')); //description for function
-                  function startPersistentVibrate() {
-                      vibrateInterval = setInterval(() => {
-                        navigator.vibrate(500);
-                      }, 1000);
-                    }
-                  
+                  window.navigator.startPersistentVibrate(500,1000);
                 }});
 
           //Swipe behaviour 
