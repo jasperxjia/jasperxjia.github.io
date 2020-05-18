@@ -8,7 +8,7 @@
    
    
    
-   
+       <a-cursor color="tomato" material="shader:flat;opacity:0.8" geometry="primitive:ring; radiusOuter:0.016;radiusInner:0.01;segmentsTheta:64" position="-0.5 0 -1"></a-cursor>
    
    
    
