@@ -76,7 +76,7 @@
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed. Tap to see change')); //description for function
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed to'.concat(readcolor).concat('Swipe to undo'))); //description for function
                   window.navigator.vibrate(200);
                   box.setAttribute('color','tomato');
                 }});
@@ -89,8 +89,9 @@
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance('color changed')); //description for function
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed to'.concat(readcolor))); //description for function
                   window.navigator.vibrate(200);
+                  box.setAttribute('color','white');
                 }});
               
             //Behaviour when objects are found
