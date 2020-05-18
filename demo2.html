@@ -66,7 +66,14 @@
               function startPersistentVibrate() {
                   vibrateInterval = setInterval(() => {
                         navigator.vibrate(50);
-                                          }, 100);
+                                          }, 50);
+                                        }
+
+                                        function stopVibrate() {
+                                            if(vibrateInterval) {
+                                              clearInterval(vibrateInterval)
+                                            };
+                                            navigator.vibrate(0);
                                         }
                                                       
 
@@ -105,7 +112,7 @@
                   entity.emit('endrotate');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Rotation stopped')); //description for function
-                  window.navigator.vibrate(0);
+                  stopVibrate();
                   
                 }});
               
