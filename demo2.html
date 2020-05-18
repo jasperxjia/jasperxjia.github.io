@@ -75,7 +75,7 @@
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed To.'.concat(readcolor).concat('Swipe to undo.'))); //description for function
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed To.'.concat(readcolor).concat('Swipe to change back.'))); //description for function
                   window.navigator.vibrate(200);
                   box.setAttribute('color','black');
                 }});
