@@ -24,6 +24,7 @@
 
 <!-- AR scene Render based on AFRAME onclick="speechSynthesis.speak(new SpeechSynthesisUtterance('find objects'))" -->
 <body style='margin: 0; overflow: hidden;'>
+
   <a-scene  
     cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;">
 
@@ -34,90 +35,111 @@
       <a-asset-item id="asset3" src="./assets/models/window.gltf"></a-asset-item>
     </a-assets>
     
+    <!--a-text value="Nothing here." baseline="top" color="white" position="0 0 -1"></a-text-->
+    
     <!--Add a Marker where assets load onto-->
     <a-marker preset='hiro' accessible alt="A Cube">
-      <a-entity geometry="primitive: box;" scale="2 2 2" position="0 0 0" rotation="0 0 0" material="src:'./assets/icons/map-marker.png'; trasparent:true; opacity:0.7;">
+      <a-entity geometry="primitive: box;" scale="2 2 2" position="0 0 0" rotation="0 0 0" material="color:tomato; trasparent:true; opacity:0.7;">
         <a-animation attribute="rotation" begin="rotate" to="0 0 360" end="endrotate" repeat="indefinite"></a-animation>
       </a-entity>
     </a-marker>
 
-
-
-
+  
     <!--Add a Camera-->
-    <a-entity camera rotation-reader></a-entity>
+    <a-entity camera rotation-reader>
+      
+    </a-entity>
   </a-scene>
 
-
-
-
-  <!-- Script for VIP interaction -->
   <script>
-        
-//Give this conponenet to marker to show alerts found and lost events
-   //Give this conponenet to marker to show alerts found and lost events
-AFRAME.registerComponent('accessible', {
-  init: function () {
-    var marker = this.el;
-    var readmarker = marker.getAttribute('alt'); 
-    var scene = document.querySelector('body'); 
-    var gesture = new Hammer(scene);
 
-  //Tap behaviour
-        gesture.on('tap', function(ev) {
-          if(marker.object3D.visible == false){
-            speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); //cue for users to look around for an object
-            window.navigator.vibrate(200);} 
-      else if(marker.object3D.visible == true) {
-        speechSynthesis.cancel();
-        speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); //description for object
-        window.navigator.vibrate(200);
-      }});
- //Double tap behaviour 
-      gesture.on('doubletap', function(ev) {
-        if(marker.object3D.visible == false){
-            speechSynthesis.cancel();
-            speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); //cue for users to look around for an object
-            window.navigator.vibrate(200);} 
-      else if(marker.object3D.visible == true) {
-        speechSynthesis.cancel();
-        speechSynthesis.speak(new SpeechSynthesisUtterance('page reload')); //description for function
-        window.navigator.vibrate(200);
-        location.reload();
-      }});
+        //Give this conponenet to marker to show alerts found and lost events
+        AFRAME.registerComponent('accessible', {
+            init: function () {
+              var marker = this.el;
+              var entity = marker.querySelector('a-entity');
+              var text = document.querySelector('a-text');
+              var readmarker = marker.getAttribute('alt'); 
+              var scene = document.querySelector('body'); 
+              var gesture = new Hammer(scene);
+              
 
-  //Behaviour when objects are found
-    marker.addEventListener('markerFound', function() {
+            //Tap behaviour
+                  gesture.on('tap', function(ev) {
+                    if(marker.object3D.visible == false){
+                      speechSynthesis.cancel();
+                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
+                      } 
+                else if(marker.object3D.visible == true) {
+                  speechSynthesis.cancel();
+                  speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); //description for object
+                  text.setAttribute('value',readmarker);
+                  window.navigator.vibrate(100);
+                }});
+          //Double tap behaviour 
+                gesture.on('doubletap', function(ev) {
+                  if(marker.object3D.visible == false){
+                      speechSynthesis.cancel();
+                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
+                      } 
+                else if(marker.object3D.visible == true) {
+                  entity.emit('rotate');
+                  speechSynthesis.cancel();
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('Cube Rotating. Swipe to stop.')); //description for function
+                  window.navigator.vibrate(100);
+                  
+                }});
 
-      var markerId = marker.id;
-      speechSynthesis.cancel();
-      speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('Double tap to interact'))); //cue for users to interact with the detected object
-        
-    });
+          //Swipe behaviour 
+          gesture.on('swipe', function(ev) {
+                if(marker.object3D.visible == false){
+                      speechSynthesis.cancel();
+                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
+                     } 
+                else if(marker.object3D.visible == true) {
+                  entity.emit('endrotate');
+                  speechSynthesis.cancel();
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('Rotation stopped')); //description for function
+                  window.navigator.vibrate(100);
+                  
+                }});
+              
+            //Behaviour when objects are found
+              marker.addEventListener('markerFound', function() {
+
+                var markerId = marker.id;
+
+                speechSynthesis.cancel();
+                speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker.concat('Double tap to rotate'))); //cue for users to interact with the detected object
+                window.navigator.vibrate(100);
+
+                  
+              });
 
 
-  //Behaviour when objects are lost 
-    marker.addEventListener('markerLost', function() {
-      speechSynthesis.cancel();
-      speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //cue for users to figure out where the objects are potentially located in relation to camera 
-      window.navigator.vibrate(200);   
-      
-    });
+            //Behaviour when objects are lost 
+              marker.addEventListener('markerLost', function() {
+                speechSynthesis.cancel();
+                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here.')); //cue for users to figure out where the objects are potentially located in relation to camera 
+                text.setAttribute('value','Nothing here.');
+                window.navigator.vibrate(100);     
+              });
 
-    
+            
+            /* marker.addEventListener('nomarker', function() {
+                //alert('markerfound'); // For testing
+                scene.addEventListener('click', function () {
+                speechSynthesis.cancel();
+                speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
+                window.navigator.vibrate(200);          
+              });*/
+          
+            }
+          });
 
-   /* marker.addEventListener('nomarker', function() {
-      //alert('markerfound'); // For testing
-      scene.addEventListener('click', function () {
-      speechSynthesis.cancel();
-      speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); 
-      window.navigator.vibrate(200);          
-    });*/
- 
-  }
-});
- </script>
+  </script>
+
+
 
 </body>
 </html>
