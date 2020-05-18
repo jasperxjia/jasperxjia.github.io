@@ -74,7 +74,6 @@
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance(readmarker)); //description for object
                   //text.setAttribute('value',readmarker);
-                  window.navigator.vibrate(200);
                 }});
           //Double tap behaviour 
                 gesture.on('doubletap', function(ev) {
@@ -86,7 +85,6 @@
                   entity.emit('rotate');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Cube Rotating. Swipe to stop.')); //description for function
-                  window.navigator.vibrate(200);
                   
                 }});
 
