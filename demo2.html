@@ -89,7 +89,7 @@
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
-                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed to'.concat(readcolor))); //description for function
+                  speechSynthesis.speak(new SpeechSynthesisUtterance('Color back to'.concat(readcolor))); //description for function
                   window.navigator.vibrate(200);
                   box.setAttribute('color','white');
                 }});
@@ -99,7 +99,7 @@
 
                 var markerId = marker.id;
                 speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance(readcolor.concat(readmarker).concat('Double tap to interact'))); //cue for users to interact with the detected object
+                speechSynthesis.speak(new SpeechSynthesisUtterance(readcolor.concat(readmarker).concat('Double tap to change color'))); //cue for users to interact with the detected object
                 window.navigator.vibrate(200);
                   
               });
