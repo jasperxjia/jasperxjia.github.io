@@ -10,11 +10,14 @@
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> 
     <script src="./scripts/aframe-ar.js"></script>
 
+    <!-- Import Gesture API -->
+    <script src="./scripts/hammer.min.js"></script>
+
     <!-- Import Haptic API -->
     <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script>
 
-    <!-- Import Swipe-Events API -->
-    <script type="text/javascript" src="./scripts/swiped-events.min.js"></script>
+    <!-- Script for VIP interaction -->
+    <!--script src="./scripts/demo.js"></script-->
 
 </head>
 
@@ -22,7 +25,7 @@
 <!-- AR scene Render based on AFRAME onclick="speechSynthesis.speak(new SpeechSynthesisUtterance('find objects'))" -->
 <body style='margin: 0; overflow: hidden;'>
   <a-scene  
-    cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;" vr-mode-ui="false" >
+    cursor="fuse:false; rayOrigin: mouse" embedded arjs="sourceType: webcam; trackingMethod: best;">
 
     <!--Asset Management System (not rendered unless called)-->
     <a-assets>
@@ -32,26 +35,16 @@
     </a-assets>
     
     <!--Add a Marker where assets load onto-->
-    <a-marker accessible preset='hiro' alt="A pin!">
-      <a-entity  gltf-model="#asset1" scale="0.8 0.8 0.8" position="0 0 0" rotation="-90 0 0"></a-entity>
+    <a-marker preset='hiro' accessible alt="A Cube">
+      <a-entity geometry="primitive: box;" scale="2 2 2" position="0 0 0" rotation="0 0 0" material="src:'./assets/icons/map-marker.png'; trasparent:true; opacity:0.7;">
+        <a-animation attribute="rotation" begin="rotate" to="0 0 360" end="endrotate" repeat="indefinite"></a-animation>
+      </a-entity>
     </a-marker>
-
-    <a-marker markerevents clickable-model type="pattern" url='./assets/patterns/cloud.patt' alt="A cloud!">
-      <a-entity  gltf-model="#asset2" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" material="color: white"></a-entity>
-    </a-marker>
-
-    <a-marker markerevents clickable-model preset='kanji' alt="A window!">
-      <a-entity  gltf-model="#asset3" scale="0.5 0.5 0.5" position="0 0 0" rotation="-90 0 0" material="color: white"></a-entity>
-    </a-marker>
-
-    
-    <!--a-entity geometry="primitive: plane;" material="opacity: 0">
-      <a-text value="placeholder" visible="false" id="text-box" position="-0.425 0.293 -0.531" rotation="-84.347 54.042 -51.893"></a-text>
-    </a-entity-->
 
     <!--Add a Camera-->
-    <a-entity camera></a-entity>
+    <a-entity camera rotation-reader></a-entity>
   </a-scene>
+
 
 
 
