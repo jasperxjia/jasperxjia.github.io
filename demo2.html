@@ -97,9 +97,15 @@
               marker.addEventListener('markerFound', function() {
 
                 var markerId = marker.id;
+
+                if(readcolor == 'white'){
                 speechSynthesis.cancel();
                 speechSynthesis.speak(new SpeechSynthesisUtterance(readcolor.concat(readmarker).concat('Double tap to change color'))); //cue for users to interact with the detected object
-                window.navigator.vibrate(200);
+                window.navigator.vibrate(200);}
+                else if(readcolor == 'black'){
+                speechSynthesis.cancel();
+                speechSynthesis.speak(new SpeechSynthesisUtterance(readcolor.concat(readmarker).concat('Swipe to change color'))); //cue for users to interact with the detected object
+                window.navigator.vibrate(200);}
                   
               });
 
@@ -107,7 +113,7 @@
             //Behaviour when objects are lost 
               marker.addEventListener('markerLost', function() {
                 speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here. Object to your').concat('left'))); //cue for users to figure out where the objects are potentially located in relation to camera 
+                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here. Object to your').concat('left')); //cue for users to figure out where the objects are potentially located in relation to camera 
                 window.navigator.vibrate(200);   
                 
               });
