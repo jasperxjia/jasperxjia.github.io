@@ -85,7 +85,7 @@
           gesture.on('swipe', function(ev) {
                   if(marker.object3D.visible == false){
                       speechSynthesis.cancel();
-                      speechSynthesis.speak(new SpeechSynthesisUtterance('Look Around')); //cue for users to look around for an object
+                      speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
                 else if(marker.object3D.visible == true) {
                   speechSynthesis.cancel();
@@ -108,7 +108,7 @@
             //Behaviour when objects are lost 
               marker.addEventListener('markerLost', function() {
                 speechSynthesis.cancel();
-                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here')); //cue for users to figure out where the objects are potentially located in relation to camera 
+                speechSynthesis.speak(new SpeechSynthesisUtterance('Nothing here'.concat('Object to your').concat('left'))); //cue for users to figure out where the objects are potentially located in relation to camera 
                 window.navigator.vibrate(200);   
                 
               });
