@@ -73,11 +73,12 @@
                       speechSynthesis.cancel();
                       speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
-                else if(marker.object3D.visible == true) {
+                else if(marker.object3D.visible == true && readcolor == 'white') {
+                  box.setAttribute('color','black');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Color changed To.'.concat(readcolor).concat('Swipe to change back.'))); //description for function
                   window.navigator.vibrate(200);
-                  box.setAttribute('color','black');
+                  
                 }});
 
           //Swipe behaviour 
@@ -86,11 +87,12 @@
                       speechSynthesis.cancel();
                       speechSynthesis.speak(new SpeechSynthesisUtterance('Pan your phone to search for objects.')); //cue for users to look around for an object
                       window.navigator.vibrate(200);} 
-                else if(marker.object3D.visible == true) {
+                else if(marker.object3D.visible == true && readcolor == 'black') {
+                  box.setAttribute('color','white');
                   speechSynthesis.cancel();
                   speechSynthesis.speak(new SpeechSynthesisUtterance('Color back To.'.concat(readcolor))); //description for function
                   window.navigator.vibrate(200);
-                  box.setAttribute('color','white');
+                  
                 }});
               
             //Behaviour when objects are found
